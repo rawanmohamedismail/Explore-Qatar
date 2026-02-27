@@ -572,7 +572,7 @@ ul    { list-style:none; }
   font-family:'Jost',sans-serif; cursor:pointer; transition:background var(--ease);
   border-radius:0 1px 1px 0; white-space:nowrap;
 }
-.nl-submit:hover { background:var(--gold-light); }
+.nl-submit:hover { background:var(--turquoise-light); }
 .nl-note { font-size:12px; font-weight:300; color:rgba(255,255,255,0.3); display:flex; align-items:center; gap:6px; }
 .nl-success { font-size:13px; font-weight:500; color:var(--gold-light); min-height:20px; }
 
