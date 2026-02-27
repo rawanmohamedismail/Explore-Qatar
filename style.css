@@ -102,7 +102,14 @@ ul    { list-style:none; }
   background: var(--burgundy-dark);
 }
 
+.btn-secondary {
+  background: var(--turquoise);
+  color: white;
+}
 
+.btn-secondary:hover {
+  background: #008e9a;
+}
 
 /* =====================================================
    6. LINK ARROW
