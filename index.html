@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visit Qatar — Official Tourism Website</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ================================================
+       NAVIGATION
+  ================================================ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+
+      <!-- Logo -->
+      <a class="nav-logo" href="index.html" aria-label="Visit Qatar Home">
+        <div class="nav-logo-emblem">
+          <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="23,2 44,12.5 44,33.5 23,44 2,33.5 2,12.5"
+                     fill="none" stroke="#C8973A" stroke-width="1.5"/>
+            <polygon points="23,8 38,16 38,30 23,38 8,30 8,16"
+                     fill="none" stroke="#C8973A" stroke-width="0.6" opacity="0.45"/>
+            <text x="23" y="29" text-anchor="middle"
+                  font-family="Cormorant Garamond,serif"
+                  font-size="16" font-weight="700" fill="#C8973A">Q</text>
+          </svg>
+        </div>
+        <div class="nav-logo-wordmark">
+          <span class="w-visit">Visit</span>
+          <span class="w-qatar">Qatar</span>
+        </div>
+      </a>
+
+      <!-- Centre links -->
+      <div class="nav-center">
+
+        <!-- About Qatar -->
+        <div class="nav-item">
+          <button class="nav-link" aria-haspopup="true">
+            About Qatar <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="nav-dropdown" role="menu">
+            <a href="pages/about-qatar.html"><i class="fa-solid fa-circle-info"></i> About Qatar</a>
+            <a href="pages/geography.html"><i class="fa-solid fa-map"></i> Geography of Qatar</a>
+            <a href="pages/history.html"><i class="fa-solid fa-landmark"></i> History of Qatar</a>
+            <a href="pages/towns-cities.html"><i class="fa-solid fa-city"></i> Towns &amp; Cities</a>
+            <a href="pages/doha.html"><i class="fa-solid fa-building"></i> Doha</a>
+            <a href="pages/traditions.html"><i class="fa-solid fa-scroll"></i> Traditions in Qatar</a>
+            <a href="pages/sports.html"><i class="fa-solid fa-futbol"></i> Sports in Qatar</a>
+            <a href="pages/cuisine.html"><i class="fa-solid fa-utensils"></i> Local Cuisine</a>
+            <a href="pages/wildlife.html"><i class="fa-solid fa-paw"></i> Wildlife</a>
+          </div>
+        </div>
+
+        <!-- Plan Your Trip -->
+        <div class="nav-item">
+          <button class="nav-link" aria-haspopup="true">
+            Plan Your Trip <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="nav-dropdown" role="menu">
+            <a href="pages/plan.html"><i class="fa-solid fa-plane-departure"></i> Plan Your Trip</a>
+            <a href="pages/visas.html"><i class="fa-solid fa-passport"></i> Visas</a>
+            <a href="pages/accommodation.html"><i class="fa-solid fa-hotel"></i> Accommodation in Qatar</a>
+            <a href="pages/getting-to-qatar.html"><i class="fa-solid fa-plane-arrival"></i> Getting to Qatar</a>
+            <a href="pages/airport.html"><i class="fa-solid fa-tower-control"></i> Hamad Int. Airport</a>
+            <a href="pages/getting-around.html"><i class="fa-solid fa-train-subway"></i> Getting Around</a>
+            <a href="pages/safety.html"><i class="fa-solid fa-shield-halved"></i> Safety in Qatar</a>
+            <a href="pages/travel-tips.html"><i class="fa-solid fa-lightbulb"></i> Travel Tips</a>
+            <a href="pages/concierge.html"><i class="fa-solid fa-bell-concierge"></i> Concierge Service</a>
+          </div>
+        </div>
+
+        <!-- Things To Do -->
+        <div class="nav-item">
+          <button class="nav-link" aria-haspopup="true">
+            Things To Do <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="nav-dropdown" role="menu">
+            <a href="pages/things-to-do.html"><i class="fa-solid fa-compass"></i> Things To Do</a>
+            <a href="pages/adventure.html"><i class="fa-solid fa-person-hiking"></i> Adventure &amp; Sports</a>
+            <a href="pages/art-culture.html"><i class="fa-solid fa-palette"></i> Art &amp; Culture</a>
+            <a href="pages/romantic.html"><i class="fa-solid fa-heart"></i> Romantic Getaway</a>
+            <a href="pages/beach.html"><i class="fa-solid fa-umbrella-beach"></i> Beach Holiday</a>
+            <a href="pages/family.html"><i class="fa-solid fa-children"></i> Family Break</a>
+            <a href="pages/dining.html"><i class="fa-solid fa-fork-knife"></i> Dining</a>
+            <a href="pages/spa.html"><i class="fa-solid fa-spa"></i> Spa &amp; Wellness</a>
+            <a href="pages/shopping.html"><i class="fa-solid fa-bag-shopping"></i> Shopping</a>
+          </div>
+        </div>
+
+        <!-- Events -->
+        <div class="nav-item">
+          <a class="nav-link" href="pages/events.html">Events</a>
+        </div>
+
+      </div>
+
+      <!-- Right — Login / Sign Up -->
+      <div class="nav-right">
+        <a href="pages/login.html" class="nav-btn-login">Log In</a>
+        <a href="pages/signup.html" class="nav-btn-signup">Sign Up</a>
+        <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" aria-hidden="true">
+    <div class="mobile-cat">About Qatar</div>
+    <a class="mobile-link" href="pages/about-qatar.html">About Qatar</a>
+    <a class="mobile-link" href="pages/geography.html">Geography of Qatar</a>
+    <a class="mobile-link" href="pages/history.html">History of Qatar</a>
+    <a class="mobile-link" href="pages/towns-cities.html">Towns &amp; Cities</a>
+    <a class="mobile-link" href="pages/doha.html">Doha</a>
+    <a class="mobile-link" href="pages/traditions.html">Traditions in Qatar</a>
+    <a class="mobile-link" href="pages/sports.html">Sports in Qatar</a>
+    <a class="mobile-link" href="pages/cuisine.html">Local Cuisine</a>
+    <a class="mobile-link" href="pages/wildlife.html">Wildlife</a>
+
+    <div class="mobile-cat">Plan Your Trip</div>
+    <a class="mobile-link" href="pages/visas.html">Visas</a>
+    <a class="mobile-link" href="pages/accommodation.html">Accommodation</a>
+    <a class="mobile-link" href="pages/getting-to-qatar.html">Getting to Qatar</a>
+    <a class="mobile-link" href="pages/airport.html">Hamad Int. Airport</a>
+    <a class="mobile-link" href="pages/getting-around.html">Getting Around</a>
+    <a class="mobile-link" href="pages/safety.html">Safety in Qatar</a>
+    <a class="mobile-link" href="pages/travel-tips.html">Travel Tips</a>
+    <a class="mobile-link" href="pages/concierge.html">Concierge Service</a>
+
+    <div class="mobile-cat">Things To Do</div>
+    <a class="mobile-link" href="pages/adventure.html">Adventure &amp; Sports</a>
+    <a class="mobile-link" href="pages/art-culture.html">Art &amp; Culture</a>
+    <a class="mobile-link" href="pages/romantic.html">Romantic Getaway</a>
+    <a class="mobile-link" href="pages/beach.html">Beach Holiday</a>
+    <a class="mobile-link" href="pages/family.html">Family Break</a>
+    <a class="mobile-link" href="pages/dining.html">Dining</a>
+    <a class="mobile-link" href="pages/spa.html">Spa &amp; Wellness</a>
+    <a class="mobile-link" href="pages/shopping.html">Shopping</a>
+
+    <div class="mobile-cat">Events</div>
+    <a class="mobile-link" href="pages/events.html">All Events</a>
+
+    <div class="mobile-auth">
+      <a href="pages/login.html" class="btn btn-outline-light" style="flex:1;justify-content:center;">Log In</a>
+      <a href="pages/signup.html" class="btn btn-gold" style="flex:1;justify-content:center;">Sign Up</a>
+    </div>
+  </div>
+
+
+  <!-- ================================================
+       SECTION 1 — HERO CAROUSEL
+  ================================================ -->
+  <section class="hero-carousel" id="heroCarousel" aria-label="Featured destinations">
+
+    <!-- Slide 1 -->
+    <div class="hero-slide active slide-1" role="group" aria-label="Slide 1 of 3">
+      <div class="slide-bg"></div>
+      <div class="slide-pattern"></div>
+      <div class="slide-content">
+        <div class="slide-content-inner">
+          <span class="slide-label">Welcome to Qatar</span>
+          <h1 class="slide-title">Where the<br><em>Desert</em> Meets<br>the Sea</h1>
+          <p class="slide-desc">A land of extraordinary contrasts — ancient traditions and futuristic ambition, golden dunes and a glittering skyline.</p>
+          <div class="slide-btns">
+            <a href="pages/about-qatar.html" class="btn btn-gold">
+              Discover Qatar <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="pages/plan.html" class="btn btn-outline-light">Plan Your Trip</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="hero-slide slide-2" role="group" aria-label="Slide 2 of 3">
+      <div class="slide-bg"></div>
+      <div class="slide-pattern"></div>
+      <div class="slide-content">
+        <div class="slide-content-inner">
+          <span class="slide-label">Cultural Heart of the Gulf</span>
+          <h1 class="slide-title">A Living<br><em>Heritage</em><br>Awaits</h1>
+          <p class="slide-desc">Explore the labyrinthine alleys of Souq Waqif, marvel at Islamic art, and discover the soul of the Arabian Peninsula.</p>
+          <div class="slide-btns">
+            <a href="pages/art-culture.html" class="btn btn-gold">
+              Explore Culture <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="pages/traditions.html" class="btn btn-outline-light">Traditions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="hero-slide slide-3" role="group" aria-label="Slide 3 of 3">
+      <div class="slide-bg"></div>
+      <div class="slide-pattern"></div>
+      <div class="slide-content">
+        <div class="slide-content-inner">
+          <span class="slide-label">Luxury &amp; Adventure</span>
+          <h1 class="slide-title">Endless<br><em>Experiences</em><br>Call You</h1>
+          <p class="slide-desc">From world-class dining to desert safaris, island retreats to championship sports — Qatar delivers the extraordinary.</p>
+          <div class="slide-btns">
+            <a href="pages/things-to-do.html" class="btn btn-gold">
+              Things To Do <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="pages/events.html" class="btn btn-outline-light">Events</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Controls -->
+    <button class="hero-prev" id="heroPrev" aria-label="Previous slide">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="hero-next" id="heroNext" aria-label="Next slide">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- Dots -->
+    <div class="hero-dots" role="tablist" aria-label="Carousel navigation">
+      <button class="hero-dot active" data-index="0" aria-label="Go to slide 1" role="tab" aria-selected="true"></button>
+      <button class="hero-dot"        data-index="1" aria-label="Go to slide 2" role="tab" aria-selected="false"></button>
+      <button class="hero-dot"        data-index="2" aria-label="Go to slide 3" role="tab" aria-selected="false"></button>
+    </div>
+
+    <!-- Scroll cue -->
+    <div class="hero-scroll-cue" aria-hidden="true">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+
+  </section>
+
+
+  <!-- ================================================
+       SECTION 2 — STATS BAR
+  ================================================ -->
+  <div class="stats-bar">
+    <div class="stats-inner container">
+      <div class="stat-block">
+        <div class="stat-num" data-target="4">0</div>
+        <div class="stat-label">Million Annual Visitors</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num" data-target="300">0</div>
+        <div class="stat-label">Dining Experiences</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num" data-target="55">0</div>
+        <div class="stat-label">Hotels &amp; Resorts</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num" data-target="365">0</div>
+        <div class="stat-label">Days of Sunshine</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================================================
+       SECTION 3 — DESTINATION HIGHLIGHTS
+  ================================================ -->
+  <section class="section-pad dest-highlights" id="destinations">
+    <div class="container">
+
+      <header class="section-header">
+        <span class="eyebrow">Destination Highlights</span>
+        <div class="gold-bar"></div>
+        <h2 class="display-title">Explore Qatar's<br><em>Iconic Places</em></h2>
+        <p class="body-text" style="margin-top:16px;">From the luminous towers of Doha to the silent expanse of the inland sea — each corner of Qatar tells a different story.</p>
+      </header>
+
+      <div class="dest-grid">
+
+        <!-- Large card: Doha -->
+        <article class="dest-card tall" onclick="location.href='pages/doha.html'" role="link" tabindex="0">
+          <div class="dest-card-bg bg-1">
+            <svg class="card-art" viewBox="0 0 300 500" aria-hidden="true">
+              <polygon points="150,30 280,100 280,400 150,470 20,400 20,100" fill="none" stroke="#C8973A" stroke-width="1.2"/>
+              <line x1="150" y1="30" x2="150" y2="470" stroke="#C8973A" stroke-width="0.5"/>
+              <circle cx="150" cy="250" r="60" fill="none" stroke="#C8973A" stroke-width="0.5"/>
+              <circle cx="150" cy="250" r="90" fill="none" stroke="#C8973A" stroke-width="0.3" opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-body">
+            <span class="dest-card-tag">Capital City</span>
+            <div class="dest-card-name">Doha</div>
+            <div class="dest-card-sub">The jewel of the Arabian Gulf</div>
+            <div class="dest-card-cta">Explore <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+        </article>
+
+        <!-- Souq Waqif -->
+        <article class="dest-card" onclick="location.href='pages/art-culture.html'" role="link" tabindex="0">
+          <div class="dest-card-bg bg-2"></div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-body">
+            <span class="dest-card-tag">Heritage</span>
+            <div class="dest-card-name">Souq Waqif</div>
+            <div class="dest-card-cta">Explore <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+        </article>
+
+        <!-- The Pearl -->
+        <article class="dest-card" onclick="location.href='pages/beach.html'" role="link" tabindex="0">
+          <div class="dest-card-bg bg-3"></div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-body">
+            <span class="dest-card-tag">Island Living</span>
+            <div class="dest-card-name">The Pearl</div>
+            <div class="dest-card-cta">Explore <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+        </article>
+
+        <!-- Khor Al Udeid -->
+        <article class="dest-card" onclick="location.href='pages/adventure.html'" role="link" tabindex="0">
+          <div class="dest-card-bg bg-4"></div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-body">
+            <span class="dest-card-tag">Natural Wonder</span>
+            <div class="dest-card-name">Khor Al Udeid</div>
+            <div class="dest-card-cta">Explore <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+        </article>
+
+        <!-- Lusail -->
+        <article class="dest-card" onclick="location.href='pages/towns-cities.html'" role="link" tabindex="0">
+          <div class="dest-card-bg bg-5"></div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-body">
+            <span class="dest-card-tag">Future City</span>
+            <div class="dest-card-name">Lusail</div>
+            <div class="dest-card-cta">Explore <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       SECTION 4 — FEATURED EXPERIENCES
+  ================================================ -->
+  <section class="section-pad featured-exp" id="experiences">
+    <div class="container">
+
+      <header class="section-header spaced">
+        <div>
+          <span class="eyebrow">Featured Experiences</span>
+          <div class="gold-bar"></div>
+          <h2 class="display-title light">Crafted for<br><em>Every Traveller</em></h2>
+          <p class="body-text light" style="margin-top:16px;">Six unforgettable ways to experience the magic of Qatar.</p>
+        </div>
+        <a href="pages/things-to-do.html" class="link-arrow light">
+          View All <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </header>
+
+      <div class="exp-scroll-wrap">
+        <div class="exp-row" id="expRow">
+
+          <article class="exp-card" onclick="location.href='pages/adventure.html'" tabindex="0">
+            <div class="exp-card-img">
+              <div class="exp-card-img-bg bg-1"></div>
+              <div class="exp-card-img-overlay"></div>
+              <div class="exp-card-num">01</div>
+            </div>
+            <span class="exp-card-tag">Adventure</span>
+            <div class="exp-card-title">Desert Safari &amp; Dune Bashing</div>
+            <p class="exp-card-desc">Race across the golden dunes of Khor Al Udeid at the inland sea.</p>
+          </article>
+
+          <article class="exp-card" onclick="location.href='pages/art-culture.html'" tabindex="0">
+            <div class="exp-card-img">
+              <div class="exp-card-img-bg bg-2"></div>
+              <div class="exp-card-img-overlay"></div>
+              <div class="exp-card-num">02</div>
+            </div>
+            <span class="exp-card-tag">Culture</span>
+            <div class="exp-card-title">Museum of Islamic Art</div>
+            <p class="exp-card-desc">Fourteen centuries of Islamic artistic achievement in I.M. Pei's iconic building on Doha Bay.</p>
+          </article>
+
+          <article class="exp-card" onclick="location.href='pages/dining.html'" tabindex="0">
+            <div class="exp-card-img">
+              <div class="exp-card-img-bg bg-3"></div>
+              <div class="exp-card-img-overlay"></div>
+              <div class="exp-card-num">03</div>
+            </div>
+            <span class="exp-card-tag">Dining</span>
+            <div class="exp-card-title">World-Class Dining Scene</div>
+            <p class="exp-card-desc">From street food at Souq Waqif to international fine dining in Doha.</p>
+          </article>
+
+          <article class="exp-card" onclick="location.href='pages/beach.html'" tabindex="0">
+            <div class="exp-card-img">
+              <div class="exp-card-img-bg bg-4"></div>
+              <div class="exp-card-img-overlay"></div>
+              <div class="exp-card-num">04</div>
+            </div>
+            <span class="exp-card-tag">Beach</span>
+            <div class="exp-card-title">Pearl-White Beaches</div>
+            <p class="exp-card-desc">Pristine coastlines and turquoise waters stretching as far as the eye can see.</p>
+          </article>
+
+          <article class="exp-card" onclick="location.href='pages/romantic.html'" tabindex="0">
+            <div class="exp-card-img">
+              <div class="exp-card-img-bg bg-5"></div>
+              <div class="exp-card-img-overlay"></div>
+              <div class="exp-card-num">05</div>
+            </div>
+            <span class="exp-card-tag">Romance</span>
+            <div class="exp-card-title">Dhow Sunset Cruises</div>
+            <p class="exp-card-desc">Sail Doha Bay on a traditional wooden dhow as the city lights begin to glow.</p>
+          </article>
+
+          <article class="exp-card" onclick="location.href='pages/spa.html'" tabindex="0">
+            <div class="exp-card-img">
+              <div class="exp-card-img-bg bg-6"></div>
+              <div class="exp-card-img-overlay"></div>
+              <div class="exp-card-num">06</div>
+            </div>
+            <span class="exp-card-tag">Wellness</span>
+            <div class="exp-card-title">Luxury Spa &amp; Wellness</div>
+            <p class="exp-card-desc">Rejuvenate in award-winning spas drawing on ancient Arabian traditions.</p>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       SECTION 5 — WHY VISIT QATAR
+  ================================================ -->
+  <section class="section-pad why-qatar" id="why-qatar">
+    <div class="container">
+
+      <header class="section-header centered">
+        <span class="eyebrow">Why Visit Qatar</span>
+        <div class="gold-bar center"></div>
+        <h2 class="display-title">A Destination <em>Like No Other</em></h2>
+        <p class="body-text">Qatar blends the warmth of Arabian hospitality with world-class infrastructure — creating an experience unlike anywhere on earth.</p>
+      </header>
+
+      <div class="why-grid">
+
+        <div class="why-item reveal">
+          <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="why-item-title">Safe &amp; Welcoming</div>
+          <p class="why-item-desc">Qatar consistently ranks among the safest destinations in the world, with a warm and hospitable culture that embraces visitors from every nation.</p>
+          <div class="why-stat">95+ <span>Nations enjoy visa-free access</span></div>
+        </div>
+
+        <div class="why-item reveal">
+          <div class="why-icon"><i class="fa-solid fa-award"></i></div>
+          <div class="why-item-title">World-Class Hospitality</div>
+          <p class="why-item-desc">From five-star hotels to boutique desert camps, Qatar offers extraordinary accommodation for every style of traveller.</p>
+          <div class="why-stat">55+ <span>Hotels and resorts</span></div>
+        </div>
+
+        <div class="why-item reveal">
+          <div class="why-icon"><i class="fa-solid fa-compass"></i></div>
+          <div class="why-item-title">Effortless to Explore</div>
+          <p class="why-item-desc">Qatar is compact enough to experience fully in a short visit, with world-class transport links and Hamad International Airport connecting you globally.</p>
+          <div class="why-stat">160+ <span>Destinations connected</span></div>
+        </div>
+
+        <div class="why-item reveal">
+          <div class="why-icon"><i class="fa-solid fa-sun"></i></div>
+          <div class="why-item-title">Year-Round Sunshine</div>
+          <p class="why-item-desc">With 365 days of sunshine, Qatar is always ready to welcome you. The cooler months from October to April offer ideal weather for outdoor exploration.</p>
+          <div class="why-stat">365 <span>Days of sunshine annually</span></div>
+        </div>
+
+        <div class="why-item reveal">
+          <div class="why-icon"><i class="fa-solid fa-palette"></i></div>
+          <div class="why-item-title">Rich Culture &amp; Heritage</div>
+          <p class="why-item-desc">Discover museums of global significance, ancient forts, vibrant arts districts and living traditions that have shaped this remarkable nation for centuries.</p>
+          <div class="why-stat">7,000+ <span>Years of civilisation</span></div>
+        </div>
+
+        <div class="why-item reveal">
+          <div class="why-icon"><i class="fa-solid fa-utensils"></i></div>
+          <div class="why-item-title">Extraordinary Cuisine</div>
+          <p class="why-item-desc">Qatar's dining scene spans the globe — from fragrant Qatari machbous to Michelin-starred restaurants, street food souqs to rooftop dining with bay views.</p>
+          <div class="why-stat">300+ <span>Dining experiences</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       SECTION 6 — NEWSLETTER
+  ================================================ -->
+  <section class="newsletter-section" id="newsletter">
+    <div class="container">
+      <div class="nl-inner">
+
+        <div class="nl-text">
+          <span class="eyebrow">Stay Inspired</span>
+          <div class="gold-bar"></div>
+          <h2 class="display-title light">Get Qatar <em>Delivered</em><br>to Your Inbox</h2>
+          <p class="body-text light" style="margin-top:16px;">Exclusive travel inspiration, event alerts and insider tips — straight from the heart of Qatar.</p>
+        </div>
+
+        <div class="nl-form-wrap">
+          <form class="nl-form" id="nlForm" novalidate>
+            <div class="nl-form-row">
+              <input
+                type="email"
+                class="nl-input"
+                id="nlEmail"
+                placeholder="Your email address"
+                autocomplete="email"
+                aria-label="Email address for newsletter"
+                required
+              />
+              <button type="submit" class="nl-submit">Subscribe</button>
+            </div>
+            <p class="nl-note">
+              <i class="fa-solid fa-lock"></i>
+              We respect your privacy. Unsubscribe at any time.
+            </p>
+            <p class="nl-success" id="nlSuccess" aria-live="polite"></p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       FOOTER
+  ================================================ -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <a class="nav-logo" href="index.html" aria-label="Visit Qatar Home">
+            <div class="nav-logo-emblem">
+              <svg viewBox="0 0 46 46" fill="none">
+                <polygon points="23,2 44,12.5 44,33.5 23,44 2,33.5 2,12.5"
+                         fill="none" stroke="#C8973A" stroke-width="1.5"/>
+                <text x="23" y="29" text-anchor="middle"
+                      font-family="Cormorant Garamond,serif"
+                      font-size="16" font-weight="700" fill="#C8973A">Q</text>
+              </svg>
+            </div>
+            <div class="nav-logo-wordmark">
+              <span class="w-visit">Visit</span>
+              <span class="w-qatar">Qatar</span>
+            </div>
+          </a>
+          <p>Qatar Tourism's official destination guide. Discover the extraordinary in every corner of this remarkable peninsula nation.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-icon" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+
+        <!-- Explore -->
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="pages/about-qatar.html">About Qatar</a></li>
+            <li><a href="pages/doha.html">Doha</a></li>
+            <li><a href="pages/adventure.html">Adventure &amp; Sports</a></li>
+            <li><a href="pages/art-culture.html">Art &amp; Culture</a></li>
+            <li><a href="pages/dining.html">Dining</a></li>
+            <li><a href="pages/shopping.html">Shopping</a></li>
+            <li><a href="pages/events.html">Events</a></li>
+          </ul>
+        </div>
+
+        <!-- Plan -->
+        <div class="footer-col">
+          <h4>Plan</h4>
+          <ul>
+            <li><a href="pages/visas.html">Visas &amp; Entry</a></li>
+            <li><a href="pages/accommodation.html">Where to Stay</a></li>
+            <li><a href="pages/getting-to-qatar.html">Getting to Qatar</a></li>
+            <li><a href="pages/airport.html">Hamad Int. Airport</a></li>
+            <li><a href="pages/getting-around.html">Getting Around</a></li>
+            <li><a href="pages/safety.html">Safety</a></li>
+            <li><a href="pages/concierge.html">Concierge</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <p>Qatar Tourism<br>P.O. Box 24624<br>Doha, State of Qatar</p>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <p>+974 4406 1120</p>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <p>info@visitqatar.qa</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer bottom bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 Qatar Tourism Authority. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>
