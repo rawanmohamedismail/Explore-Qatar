@@ -213,7 +213,7 @@ ul    { list-style:none; }
 }
 
 .nav-link:hover {
-  color: var(--gold);
+  color: var(--turquoise);
 }
 
 /* Dropdown */
