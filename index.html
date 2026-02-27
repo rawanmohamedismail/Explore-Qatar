@@ -1,654 +1,265 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Visit Qatar — Official Tourism Website</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore Qatar - Your Gateway to an Extraordinary Destination</title>
+    <meta name="description" content="Discover Qatar's rich heritage, modern marvels, desert adventures, and world-class hospitality." />
+    <meta name="author" content="Explore Qatar" />
+    <meta property="og:title" content="Explore Qatar" />
+    <meta property="og:description" content="Discover Qatar's rich heritage, modern marvels, desert adventures, and world-class hospitality." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1df2bc18-4ec9-4cea-9019-607d20544ab0/id-preview-a6eca4d9--4fbec3dc-06bb-4c29-80d8-17015208e4d1.lovable.app-1772190524421.png" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Lovable" />
+    <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1df2bc18-4ec9-4cea-9019-607d20544ab0/id-preview-a6eca4d9--4fbec3dc-06bb-4c29-80d8-17015208e4d1.lovable.app-1772190524421.png" />
+    <script type="module" crossorigin src="/assets/index-DNjsSTeI.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-GSjjM83i.css">
+  
+<style>
+	@font-face {
+		font-family: 'CameraPlainVariable';
+		src: url('https://cdn.gpteng.co/mcp-widgets/v1/fonts/CameraPlainVariable.woff2') format('woff2');
+		font-weight: 100 900;
+		font-style: normal;
+		font-display: swap;
+	}
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+	#lovable-badge {
+		--badge-bg: #1b1b1b;
+		--badge-text: #c5c1b9;
+		--badge-text-hover: #dcdad5;
+		--badge-radius: 6px;
+		--badge-padding: 8px;
+		--badge-gap: 6px;
+		--badge-shadow: 
+			0 0 0 1px rgba(0, 0, 0, 0.88),
+			0 1px 0 0 rgba(0, 0, 0, 0.04),
+			0 2px 2px -1px rgba(0, 0, 0, 0.08),
+			0 4px 4px -2px rgba(0, 0, 0, 0.08),
+			0 8px 8px -4px rgba(0, 0, 0, 0.08),
+			0 16px 16px -8px rgba(0, 0, 0, 0.08);
+		--badge-transition-duration: 0.2s;
+		--badge-transition-easing: cubic-bezier(0.16, 1, 0.32, 1);
+		--focus-color: #575ECF;
+		--focus-offset: 2px;
+		--focus-width: 2px;
+		
+		position: fixed;
+		bottom: 12px;
+		right: 12px;
+		height: 24px;
+		display: flex;
+		align-items: center;
+		z-index: 1000000;
+		background-color: var(--badge-bg);
+		color: var(--badge-text);
+		border-radius: var(--badge-radius);
+		box-shadow: var(--badge-shadow);
+		font-size: 12px;
+		font-family: CameraPlainVariable, "CameraPlainVariable Fallback", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		font-weight: 400 !important;
+		text-transform: none !important;
+		font-feature-settings: normal !important;
+		transform: translateZ(0);
+		will-change: transform, opacity;
+	}
 
-  <!-- Styles -->
-<link rel="stylesheet" href="style.css">
+	#lovable-badge-cta {
+		display: flex;
+		align-items: center;
+		gap: var(--badge-gap);
+		padding: 0 var(--badge-padding);
+		height: 100%;
+		color: inherit;
+		text-decoration: none;
+		white-space: nowrap;
+		border-radius: var(--badge-radius) 0 0 var(--badge-radius);
+		transition: 
+			background-color var(--badge-transition-duration) ease,
+			color var(--badge-transition-duration) ease,
+			transform 0.1s ease;
+	}
+
+	#lovable-badge-cta:hover {
+		background: rgba(255, 255, 255, 0.04);
+		color: var(--badge-text-hover);
+	}
+
+	#lovable-badge-cta:active {
+		transform: scale(0.98);
+	}
+
+	#lovable-badge-cta:focus {
+		outline: none;
+	}
+
+	#lovable-badge-cta:focus-visible {
+		outline: var(--focus-width) solid var(--focus-color);
+		outline-offset: var(--focus-offset);
+		z-index: 1;
+	}
+
+	#lovable-badge-text {
+		line-height: 1;
+	}
+
+	#lovable-badge-divider {
+		width: 1px;
+		height: 24px;
+		background-color: rgba(255, 255, 255, 0.04);
+		flex-shrink: 0;
+	}
+
+	#lovable-badge-close {
+		width: 24px;
+		height: 24px;
+		min-width: 24px;
+		min-height: 24px;
+		cursor: pointer;
+		background: none;
+		border: none;
+		padding: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 0 var(--badge-radius) var(--badge-radius) 0;
+		flex-shrink: 0;
+		transition: 
+			background-color var(--badge-transition-duration) ease,
+			transform 0.1s ease;
+	}
+
+	#lovable-badge-close:hover {
+		background: rgba(255, 255, 255, 0.04);
+	}
+
+	#lovable-badge-close:active {
+		transform: scale(0.92);
+	}
+
+	#lovable-badge-close:focus {
+		outline: none;
+	}
+
+	#lovable-badge-close:focus-visible {
+		outline: var(--focus-width) solid var(--focus-color);
+		outline-offset: calc(var(--focus-offset) * -1);
+		z-index: 1;
+	}
+
+	#lovable-badge-close svg path {
+		fill: var(--badge-text);
+		transition: fill var(--badge-transition-duration) ease;
+	}
+
+	#lovable-badge-close:hover svg path {
+		fill: var(--badge-text-hover);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		#lovable-badge-cta,
+		#lovable-badge-close,
+		#lovable-badge-close svg path {
+			transition: none;
+		}
+		
+		#lovable-badge-cta:active,
+		#lovable-badge-close:active {
+			transform: none;
+		}
+	}
+
+	@media (prefers-contrast: high) {
+		#lovable-badge {
+			--badge-bg: #000;
+			--badge-text: #fff;
+			--badge-text-hover: #fff;
+			border: 2px solid currentColor;
+		}
+		
+		#lovable-badge-cta:focus-visible,
+		#lovable-badge-close:focus-visible {
+			outline-width: 3px;
+		}
+	}
+</style>
 </head>
-<body>
 
-  <!-- ================================================
-       NAVIGATION
-  ================================================ -->
-  <nav id="navbar">
-    <div class="nav-inner">
-
-      <!-- Logo -->
-      <a class="nav-logo" href="index.html" aria-label="Visit Qatar Home">
-        <div class="nav-logo-emblem">
-          <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="23,2 44,12.5 44,33.5 23,44 2,33.5 2,12.5"
-                     fill="none" stroke="#C8973A" stroke-width="1.5"/>
-            <polygon points="23,8 38,16 38,30 23,38 8,30 8,16"
-                     fill="none" stroke="#C8973A" stroke-width="0.6" opacity="0.45"/>
-            <text x="23" y="29" text-anchor="middle"
-                  font-family="Cormorant Garamond,serif"
-                  font-size="16" font-weight="700" fill="#C8973A">Q</text>
-          </svg>
-        </div>
-        <div class="nav-logo-wordmark">
-          <span class="w-visit">Visit</span>
-          <span class="w-qatar">Qatar</span>
-        </div>
-      </a>
-
-      <!-- Centre links -->
-      <div class="nav-center">
-
-        <!-- About Qatar -->
-        <div class="nav-item">
-          <button class="nav-link" aria-haspopup="true">
-            About Qatar <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="nav-dropdown" role="menu">
-            <a href="pages/about-qatar.html"><i class="fa-solid fa-circle-info"></i> About Qatar</a>
-            <a href="pages/geography.html"><i class="fa-solid fa-map"></i> Geography of Qatar</a>
-            <a href="pages/history.html"><i class="fa-solid fa-landmark"></i> History of Qatar</a>
-            <a href="pages/towns-cities.html"><i class="fa-solid fa-city"></i> Towns &amp; Cities</a>
-            <a href="pages/doha.html"><i class="fa-solid fa-building"></i> Doha</a>
-            <a href="pages/traditions.html"><i class="fa-solid fa-scroll"></i> Traditions in Qatar</a>
-            <a href="pages/sports.html"><i class="fa-solid fa-futbol"></i> Sports in Qatar</a>
-            <a href="pages/cuisine.html"><i class="fa-solid fa-utensils"></i> Local Cuisine</a>
-            <a href="pages/wildlife.html"><i class="fa-solid fa-paw"></i> Wildlife</a>
-          </div>
-        </div>
-
-        <!-- Plan Your Trip -->
-        <div class="nav-item">
-          <button class="nav-link" aria-haspopup="true">
-            Plan Your Trip <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="nav-dropdown" role="menu">
-            <a href="pages/plan.html"><i class="fa-solid fa-plane-departure"></i> Plan Your Trip</a>
-            <a href="pages/visas.html"><i class="fa-solid fa-passport"></i> Visas</a>
-            <a href="pages/accommodation.html"><i class="fa-solid fa-hotel"></i> Accommodation in Qatar</a>
-            <a href="pages/getting-to-qatar.html"><i class="fa-solid fa-plane-arrival"></i> Getting to Qatar</a>
-            <a href="pages/airport.html"><i class="fa-solid fa-tower-control"></i> Hamad Int. Airport</a>
-            <a href="pages/getting-around.html"><i class="fa-solid fa-train-subway"></i> Getting Around</a>
-            <a href="pages/safety.html"><i class="fa-solid fa-shield-halved"></i> Safety in Qatar</a>
-            <a href="pages/travel-tips.html"><i class="fa-solid fa-lightbulb"></i> Travel Tips</a>
-            <a href="pages/concierge.html"><i class="fa-solid fa-bell-concierge"></i> Concierge Service</a>
-          </div>
-        </div>
-
-        <!-- Things To Do -->
-        <div class="nav-item">
-          <button class="nav-link" aria-haspopup="true">
-            Things To Do <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="nav-dropdown" role="menu">
-            <a href="pages/things-to-do.html"><i class="fa-solid fa-compass"></i> Things To Do</a>
-            <a href="pages/adventure.html"><i class="fa-solid fa-person-hiking"></i> Adventure &amp; Sports</a>
-            <a href="pages/art-culture.html"><i class="fa-solid fa-palette"></i> Art &amp; Culture</a>
-            <a href="pages/romantic.html"><i class="fa-solid fa-heart"></i> Romantic Getaway</a>
-            <a href="pages/beach.html"><i class="fa-solid fa-umbrella-beach"></i> Beach Holiday</a>
-            <a href="pages/family.html"><i class="fa-solid fa-children"></i> Family Break</a>
-            <a href="pages/dining.html"><i class="fa-solid fa-fork-knife"></i> Dining</a>
-            <a href="pages/spa.html"><i class="fa-solid fa-spa"></i> Spa &amp; Wellness</a>
-            <a href="pages/shopping.html"><i class="fa-solid fa-bag-shopping"></i> Shopping</a>
-          </div>
-        </div>
-
-        <!-- Events -->
-        <div class="nav-item">
-          <a class="nav-link" href="pages/events.html">Events</a>
-        </div>
-
-      </div>
-
-      <!-- Right — Login / Sign Up -->
-      <div class="nav-right">
-        <a href="pages/login.html" class="nav-btn-login">Log In</a>
-        <a href="pages/signup.html" class="nav-btn-signup">Sign Up</a>
-        <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Open menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-      </div>
-
-    </div>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" aria-hidden="true">
-    <div class="mobile-cat">About Qatar</div>
-    <a class="mobile-link" href="pages/about-qatar.html">About Qatar</a>
-    <a class="mobile-link" href="pages/geography.html">Geography of Qatar</a>
-    <a class="mobile-link" href="pages/history.html">History of Qatar</a>
-    <a class="mobile-link" href="pages/towns-cities.html">Towns &amp; Cities</a>
-    <a class="mobile-link" href="pages/doha.html">Doha</a>
-    <a class="mobile-link" href="pages/traditions.html">Traditions in Qatar</a>
-    <a class="mobile-link" href="pages/sports.html">Sports in Qatar</a>
-    <a class="mobile-link" href="pages/cuisine.html">Local Cuisine</a>
-    <a class="mobile-link" href="pages/wildlife.html">Wildlife</a>
-
-    <div class="mobile-cat">Plan Your Trip</div>
-    <a class="mobile-link" href="pages/visas.html">Visas</a>
-    <a class="mobile-link" href="pages/accommodation.html">Accommodation</a>
-    <a class="mobile-link" href="pages/getting-to-qatar.html">Getting to Qatar</a>
-    <a class="mobile-link" href="pages/airport.html">Hamad Int. Airport</a>
-    <a class="mobile-link" href="pages/getting-around.html">Getting Around</a>
-    <a class="mobile-link" href="pages/safety.html">Safety in Qatar</a>
-    <a class="mobile-link" href="pages/travel-tips.html">Travel Tips</a>
-    <a class="mobile-link" href="pages/concierge.html">Concierge Service</a>
-
-    <div class="mobile-cat">Things To Do</div>
-    <a class="mobile-link" href="pages/adventure.html">Adventure &amp; Sports</a>
-    <a class="mobile-link" href="pages/art-culture.html">Art &amp; Culture</a>
-    <a class="mobile-link" href="pages/romantic.html">Romantic Getaway</a>
-    <a class="mobile-link" href="pages/beach.html">Beach Holiday</a>
-    <a class="mobile-link" href="pages/family.html">Family Break</a>
-    <a class="mobile-link" href="pages/dining.html">Dining</a>
-    <a class="mobile-link" href="pages/spa.html">Spa &amp; Wellness</a>
-    <a class="mobile-link" href="pages/shopping.html">Shopping</a>
-
-    <div class="mobile-cat">Events</div>
-    <a class="mobile-link" href="pages/events.html">All Events</a>
-
-    <div class="mobile-auth">
-      <a href="pages/login.html" class="btn btn-outline-light" style="flex:1;justify-content:center;">Log In</a>
-      <a href="pages/signup.html" class="btn btn-gold" style="flex:1;justify-content:center;">Sign Up</a>
-    </div>
-  </div>
-
-
-  <!-- ================================================
-       SECTION 1 — HERO CAROUSEL
-  ================================================ -->
-  <section class="hero-carousel" id="heroCarousel" aria-label="Featured destinations">
-
-    <!-- Slide 1 -->
-    <div class="hero-slide active slide-1" role="group" aria-label="Slide 1 of 3">
-      <div class="slide-bg"></div>
-      <div class="slide-pattern"></div>
-      <div class="slide-content">
-        <div class="slide-content-inner">
-          <span class="slide-label">Welcome to Qatar</span>
-          <h1 class="slide-title">Where the<br><em>Desert</em> Meets<br>the Sea</h1>
-          <p class="slide-desc">A land of extraordinary contrasts — ancient traditions and futuristic ambition, golden dunes and a glittering skyline.</p>
-          <div class="slide-btns">
-            <a href="pages/about-qatar.html" class="btn btn-gold">
-              Discover Qatar <i class="fa-solid fa-arrow-right"></i>
-            </a>
-            <a href="pages/plan.html" class="btn btn-outline-light">Plan Your Trip</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slide 2 -->
-    <div class="hero-slide slide-2" role="group" aria-label="Slide 2 of 3">
-      <div class="slide-bg"></div>
-      <div class="slide-pattern"></div>
-      <div class="slide-content">
-        <div class="slide-content-inner">
-          <span class="slide-label">Cultural Heart of the Gulf</span>
-          <h1 class="slide-title">A Living<br><em>Heritage</em><br>Awaits</h1>
-          <p class="slide-desc">Explore the labyrinthine alleys of Souq Waqif, marvel at Islamic art, and discover the soul of the Arabian Peninsula.</p>
-          <div class="slide-btns">
-            <a href="pages/art-culture.html" class="btn btn-gold">
-              Explore Culture <i class="fa-solid fa-arrow-right"></i>
-            </a>
-            <a href="pages/traditions.html" class="btn btn-outline-light">Traditions</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slide 3 -->
-    <div class="hero-slide slide-3" role="group" aria-label="Slide 3 of 3">
-      <div class="slide-bg"></div>
-      <div class="slide-pattern"></div>
-      <div class="slide-content">
-        <div class="slide-content-inner">
-          <span class="slide-label">Luxury &amp; Adventure</span>
-          <h1 class="slide-title">Endless<br><em>Experiences</em><br>Call You</h1>
-          <p class="slide-desc">From world-class dining to desert safaris, island retreats to championship sports — Qatar delivers the extraordinary.</p>
-          <div class="slide-btns">
-            <a href="pages/things-to-do.html" class="btn btn-gold">
-              Things To Do <i class="fa-solid fa-arrow-right"></i>
-            </a>
-            <a href="pages/events.html" class="btn btn-outline-light">Events</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Carousel Controls -->
-    <button class="hero-prev" id="heroPrev" aria-label="Previous slide">
-      <i class="fa-solid fa-chevron-left"></i>
-    </button>
-    <button class="hero-next" id="heroNext" aria-label="Next slide">
-      <i class="fa-solid fa-chevron-right"></i>
-    </button>
-
-    <!-- Dots -->
-    <div class="hero-dots" role="tablist" aria-label="Carousel navigation">
-      <button class="hero-dot active" data-index="0" aria-label="Go to slide 1" role="tab" aria-selected="true"></button>
-      <button class="hero-dot"        data-index="1" aria-label="Go to slide 2" role="tab" aria-selected="false"></button>
-      <button class="hero-dot"        data-index="2" aria-label="Go to slide 3" role="tab" aria-selected="false"></button>
-    </div>
-
-    <!-- Scroll cue -->
-    <div class="hero-scroll-cue" aria-hidden="true">
-      <div class="hero-scroll-line"></div>
-      <span>Scroll</span>
-    </div>
-
-  </section>
-
-
-  <!-- ================================================
-       SECTION 2 — STATS BAR
-  ================================================ -->
-  <div class="stats-bar">
-    <div class="stats-inner container">
-      <div class="stat-block">
-        <div class="stat-num" data-target="4">0</div>
-        <div class="stat-label">Million Annual Visitors</div>
-      </div>
-      <div class="stat-block">
-        <div class="stat-num" data-target="300">0</div>
-        <div class="stat-label">Dining Experiences</div>
-      </div>
-      <div class="stat-block">
-        <div class="stat-num" data-target="55">0</div>
-        <div class="stat-label">Hotels &amp; Resorts</div>
-      </div>
-      <div class="stat-block">
-        <div class="stat-num" data-target="365">0</div>
-        <div class="stat-label">Days of Sunshine</div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ================================================
-       SECTION 3 — DESTINATION HIGHLIGHTS
-  ================================================ -->
-  <section class="section-pad dest-highlights" id="destinations">
-    <div class="container">
-
-      <header class="section-header">
-        <span class="eyebrow">Destination Highlights</span>
-        <div class="gold-bar"></div>
-        <h2 class="display-title">Explore Qatar's<br><em>Iconic Places</em></h2>
-        <p class="body-text" style="margin-top:16px;">From the luminous towers of Doha to the silent expanse of the inland sea — each corner of Qatar tells a different story.</p>
-      </header>
-
-      <div class="dest-grid">
-
-        <!-- Large card: Doha -->
-        <article class="dest-card tall" onclick="location.href='pages/doha.html'" role="link" tabindex="0">
-          <div class="dest-card-bg bg-1">
-            <svg class="card-art" viewBox="0 0 300 500" aria-hidden="true">
-              <polygon points="150,30 280,100 280,400 150,470 20,400 20,100" fill="none" stroke="#C8973A" stroke-width="1.2"/>
-              <line x1="150" y1="30" x2="150" y2="470" stroke="#C8973A" stroke-width="0.5"/>
-              <circle cx="150" cy="250" r="60" fill="none" stroke="#C8973A" stroke-width="0.5"/>
-              <circle cx="150" cy="250" r="90" fill="none" stroke="#C8973A" stroke-width="0.3" opacity="0.5"/>
-            </svg>
-          </div>
-          <div class="dest-card-overlay"></div>
-          <div class="dest-card-body">
-            <span class="dest-card-tag">Capital City</span>
-            <div class="dest-card-name">Doha</div>
-            <div class="dest-card-sub">The jewel of the Arabian Gulf</div>
-            <div class="dest-card-cta">Explore <i class="fa-solid fa-arrow-right"></i></div>
-          </div>
-        </article>
-
-        <!-- Souq Waqif -->
-        <article class="dest-card" onclick="location.href='pages/art-culture.html'" role="link" tabindex="0">
-          <div class="dest-card-bg bg-2"></div>
-          <div class="dest-card-overlay"></div>
-          <div class="dest-card-body">
-            <span class="dest-card-tag">Heritage</span>
-            <div class="dest-card-name">Souq Waqif</div>
-            <div class="dest-card-cta">Explore <i class="fa-solid fa-arrow-right"></i></div>
-          </div>
-        </article>
-
-        <!-- The Pearl -->
-        <article class="dest-card" onclick="location.href='pages/beach.html'" role="link" tabindex="0">
-          <div class="dest-card-bg bg-3"></div>
-          <div class="dest-card-overlay"></div>
-          <div class="dest-card-body">
-            <span class="dest-card-tag">Island Living</span>
-            <div class="dest-card-name">The Pearl</div>
-            <div class="dest-card-cta">Explore <i class="fa-solid fa-arrow-right"></i></div>
-          </div>
-        </article>
-
-        <!-- Khor Al Udeid -->
-        <article class="dest-card" onclick="location.href='pages/adventure.html'" role="link" tabindex="0">
-          <div class="dest-card-bg bg-4"></div>
-          <div class="dest-card-overlay"></div>
-          <div class="dest-card-body">
-            <span class="dest-card-tag">Natural Wonder</span>
-            <div class="dest-card-name">Khor Al Udeid</div>
-            <div class="dest-card-cta">Explore <i class="fa-solid fa-arrow-right"></i></div>
-          </div>
-        </article>
-
-        <!-- Lusail -->
-        <article class="dest-card" onclick="location.href='pages/towns-cities.html'" role="link" tabindex="0">
-          <div class="dest-card-bg bg-5"></div>
-          <div class="dest-card-overlay"></div>
-          <div class="dest-card-body">
-            <span class="dest-card-tag">Future City</span>
-            <div class="dest-card-name">Lusail</div>
-            <div class="dest-card-cta">Explore <i class="fa-solid fa-arrow-right"></i></div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ================================================
-       SECTION 4 — FEATURED EXPERIENCES
-  ================================================ -->
-  <section class="section-pad featured-exp" id="experiences">
-    <div class="container">
-
-      <header class="section-header spaced">
-        <div>
-          <span class="eyebrow">Featured Experiences</span>
-          <div class="gold-bar"></div>
-          <h2 class="display-title light">Crafted for<br><em>Every Traveller</em></h2>
-          <p class="body-text light" style="margin-top:16px;">Six unforgettable ways to experience the magic of Qatar.</p>
-        </div>
-        <a href="pages/things-to-do.html" class="link-arrow light">
-          View All <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </header>
-
-      <div class="exp-scroll-wrap">
-        <div class="exp-row" id="expRow">
-
-          <article class="exp-card" onclick="location.href='pages/adventure.html'" tabindex="0">
-            <div class="exp-card-img">
-              <div class="exp-card-img-bg bg-1"></div>
-              <div class="exp-card-img-overlay"></div>
-              <div class="exp-card-num">01</div>
-            </div>
-            <span class="exp-card-tag">Adventure</span>
-            <div class="exp-card-title">Desert Safari &amp; Dune Bashing</div>
-            <p class="exp-card-desc">Race across the golden dunes of Khor Al Udeid at the inland sea.</p>
-          </article>
-
-          <article class="exp-card" onclick="location.href='pages/art-culture.html'" tabindex="0">
-            <div class="exp-card-img">
-              <div class="exp-card-img-bg bg-2"></div>
-              <div class="exp-card-img-overlay"></div>
-              <div class="exp-card-num">02</div>
-            </div>
-            <span class="exp-card-tag">Culture</span>
-            <div class="exp-card-title">Museum of Islamic Art</div>
-            <p class="exp-card-desc">Fourteen centuries of Islamic artistic achievement in I.M. Pei's iconic building on Doha Bay.</p>
-          </article>
-
-          <article class="exp-card" onclick="location.href='pages/dining.html'" tabindex="0">
-            <div class="exp-card-img">
-              <div class="exp-card-img-bg bg-3"></div>
-              <div class="exp-card-img-overlay"></div>
-              <div class="exp-card-num">03</div>
-            </div>
-            <span class="exp-card-tag">Dining</span>
-            <div class="exp-card-title">World-Class Dining Scene</div>
-            <p class="exp-card-desc">From street food at Souq Waqif to international fine dining in Doha.</p>
-          </article>
-
-          <article class="exp-card" onclick="location.href='pages/beach.html'" tabindex="0">
-            <div class="exp-card-img">
-              <div class="exp-card-img-bg bg-4"></div>
-              <div class="exp-card-img-overlay"></div>
-              <div class="exp-card-num">04</div>
-            </div>
-            <span class="exp-card-tag">Beach</span>
-            <div class="exp-card-title">Pearl-White Beaches</div>
-            <p class="exp-card-desc">Pristine coastlines and turquoise waters stretching as far as the eye can see.</p>
-          </article>
-
-          <article class="exp-card" onclick="location.href='pages/romantic.html'" tabindex="0">
-            <div class="exp-card-img">
-              <div class="exp-card-img-bg bg-5"></div>
-              <div class="exp-card-img-overlay"></div>
-              <div class="exp-card-num">05</div>
-            </div>
-            <span class="exp-card-tag">Romance</span>
-            <div class="exp-card-title">Dhow Sunset Cruises</div>
-            <p class="exp-card-desc">Sail Doha Bay on a traditional wooden dhow as the city lights begin to glow.</p>
-          </article>
-
-          <article class="exp-card" onclick="location.href='pages/spa.html'" tabindex="0">
-            <div class="exp-card-img">
-              <div class="exp-card-img-bg bg-6"></div>
-              <div class="exp-card-img-overlay"></div>
-              <div class="exp-card-num">06</div>
-            </div>
-            <span class="exp-card-tag">Wellness</span>
-            <div class="exp-card-title">Luxury Spa &amp; Wellness</div>
-            <p class="exp-card-desc">Rejuvenate in award-winning spas drawing on ancient Arabian traditions.</p>
-          </article>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ================================================
-       SECTION 5 — WHY VISIT QATAR
-  ================================================ -->
-  <section class="section-pad why-qatar" id="why-qatar">
-    <div class="container">
-
-      <header class="section-header centered">
-        <span class="eyebrow">Why Visit Qatar</span>
-        <div class="accent-bar"></div>
-        <h2 class="display-title">A Destination <em>Like No Other</em></h2>
-        <p class="body-text">Qatar blends the warmth of Arabian hospitality with world-class infrastructure — creating an experience unlike anywhere on earth.</p>
-      </header>
-
-      <div class="why-grid">
-
-        <div class="why-item reveal">
-          <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
-          <div class="why-item-title">Safe &amp; Welcoming</div>
-          <p class="why-item-desc">Qatar consistently ranks among the safest destinations in the world, with a warm and hospitable culture that embraces visitors from every nation.</p>
-          <div class="why-stat">95+ <span>Nations enjoy visa-free access</span></div>
-        </div>
-
-        <div class="why-item reveal">
-          <div class="why-icon"><i class="fa-solid fa-award"></i></div>
-          <div class="why-item-title">World-Class Hospitality</div>
-          <p class="why-item-desc">From five-star hotels to boutique desert camps, Qatar offers extraordinary accommodation for every style of traveller.</p>
-          <div class="why-stat">55+ <span>Hotels and resorts</span></div>
-        </div>
-
-        <div class="why-item reveal">
-          <div class="why-icon"><i class="fa-solid fa-compass"></i></div>
-          <div class="why-item-title">Effortless to Explore</div>
-          <p class="why-item-desc">Qatar is compact enough to experience fully in a short visit, with world-class transport links and Hamad International Airport connecting you globally.</p>
-          <div class="why-stat">160+ <span>Destinations connected</span></div>
-        </div>
-
-        <div class="why-item reveal">
-          <div class="why-icon"><i class="fa-solid fa-sun"></i></div>
-          <div class="why-item-title">Year-Round Sunshine</div>
-          <p class="why-item-desc">With 365 days of sunshine, Qatar is always ready to welcome you. The cooler months from October to April offer ideal weather for outdoor exploration.</p>
-          <div class="why-stat">365 <span>Days of sunshine annually</span></div>
-        </div>
-
-        <div class="why-item reveal">
-          <div class="why-icon"><i class="fa-solid fa-palette"></i></div>
-          <div class="why-item-title">Rich Culture &amp; Heritage</div>
-          <p class="why-item-desc">Discover museums of global significance, ancient forts, vibrant arts districts and living traditions that have shaped this remarkable nation for centuries.</p>
-          <div class="why-stat">7,000+ <span>Years of civilisation</span></div>
-        </div>
-
-        <div class="why-item reveal">
-          <div class="why-icon"><i class="fa-solid fa-utensils"></i></div>
-          <div class="why-item-title">Extraordinary Cuisine</div>
-          <p class="why-item-desc">Qatar's dining scene spans the globe — from fragrant Qatari machbous to Michelin-starred restaurants, street food souqs to rooftop dining with bay views.</p>
-          <div class="why-stat">300+ <span>Dining experiences</span></div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ================================================
-       SECTION 6 — NEWSLETTER
-  ================================================ -->
-  <section class="newsletter-section" id="newsletter">
-    <div class="container">
-      <div class="nl-inner">
-
-        <div class="nl-text">
-          <span class="eyebrow">Stay Inspired</span>
-          <div class="gold-bar"></div>
-          <h2 class="display-title light">Get Qatar <em>Delivered</em><br>to Your Inbox</h2>
-          <p class="body-text light" style="margin-top:16px;">Exclusive travel inspiration, event alerts and insider tips — straight from the heart of Qatar.</p>
-        </div>
-
-        <div class="nl-form-wrap">
-          <form class="nl-form" id="nlForm" novalidate>
-            <div class="nl-form-row">
-              <input
-                type="email"
-                class="nl-input"
-                id="nlEmail"
-                placeholder="Your email address"
-                autocomplete="email"
-                aria-label="Email address for newsletter"
-                required
-              />
-              <button type="submit" class="nl-submit">Subscribe</button>
-            </div>
-            <p class="nl-note">
-              <i class="fa-solid fa-lock"></i>
-              We respect your privacy. Unsubscribe at any time.
-            </p>
-            <p class="nl-success" id="nlSuccess" aria-live="polite"></p>
-          </form>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ================================================
-       FOOTER
-  ================================================ -->
-  <footer>
-    <div class="container">
-      <div class="footer-top">
-
-        <!-- Brand -->
-        <div class="footer-brand">
-          <a class="nav-logo" href="index.html" aria-label="Visit Qatar Home">
-            <div class="nav-logo-emblem">
-              <svg viewBox="0 0 46 46" fill="none">
-                <polygon points="23,2 44,12.5 44,33.5 23,44 2,33.5 2,12.5"
-                         fill="none" stroke="#C8973A" stroke-width="1.5"/>
-                <text x="23" y="29" text-anchor="middle"
-                      font-family="Cormorant Garamond,serif"
-                      font-size="16" font-weight="700" fill="#C8973A">Q</text>
-              </svg>
-            </div>
-            <div class="nav-logo-wordmark">
-              <span class="w-visit">Visit</span>
-              <span class="w-qatar">Qatar</span>
-            </div>
-          </a>
-          <p>Qatar Tourism's official destination guide. Discover the extraordinary in every corner of this remarkable peninsula nation.</p>
-          <div class="footer-socials">
-            <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="social-icon" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#" class="social-icon" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-          </div>
-        </div>
-
-        <!-- Explore -->
-        <div class="footer-col">
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="pages/about-qatar.html">About Qatar</a></li>
-            <li><a href="pages/doha.html">Doha</a></li>
-            <li><a href="pages/adventure.html">Adventure &amp; Sports</a></li>
-            <li><a href="pages/art-culture.html">Art &amp; Culture</a></li>
-            <li><a href="pages/dining.html">Dining</a></li>
-            <li><a href="pages/shopping.html">Shopping</a></li>
-            <li><a href="pages/events.html">Events</a></li>
-          </ul>
-        </div>
-
-        <!-- Plan -->
-        <div class="footer-col">
-          <h4>Plan</h4>
-          <ul>
-            <li><a href="pages/visas.html">Visas &amp; Entry</a></li>
-            <li><a href="pages/accommodation.html">Where to Stay</a></li>
-            <li><a href="pages/getting-to-qatar.html">Getting to Qatar</a></li>
-            <li><a href="pages/airport.html">Hamad Int. Airport</a></li>
-            <li><a href="pages/getting-around.html">Getting Around</a></li>
-            <li><a href="pages/safety.html">Safety</a></li>
-            <li><a href="pages/concierge.html">Concierge</a></li>
-          </ul>
-        </div>
-
-        <!-- Contact -->
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <div class="footer-contact-item">
-            <i class="fa-solid fa-location-dot"></i>
-            <p>Qatar Tourism<br>P.O. Box 24624<br>Doha, State of Qatar</p>
-          </div>
-          <div class="footer-contact-item">
-            <i class="fa-solid fa-phone"></i>
-            <p>+974 4406 1120</p>
-          </div>
-          <div class="footer-contact-item">
-            <i class="fa-solid fa-envelope"></i>
-            <p>info@visitqatar.qa</p>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Footer bottom bar -->
-      <div class="footer-bottom">
-        <p>&copy; 2026 Qatar Tourism Authority. All rights reserved.</p>
-        <div class="footer-bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
-          <a href="#">Accessibility</a>
-          <a href="#">Sitemap</a>
-        </div>
-      </div>
-
-    </div>
-  </footer>
-
-
-  <!-- JS -->
-  <script src="main.js"></script>
+  <body>
+    <div id="root"></div><script src="https://cdn.gpteng.co/lovable.js" type="module"></script>
+  
+<aside 
+	id="lovable-badge" 
+	role="complementary"
+	dir="ltr"
+	lang="en"
+	aria-label="Edit with Lovable">
+	<a 
+		id="lovable-badge-cta" 
+		target="_blank" 
+		href="https://lovable.dev/projects/4fbec3dc-06bb-4c29-80d8-17015208e4d1?utm_source=lovable-badge"
+		rel="noopener"
+		aria-label="Edit with Lovable">
+		<span id="lovable-badge-text">Edit with</span>
+		<svg xmlns="http://www.w3.org/2000/svg" width="52" height="16" fill="none" viewBox="0 0 52 16">
+  <path fill="#FCFBF8" fill-rule="evenodd" d="M20.318 5.25c.643 0 1.206.14 1.69.418a2.81 2.81 0 0 1 1.118 1.191c.266.513.4 1.115.4 1.807s-.134 1.296-.4 1.812a2.81 2.81 0 0 1-1.118 1.193c-.484.278-1.047.418-1.69.418s-1.208-.14-1.695-.418a2.85 2.85 0 0 1-1.125-1.193c-.262-.516-.393-1.12-.393-1.812s.131-1.294.393-1.807a2.848 2.848 0 0 1 1.125-1.191c.487-.279 1.052-.418 1.695-.418Zm0 1.425c-.27 0-.504.076-.7.228-.193.147-.34.37-.443.67-.102.295-.153.66-.153 1.093 0 .435.05.801.153 1.1.102.3.25.524.443.676.196.147.43.22.7.22.27 0 .502-.073.694-.22.193-.152.341-.375.443-.67.103-.299.153-.667.153-1.106 0-.65-.112-1.145-.337-1.481a1.08 1.08 0 0 0-.953-.51ZM32.7 5.25c.61 0 1.127.1 1.549.3.422.197.74.48.953.849.217.368.325.809.325 1.32v2.704c0 .29.02.562.062.812.044.245.108.4.19.466V12h-1.935a5.895 5.895 0 0 1-.105-.684 7.745 7.745 0 0 1-.02-.228 2.293 2.293 0 0 1-.151.203c-.205.242-.47.437-.793.584-.32.143-.685.215-1.094.215-.406 0-.77-.08-1.094-.24a1.845 1.845 0 0 1-.756-.682 1.984 1.984 0 0 1-.27-1.045c0-.606.178-1.069.535-1.388.356-.324.87-.534 1.542-.633l1.125-.16c.225-.032.403-.074.534-.123a.622.622 0 0 0 .288-.196.549.549 0 0 0 .093-.327.65.65 0 0 0-.11-.367.702.702 0 0 0-.32-.27c-.14-.07-.31-.105-.51-.105-.32 0-.576.083-.768.251-.193.164-.298.39-.314.676h-1.923c.016-.434.147-.82.393-1.155.25-.34.596-.604 1.039-.792.442-.189.954-.283 1.535-.283Zm.99 3.498a.98.98 0 0 1-.215.14 2.49 2.49 0 0 1-.584.178l-.473.092c-.315.061-.553.156-.713.283-.155.127-.233.305-.233.534 0 .23.084.412.252.547.168.135.383.203.645.203s.494-.058.694-.173c.201-.118.355-.282.461-.49.11-.21.166-.448.166-.714v-.6Zm4.526-2.375c.065-.125.138-.243.221-.349.197-.25.437-.44.719-.571.282-.135.6-.203.952-.203.528 0 .988.138 1.377.412.389.275.688.67.896 1.186.21.512.314 1.12.314 1.824 0 .7-.107 1.309-.32 1.825-.213.512-.518.906-.915 1.18-.393.275-.854.412-1.383.412-.352 0-.667-.062-.946-.184a1.832 1.832 0 0 1-.7-.554 2.2 2.2 0 0 1-.234-.383V12h-1.843V3h1.862v3.373Zm1.284.296c-.274 0-.51.085-.707.253-.192.163-.338.397-.436.7a3.376 3.376 0 0 0-.148 1.05c0 .406.05.759.148 1.058.098.299.243.53.436.694.197.164.433.246.707.246.279 0 .512-.082.7-.246.193-.164.336-.395.43-.694.099-.3.148-.652.148-1.058 0-.405-.05-.757-.147-1.056-.095-.299-.238-.53-.43-.694a1.015 1.015 0 0 0-.7-.253Zm9.416-1.419c.602 0 1.136.131 1.604.393.466.262.829.643 1.086 1.143.263.5.394 1.097.394 1.794 0 .25-.002.449-.006.596H47.51c.018.288.071.538.164.75a1.3 1.3 0 0 0 .491.596c.214.13.465.196.757.196.319 0 .583-.082.792-.246.209-.167.34-.403.393-.706h1.862a2.48 2.48 0 0 1-.485 1.235 2.54 2.54 0 0 1-1.051.805c-.439.188-.949.283-1.53.283-.655 0-1.225-.125-1.708-.375a2.672 2.672 0 0 1-1.13-1.143c-.267-.508-.4-1.137-.4-1.887 0-.712.14-1.327.418-1.843a2.86 2.86 0 0 1 1.155-1.186c.491-.27 1.051-.405 1.678-.405Zm-.044 1.345c-.274 0-.516.068-.725.203a1.29 1.29 0 0 0-.479.59 2.045 2.045 0 0 0-.132.498h2.562a1.873 1.873 0 0 0-.138-.602 1.061 1.061 0 0 0-.418-.516 1.243 1.243 0 0 0-.67-.173Z" clip-rule="evenodd"/>
+  <path fill="#FCFBF8" d="m26.605 9.995 1.342-4.566h1.924L27.628 12h-2.07l-2.33-6.57h1.98l1.397 4.565Zm-13.013.143h2.256c1.632 0 1.421 1.837 1.418 1.861h-5.603V3h1.93v7.138Zm31.516 1.861h-1.862V3h1.862v8.999Z"/>
+  <path fill="url(#a)" fill-rule="evenodd" d="M2.7 3c1.492 0 2.7 1.192 2.7 2.663v1.012h.9c1.49 0 2.7 1.192 2.7 2.662S7.791 12 6.3 12H0V5.663C0 4.193 1.209 3 2.7 3Z" clip-rule="evenodd"/>
+  <defs>
+    <radialGradient id="a" cx="0" cy="0" r="1" gradientTransform="matrix(-1.54236 7.07838 -10.231 -2.15602 4.627 5.022)" gradientUnits="userSpaceOnUse">
+      <stop offset=".106" stop-color="#FE7B02"/>
+      <stop offset=".394" stop-color="#FE3F21"/>
+      <stop offset=".608" stop-color="#F858BC"/>
+      <stop offset=".929" stop-color="#575ECF"/>
+    </radialGradient>
+  </defs>
+</svg>
+
+
+	</a>
+	
+	<span id="lovable-badge-divider" aria-hidden="true"></span>
+	
+	<button 
+		id="lovable-badge-close"
+		aria-label="Dismiss"
+		title="Dismiss"
+		type="button">
+		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16" aria-hidden="true">
+			<path d="M10.646 4.646a.5.5 0 1 1 .707.708L8.707 8l2.646 2.646a.5.5 0 1 1-.707.707L8 8.707l-2.646 2.646a.5.5 0 1 1-.708-.707L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708L8 7.293l2.646-2.647Z"/>
+		</svg>
+	</button>
+</aside>
+<script>
+	// Don't show the lovable-badge if the page is in an iframe or if it's being rendered by puppeteer (screenshot service)
+	if (window.self !== window.top || navigator.userAgent.includes('puppeteer')) {
+		// the page is in an iframe
+		var badge = document.getElementById('lovable-badge');
+		if (badge) {
+			badge.style.display = 'none';
+		}
+	}
+
+	// Add click event listener to close button with animation
+	var closeButton = document.getElementById('lovable-badge-close');
+	if (closeButton) {
+		closeButton.addEventListener('click', function(event) {
+			event.preventDefault();
+			event.stopPropagation();
+			var badge = document.getElementById('lovable-badge');
+			if (badge) {
+				badge.classList.add('closing');
+				setTimeout(function() {
+					if (badge) {
+						badge.style.display = 'none';
+					}
+				}, 240);
+			}
+		});
+	}
+</script>
 </body>
 </html>
