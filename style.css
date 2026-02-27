@@ -7,19 +7,23 @@
    1. CSS CUSTOM PROPERTIES
 ===================================================== */
 :root {
-  --maroon:       #6D1A2A;
-  --maroon-dark:  #4A0F1A;
-  --gold:         #C8973A;
-  --gold-light:   #E4B86A;
-  --cream:        #FAF7F2;
-  --dark:         #1C1410;
-  --text:         #2E2420;
-  --text-muted:   #7A6A62;
-  --white:        #FFFFFF;
-  --sand:         #EDE5D8;
-  --border:       rgba(200, 151, 58, 0.18);
-  --nav-h:        80px;
-  --ease:         0.3s ease;
+  --burgundy:      #8A1538;   /* main Qatar color */
+  --burgundy-dark: #5E0F25;
+
+  --turquoise:     #00A7B5;
+  --turquoise-soft:#6ED3DB;
+
+  --cream:         #F7F5F2;
+  --light-bg:      #FAFAFA;
+
+  --text:          #2A2A2A;
+  --text-muted:    #6B6B6B;
+
+  --white:         #FFFFFF;
+  --border:        rgba(0,0,0,0.08);
+
+  --nav-h:         80px;
+  --ease:          0.3s ease;
 }
 
 
