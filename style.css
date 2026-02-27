@@ -92,10 +92,15 @@ ul    { list-style:none; }
   border-radius:1px; transition:all var(--ease);
   cursor:pointer; font-family:'Jost',sans-serif;
 }
-.btn-gold          { background:var(--gold); color:var(--dark); border:2px solid var(--gold); }
-.btn-gold:hover    { background:transparent; color:var(--gold); }
-.btn-outline-light { background:transparent; color:var(--white); border:2px solid rgba(255,255,255,0.4); }
-.btn-outline-light:hover { border-color:var(--gold); color:var(--gold); }
+.btn-primary {
+  background: var(--burgundy);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: var(--burgundy-dark);
+}
 
 /* =====================================================
    6. LINK ARROW
