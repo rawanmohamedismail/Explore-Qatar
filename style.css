@@ -145,12 +145,17 @@ ul    { list-style:none; }
    8. NAVIGATION
 ===================================================== */
 #navbar {
-  position:fixed; top:0; left:0; right:0; z-index:1000;
-  height:var(--nav-h);
-  background:rgba(28,20,16,0.96);
-  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(200,151,58,0.15);
-  transition:background 0.4s, box-shadow 0.4s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  height: var(--nav-h);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid var(--border);
 }
 #navbar {
   background: rgba(255,255,255,0.95);
