@@ -74,8 +74,12 @@ ul    { list-style:none; }
 .container  { max-width:1280px; margin:0 auto; padding:0 60px; }
 .section-pad{ padding:100px 0; }
 
-.gold-bar        { width:50px; height:3px; background:var(--gold); margin-bottom:22px; }
-.gold-bar.center { margin-left:auto; margin-right:auto; }
+.accent-bar {
+  width: 50px;
+  height: 4px;
+  background: var(--turquoise);
+  margin-bottom: 22px;
+}
 
 .section-header            { margin-bottom:56px; }
 .section-header.centered   { text-align:center; }
