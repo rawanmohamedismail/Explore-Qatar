@@ -1,474 +1,289 @@
-/* =====================================================
-   VISIT QATAR STYLE — Burgundy & Turquoise Theme
-===================================================== */
+/* =========================
+   COLOR SYSTEM
+========================= */
 
-/* =====================================================
-   1. ROOT COLORS
-===================================================== */
-:root{
-  --burgundy:#8A1538;
-  --burgundy-dark:#6E102C;
+:root {
+  --royal-teal: #00627B;
+  --royal-teal-light: #0d7f9d;
 
-  --turquoise:#00A7B5;
-  --turquoise-light:#5ED6DF;
+  --ruby: #7D002A;
+  --ruby-dark: #5a001f;
 
-  --cream:#F6F3EF;
-  --white:#FFFFFF;
-  --light-bg:#FAFAFA;
+  --white-main: #FFFDF8;
+  --background: #f7f7f7;
 
-  --text:#2A2A2A;
-  --text-muted:#6B6B6B;
+  --text-dark: #222;
+  --text-light: #6b6b6b;
 
-  --border:rgba(0,0,0,0.08);
+  --border: rgba(0,0,0,0.08);
 
-  --nav-h:80px;
-  --ease:0.3s ease;
+  --nav-height: 80px;
+  --transition: 0.3s ease;
 }
 
-/* =====================================================
-   2. RESET
-===================================================== */
-*,
-*::before,
-*::after{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:'Jost',sans-serif;
-  color:var(--text);
-  background:var(--white);
-  overflow-x:hidden;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-button{
-  border:none;
-  background:none;
-  cursor:pointer;
-  font-family:'Jost',sans-serif;
-}
-
-ul{
-  list-style:none;
-}
-
-/* =====================================================
-   3. CONTAINER
-===================================================== */
-.container{
-  max-width:1280px;
-  margin:auto;
-  padding:0 50px;
-}
-
-.section-pad{
-  padding:100px 0;
-}
-
-/* =====================================================
-   4. TYPOGRAPHY
-===================================================== */
-.eyebrow{
-  font-size:11px;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  color:var(--turquoise);
-  font-weight:600;
-  margin-bottom:12px;
-}
-
-.display-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(34px,4vw,58px);
-  line-height:1.1;
-  color:var(--burgundy);
-}
-
-.display-title em{
-  color:var(--turquoise);
-  font-style:italic;
-}
-
-.display-title.light{
-  color:white;
-}
-
-.display-title.light em{
-  color:var(--turquoise-light);
-}
-
-.body-text{
-  font-size:15px;
-  line-height:1.8;
-  color:var(--text-muted);
-  max-width:620px;
-}
-
-.body-text.light{
-  color:rgba(255,255,255,0.75);
-}
-
-/* =====================================================
-   5. GOLD BAR (NOW TURQUOISE)
-===================================================== */
-.gold-bar{
-  width:60px;
-  height:4px;
-  background:var(--turquoise);
-  margin:18px 0;
-}
-
-.gold-bar.center{
-  margin-left:auto;
-  margin-right:auto;
-}
-
-/* =====================================================
-   6. NAVBAR
-===================================================== */
-#navbar{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  z-index:1000;
-
-  height:var(--nav-h);
-  background:white;
-  border-bottom:1px solid var(--border);
-  backdrop-filter:blur(10px);
-}
+/* =========================
+   GLOBAL
+========================= */
 
-.nav-inner{
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 40px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* logo */
-.nav-logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: var(--background);
+  color: var(--text-dark);
+  line-height: 1.6;
 }
 
-.nav-logo-wordmark{
-  font-family:'Cormorant Garamond',serif;
-  font-size:20px;
-  color:var(--burgundy);
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
 }
 
-.w-qatar{
-  color:var(--turquoise);
-}
-
-/* center nav */
-.nav-center{
-  display:flex;
-  gap:30px;
-}
+/* =========================
+   NAVBAR
+========================= */
 
-.nav-link{
-  font-size:14px;
-  font-weight:500;
-  color:var(--text);
-  transition:var(--ease);
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
 }
 
-.nav-link:hover{
-  color:var(--turquoise);
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 
-/* right side */
-.nav-right{
-  display:flex;
-  align-items:center;
-  gap:18px;
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--ruby);
 }
 
-.nav-btn-login{
-  color:var(--burgundy);
-  font-weight:500;
+.nav-links {
+  display: flex;
+  gap: 30px;
 }
 
-.nav-btn-signup{
-  background:var(--burgundy);
-  color:white;
-  padding:8px 18px;
-  border-radius:4px;
-  transition:var(--ease);
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: var(--transition);
 }
 
-.nav-btn-signup:hover{
-  background:var(--burgundy-dark);
+.nav-links a:hover {
+  color: var(--royal-teal);
 }
 
-/* =====================================================
-   7. BUTTONS
-===================================================== */
-.btn{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:14px 30px;
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:2px;
-  transition:var(--ease);
-}
+/* =========================
+   HERO SECTION
+========================= */
 
-.btn-gold{
-  background:var(--burgundy);
-  color:white;
-}
+.hero {
+  height: 100vh;
+  background: linear-gradient(
+      rgba(0,0,0,0.25),
+      rgba(0,0,0,0.25)
+    ),
+    url("images/qatar-hero.jpg") center/cover no-repeat;
 
-.btn-gold:hover{
-  background:var(--burgundy-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: var(--nav-height);
 }
 
-.btn-outline-light{
-  border:2px solid var(--turquoise);
-  color:var(--turquoise);
+.hero h1 {
+  font-size: 60px;
+  color: white;
+  margin-bottom: 20px;
 }
 
-.btn-outline-light:hover{
-  background:var(--turquoise);
-  color:white;
+.hero span {
+  color: var(--royal-teal);
 }
 
-/* =====================================================
-   8. HERO SECTION
-===================================================== */
-.hero-carousel{
-  margin-top:var(--nav-h);
-  position:relative;
-  height:90vh;
-  overflow:hidden;
+.hero p {
+  color: white;
+  max-width: 600px;
+  margin: auto;
 }
 
-.hero-slide{
-  position:absolute;
-  width:100%;
-  height:100%;
-  opacity:0;
-  transition:opacity 0.6s ease;
-}
+/* =========================
+   BUTTONS
+========================= */
 
-.hero-slide.active{
-  opacity:1;
+.btn {
+  padding: 14px 28px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
 }
 
-.slide-bg{
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:linear-gradient(120deg,var(--burgundy),#1a0f14);
+.btn-primary {
+  background: var(--ruby);
+  color: white;
 }
 
-.slide-content{
-  position:relative;
-  height:100%;
-  display:flex;
-  align-items:center;
+.btn-primary:hover {
+  background: var(--ruby-dark);
 }
 
-.slide-content-inner{
-  max-width:650px;
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--royal-teal);
+  color: var(--royal-teal);
 }
 
-.slide-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:64px;
-  color:white;
+.btn-secondary:hover {
+  background: var(--royal-teal);
+  color: white;
 }
 
-.slide-desc{
-  color:white;
-  margin-top:20px;
-  margin-bottom:30px;
-}
+/* =========================
+   SECTIONS
+========================= */
 
-/* =====================================================
-   9. STATS BAR
-===================================================== */
-.stats-bar{
-  background:var(--cream);
-  padding:40px 0;
+section {
+  padding: 100px 0;
 }
 
-.stats-inner{
-  display:flex;
-  justify-content:space-between;
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
 }
 
-.stat-block{
-  text-align:center;
+.section-title h2 {
+  font-size: 36px;
+  color: var(--ruby);
 }
 
-.stat-num{
-  font-size:34px;
-  font-weight:600;
-  color:var(--burgundy);
+.section-title p {
+  color: var(--text-light);
 }
 
-.stat-label{
-  font-size:14px;
-  color:var(--text-muted);
-}
+/* =========================
+   DESTINATION CARDS
+========================= */
 
-/* =====================================================
-   10. DESTINATION CARDS
-===================================================== */
-.dest-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
 }
 
-.dest-card{
-  background:white;
-  padding:30px;
-  border-radius:10px;
-  transition:var(--ease);
-  cursor:pointer;
-  border:1px solid var(--border);
+.card {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  transition: var(--transition);
 }
 
-.dest-card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 15px 30px rgba(0,0,0,0.08);
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
-.dest-card-name{
-  font-size:22px;
-  font-weight:600;
-  color:var(--burgundy);
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
-/* =====================================================
-   11. EXPERIENCE CARDS
-===================================================== */
-.exp-row{
-  display:flex;
-  gap:30px;
-  overflow-x:auto;
+.card-content {
+  padding: 20px;
 }
 
-.exp-card{
-  min-width:260px;
-  background:white;
-  padding:20px;
-  border-radius:10px;
-  transition:var(--ease);
-  border:1px solid var(--border);
+.card-content h3 {
+  margin-bottom: 10px;
 }
 
-.exp-card:hover{
-  transform:translateY(-6px);
+.card-content p {
+  color: var(--text-light);
 }
 
-.exp-card-title{
-  font-weight:600;
-  color:var(--burgundy);
-}
+/* =========================
+   FEATURE SECTION
+========================= */
 
-/* =====================================================
-   12. WHY QATAR
-===================================================== */
-.why-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
+.feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
 }
 
-.why-item{
-  background:white;
-  padding:30px;
-  border-radius:10px;
-  border:1px solid var(--border);
+.feature img {
+  width: 100%;
+  border-radius: 20px;
 }
 
-.why-icon{
-  font-size:22px;
-  color:var(--turquoise);
-  margin-bottom:10px;
+.feature-text h2 {
+  color: var(--ruby);
+  margin-bottom: 20px;
 }
 
-.why-item-title{
-  font-weight:600;
-  color:var(--burgundy);
-  margin-bottom:8px;
-}
+/* =========================
+   FOOTER
+========================= */
 
-/* =====================================================
-   13. NEWSLETTER
-===================================================== */
-.newsletter-section{
-  background:var(--burgundy);
-  color:white;
-  padding:100px 0;
+footer {
+  background: var(--ruby);
+  color: white;
+  padding: 50px 0;
 }
 
-.nl-form{
-  margin-top:20px;
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.nl-input{
-  padding:14px;
-  width:260px;
-  border-radius:4px;
-  border:none;
-  margin-right:10px;
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.nl-submit{
-  padding:14px 24px;
-  background:var(--turquoise);
-  color:white;
-  border-radius:4px;
+.footer-links a {
+  color: white;
+  text-decoration: none;
 }
 
-/* =====================================================
-   14. FOOTER
-===================================================== */
-footer{
-  background:#111;
-  color:#bbb;
-  padding:80px 0 40px;
+.footer-links a:hover {
+  color: var(--royal-teal);
 }
 
-.footer-top{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:40px;
-}
+/* =========================
+   RESPONSIVE
+========================= */
 
-.footer-col h4{
-  color:white;
-  margin-bottom:14px;
-}
+@media (max-width: 900px) {
+  .hero h1 {
+    font-size: 40px;
+  }
 
-.footer-col ul li{
-  margin-bottom:8px;
-}
+  .feature {
+    grid-template-columns: 1fr;
+  }
 
-.footer-bottom{
-  margin-top:40px;
-  border-top:1px solid #333;
-  padding-top:20px;
-  display:flex;
-  justify-content:space-between;
+  .nav-links {
+    display: none;
+  }
 }
