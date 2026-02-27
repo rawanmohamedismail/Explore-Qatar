@@ -353,7 +353,7 @@ ul    { list-style:none; }
   font-size:clamp(52px,7vw,96px); font-weight:600;
   color:var(--white); line-height:0.95; margin-bottom:22px;
 }
-.slide-title em { color:var(--gold-light); font-style:italic; }
+.slide-title em { color:var(--turquoise-light); font-style:italic; }
 
 .slide-desc {
   font-size:15px; font-weight:300; line-height:1.82;
