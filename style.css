@@ -607,7 +607,7 @@ footer { background:#0E0A08; padding:72px 0 0; }
 }
 .footer-col ul li a:hover { color:rgba(255,255,255,0.8); padding-left:6px; }
 .footer-contact-item { display:flex; align-items:flex-start; gap:12px; margin-bottom:14px; }
-.footer-contact-item i { color:var(--gold); font-size:12px; margin-top:2px; flex-shrink:0; }
+.footer-contact-item i { color:var(--turquoise); font-size:12px; margin-top:2px; flex-shrink:0; }
 .footer-contact-item p { font-size:13px; font-weight:300; color:rgba(255,255,255,0.4); line-height:1.65; }
 .footer-bottom {
   padding:22px 0; border-top:1px solid rgba(255,255,255,0.04);
