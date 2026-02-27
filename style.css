@@ -574,7 +574,7 @@ ul    { list-style:none; }
 }
 .nl-submit:hover { background:var(--turquoise-light); }
 .nl-note { font-size:12px; font-weight:300; color:rgba(255,255,255,0.3); display:flex; align-items:center; gap:6px; }
-.nl-success { font-size:13px; font-weight:500; color:var(--gold-light); min-height:20px; }
+.nl-success { font-size:13px; font-weight:500; color:var(--turquoise-light); min-height:20px; }
 
 /* =====================================================
    15. FOOTER
