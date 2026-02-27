@@ -129,7 +129,7 @@ ul    { list-style:none; }
 }
 .link-arrow:hover      { gap:14px; color:var(--gold); }
 .link-arrow.light      { color:rgba(255,255,255,0.65); }
-.link-arrow.light:hover{ color:var(--gold-light); }
+.link-arrow.light:hover{ color:var(--turquoise-light); }
 
 /* =====================================================
    7. GRADIENT FILLS
