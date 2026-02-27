@@ -7,7 +7,28 @@
    1. CSS CUSTOM PROPERTIES
 ===================================================== */
 
+:root {
+  /* Main brand colors */
+  --burgundy: #8A1538;
+  --burgundy-dark: #6E102C;
 
+  --turquoise: #00A7B5;
+  --turquoise-light: #5ED6DF;
+
+  /* Backgrounds */
+  --cream: #F6F3EF;
+  --light-bg: #FAFAFA;
+  --white: #FFFFFF;
+
+  /* Text */
+  --text: #2A2A2A;
+  --text-muted: #6B6B6B;
+
+  /* UI */
+  --border: rgba(0,0,0,0.08);
+  --nav-h: 80px;
+  --ease: 0.3s ease;
+}
 
 
 .hero-carousel {
