@@ -63,7 +63,7 @@ ul    { list-style:none; }
 }
 .display-title em { color: var(--burgundy); }
 .display-title.light    { color:var(--white); }
-.display-title.light em { color:var(--gold-light); }
+.display-title.light em { color:var(--turquoise-light); }
 
 .body-text {
   font-size:15px; font-weight:300;
