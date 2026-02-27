@@ -131,9 +131,9 @@ ul    { list-style:none; }
   border-bottom:1px solid rgba(200,151,58,0.15);
   transition:background 0.4s, box-shadow 0.4s;
 }
-#navbar.scrolled {
-  background:rgba(28,20,16,1);
-  box-shadow:0 4px 30px rgba(0,0,0,0.4);
+#navbar {
+  background: rgba(255,255,255,0.95);
+  border-bottom: 1px solid var(--border);
 }
 .nav-inner {
   height:100%; display:flex; align-items:center;
