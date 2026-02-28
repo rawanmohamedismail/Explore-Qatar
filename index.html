@@ -119,40 +119,49 @@
 </div>
 
 <!-- ============================================================
-     HERO — FULL-SCREEN VIDEO BACKGROUND
-     ============================================================
-
-     HOW TO ADD YOUR QATAR VIDEO:
-     1. Download a free royalty-free Qatar aerial video from:
-          Pexels:  https://www.pexels.com/search/videos/doha/
-          Pixabay: https://pixabay.com/videos/search/qatar/
-        Recommended search terms: "Doha skyline", "Qatar aerial", "Qatar cityscape"
-     2. Create a folder called "videos" next to your HTML files.
-     3. Save your downloaded file as: videos/qatar.mp4
-     4. The poster attribute shows a still image while the video loads —
-        replace "images/placeholder.jpg" with a Qatar skyline photo.
+     HERO — IMAGE SLIDESHOW
+     Place banner1.jpeg, banner2.jpg, banner4.png, banner5.png
+     inside the "images/" folder next to your HTML files.
      ============================================================ -->
-<section class="hero hero-video">
+<section class="hero hero-slideshow">
 
-  <div class="hero-video-wrap">
-    <video
-      class="hero-vid"
-      autoplay
-      muted
-      loop
-      playsinline
-      poster="images/placeholder.jpg">
-      <source src="videos/qatar.mp4" type="video/mp4">
-      <!-- Fallback: if the video file is missing, the poster image shows instead -->
-    </video>
-    <div class="hero-video-overlay"></div>
+  <!-- Slide 1 — banner1 -->
+  <div class="slide active">
+    <img class="slide-img" src="images/banner1.jpeg" alt="Qatar skyline at dusk">
+    <div class="slide-overlay"></div>
   </div>
 
-  <!-- Mute / Unmute button (bottom-right) -->
-  <button class="video-sound-btn" id="videoSoundBtn" aria-label="Toggle video sound">
-    <i class="fas fa-volume-mute" id="videoSoundIcon"></i>
-  </button>
+  <!-- Slide 2 — banner2 -->
+  <div class="slide">
+    <img class="slide-img" src="images/banner2.jpg" alt="Doha Corniche waterfront">
+    <div class="slide-overlay"></div>
+  </div>
 
+  <!-- Slide 3 — banner4 -->
+  <div class="slide">
+    <img class="slide-img" src="images/banner4.png" alt="Qatar desert landscape">
+    <div class="slide-overlay"></div>
+  </div>
+
+  <!-- Slide 4 — banner5 -->
+  <div class="slide">
+    <img class="slide-img" src="images/banner5.png" alt="Traditional Qatari culture">
+    <div class="slide-overlay"></div>
+  </div>
+
+  <!-- Prev / Next arrows -->
+  <button class="slideshow-prev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+  <button class="slideshow-next" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+
+  <!-- Dot navigation -->
+  <div class="slideshow-dots">
+    <div class="slideshow-dot active" aria-label="Slide 1"></div>
+    <div class="slideshow-dot" aria-label="Slide 2"></div>
+    <div class="slideshow-dot" aria-label="Slide 3"></div>
+    <div class="slideshow-dot" aria-label="Slide 4"></div>
+  </div>
+
+  <!-- Hero content -->
   <div class="container">
     <div class="hero-content">
       <div class="hero-eyebrow"><i class="fas fa-star"></i> Welcome to Qatar</div>
@@ -497,7 +506,7 @@
           </div>
           <div class="footer-contact-item">
             <i class="fas fa-envelope"></i>
-            <span>info@exploreqatar.qa</span>
+            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="036a6d656c43667b736f6c716672627762712d7262">[email&#160;protected]</a></span>
           </div>
           <div class="footer-contact-item">
             <i class="fas fa-clock"></i>
@@ -531,13 +540,4 @@
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Use</a>
           <a href="#">Cookie Settings</a>
-          <a href="#">Accessibility</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script src="script.js"></script>
-</body>
-</html>
+          <a href="#">Acce
