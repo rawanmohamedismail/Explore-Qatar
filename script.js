@@ -120,18 +120,60 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* ──────────────────────────────────────────────────────────
-     VIDEO HERO — SOUND TOGGLE
-     Toggles mute/unmute on the homepage hero video.
+     HERO IMAGE SLIDESHOW
+     Auto-advances every 5 seconds with a crossfade transition.
+     Supports dot navigation and prev/next arrow controls.
+     Ken Burns zoom effect is handled purely in CSS.
   ────────────────────────────────────────────────────────── */
-  const videoEl   = document.querySelector('.hero-vid');
-  const soundBtn  = document.getElementById('videoSoundBtn');
-  const soundIcon = document.getElementById('videoSoundIcon');
+  const slides    = document.querySelectorAll('.slide');
+  const dots      = document.querySelectorAll('.slideshow-dot');
+  const prevBtn   = document.querySelector('.slideshow-prev');
+  const nextBtn   = document.querySelector('.slideshow-next');
 
-  if (videoEl && soundBtn && soundIcon) {
-    soundBtn.addEventListener('click', () => {
-      videoEl.muted = !videoEl.muted;
-      soundIcon.className = videoEl.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
+  if (slides.length) {
+    let current   = 0;
+    let timer     = null;
+    const DELAY   = 5000; // ms between auto-advances
+
+    const goTo = (index) => {
+      slides[current].classList.remove('active');
+      dots[current] && dots[current].classList.remove('active');
+
+      current = (index + slides.length) % slides.length;
+
+      slides[current].classList.add('active');
+      dots[current] && dots[current].classList.add('active');
+    };
+
+    const startTimer = () => {
+      clearInterval(timer);
+      timer = setInterval(() => goTo(current + 1), DELAY);
+    };
+
+    /* Dot clicks */
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => { goTo(i); startTimer(); });
     });
+
+    /* Arrow clicks */
+    if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); startTimer(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); startTimer(); });
+
+    /* Keyboard left / right */
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft')  { goTo(current - 1); startTimer(); }
+      if (e.key === 'ArrowRight') { goTo(current + 1); startTimer(); }
+    });
+
+    /* Pause on hover */
+    const heroEl = document.querySelector('.hero-slideshow');
+    if (heroEl) {
+      heroEl.addEventListener('mouseenter', () => clearInterval(timer));
+      heroEl.addEventListener('mouseleave', startTimer);
+    }
+
+    /* Kick off */
+    startTimer();
   }
 
   /* ──────────────────────────────────────────────────────────
