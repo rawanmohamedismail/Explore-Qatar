@@ -98,11 +98,22 @@
 </div>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-bg">
-    <img src="images/placeholder.jpg" alt="Qatar skyline at dusk">
-    <div class="hero-overlay"></div>
+<section class="hero hero-video">
+  <div class="hero-video-wrap">
+    <video class="hero-vid" autoplay muted loop playsinline poster="images/placeholder.jpg">
+      <!-- Replace src with your actual video file, e.g.: -->
+      <!-- <source src="videos/qatar-hero.mp4" type="video/mp4"> -->
+      <!-- Fallback: a free Creative Commons Qatar aerial video from a public source -->
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
   </div>
+
+  <!-- Mute / Unmute toggle -->
+  <button class="video-sound-btn" id="videoSoundBtn" aria-label="Toggle sound">
+    <i class="fas fa-volume-mute" id="videoSoundIcon"></i>
+  </button>
+
   <div class="container">
     <div class="hero-content">
       <div class="hero-eyebrow"><i class="fas fa-star"></i> Welcome to Qatar</div>
@@ -114,16 +125,38 @@
       </div>
     </div>
   </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <span>Scroll to Explore</span>
+    <div class="scroll-arrow"><i class="fas fa-chevron-down"></i></div>
+  </div>
 </section>
 
 <!-- STATS STRIP -->
 <div class="stats-strip">
   <div class="container">
     <div class="stats-grid">
-      <div class="stat-item"><div class="stat-number">11,586</div><div class="stat-label">km&sup2; of Wonders</div></div>
-      <div class="stat-item"><div class="stat-number">300+</div><div class="stat-label">Days of Sunshine</div></div>
-      <div class="stat-item"><div class="stat-number">200+</div><div class="stat-label">Nationalities</div></div>
-      <div class="stat-item"><div class="stat-number">#1</div><div class="stat-label">Safest Country</div></div>
+      <div class="stat-item">
+        <div class="stat-icon"><i class="fas fa-users"></i></div>
+        <div class="stat-number counter" data-target="2900000" data-suffix="">2.9M</div>
+        <div class="stat-label">Population</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon"><i class="fas fa-map"></i></div>
+        <div class="stat-number counter" data-target="11586" data-suffix="">11,586</div>
+        <div class="stat-label">km&sup2; Land Area</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon"><i class="fas fa-globe"></i></div>
+        <div class="stat-number counter" data-target="200" data-suffix="+">200+</div>
+        <div class="stat-label">Nationalities</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon"><i class="fas fa-shield-alt"></i></div>
+        <div class="stat-number">#1</div>
+        <div class="stat-label">Safest Country in the World</div>
+      </div>
     </div>
   </div>
 </div>
