@@ -117,6 +117,57 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  /* ── Video Hero: Sound Toggle ── */
+  const videoEl = document.querySelector('.hero-vid');
+  const soundBtn = document.getElementById('videoSoundBtn');
+  const soundIcon = document.getElementById('videoSoundIcon');
+
+  if (videoEl && soundBtn) {
+    soundBtn.addEventListener('click', () => {
+      videoEl.muted = !videoEl.muted;
+      soundIcon.className = videoEl.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
+    });
+  }
+
+  /* ── Animated Stat Counters ── */
+  const counters = document.querySelectorAll('.counter');
+
+  if (counters.length) {
+    const formatNum = (n) => {
+      if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+      if (n >= 1000) return n.toLocaleString();
+      return n.toString();
+    };
+
+    const animateCounter = (el) => {
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const duration = 2000;
+      const steps = 60;
+      const increment = target / steps;
+      let current = 0;
+      let step = 0;
+
+      const timer = setInterval(() => {
+        step++;
+        current = Math.min(Math.round(increment * step), target);
+        el.textContent = formatNum(current) + suffix;
+        if (step >= steps) clearInterval(timer);
+      }, duration / steps);
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(c => observer.observe(c));
+  }
+
   /* ── Set Active Nav Link ── */
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link, .dropdown a').forEach(link => {
