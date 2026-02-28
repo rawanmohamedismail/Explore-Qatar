@@ -3,11 +3,245 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>History of Qatar — Explore Qatar</title>
+  <title>History of Qatar | Explore Qatar</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+
+    /* ── Hero ── */
+    .page-hero {
+      position: relative; height: 70vh; min-height: 480px;
+      display: flex; align-items: flex-end; overflow: hidden;
+    }
+    .page-hero img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 35%;
+    }
+    .page-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.28) 50%, rgba(0,0,0,0.06) 100%);
+    }
+    .page-hero-content {
+      position: relative; z-index: 2;
+      padding: 0 0 56px; width: 100%;
+    }
+    .page-hero-content .breadcrumb { color: rgba(255,255,255,0.65); margin-bottom: 14px; }
+    .page-hero-content .breadcrumb a { color: rgba(255,255,255,0.65); }
+    .page-hero-content h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      color: white; font-weight: 700;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+      max-width: 680px; line-height: 1.1;
+    }
+    .page-hero-content .hero-subtitle {
+      color: rgba(255,255,255,0.8); font-size: 1.05rem;
+      margin-top: 14px; max-width: 560px; line-height: 1.7;
+    }
+
+    /* ── Era tabs ── */
+    .era-tabs {
+      display: flex; gap: 0;
+      background: var(--white);
+      border-bottom: 2px solid var(--border);
+      overflow-x: auto;
+      position: sticky; top: 72px; z-index: 100;
+    }
+    .era-btn {
+      display: flex; align-items: center; gap: 8px;
+      padding: 18px 28px;
+      font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--grey); border-bottom: 3px solid transparent;
+      margin-bottom: -2px; white-space: nowrap;
+      cursor: pointer; background: none;
+      border-left: none; border-right: none; border-top: none;
+      transition: var(--transition);
+    }
+    .era-btn:hover { color: var(--primary); }
+    .era-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+    /* ── Era panel ── */
+    .era-panel { display: none; }
+    .era-panel.active { display: block; }
+
+    /* ── Timeline ── */
+    .timeline-section { padding: 80px 0; }
+    .timeline-wrap {
+      position: relative;
+      padding-left: 0;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .timeline-wrap::before {
+      content: '';
+      position: absolute;
+      left: 100px;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    }
+    .tl-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 40px;
+      margin-bottom: 56px;
+      position: relative;
+    }
+    .tl-item::after {
+      content: '';
+      position: absolute;
+      left: 92px; top: 22px;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 4px solid white;
+      box-shadow: 0 0 0 2px var(--primary);
+      z-index: 1;
+    }
+    .tl-item.secondary::after { background: var(--secondary); box-shadow: 0 0 0 2px var(--secondary); }
+    .tl-year {
+      text-align: right;
+      padding-right: 16px;
+      padding-top: 18px;
+    }
+    .tl-year .year-val {
+      font-family: var(--font-display);
+      font-size: 1rem; font-weight: 700;
+      color: var(--primary); line-height: 1;
+    }
+    .tl-item.secondary .tl-year .year-val { color: var(--secondary); }
+    .tl-content {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      transition: box-shadow var(--transition);
+    }
+    .tl-content:hover { box-shadow: var(--shadow-lg); }
+    .tl-content h3 { font-size: 1.1rem; color: var(--dark); margin-bottom: 10px; }
+    .tl-content p { font-size: 0.9rem; line-height: 1.7; margin: 0; }
+    .tl-content .tl-tag {
+      display: inline-block;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--primary-light); color: var(--primary);
+      padding: 3px 10px; border-radius: 50px;
+      margin-bottom: 10px;
+    }
+    .tl-content .tl-tag.red { background: var(--secondary-light); color: var(--secondary); }
+
+    /* ── Feature pull-quote ── */
+    .pull-quote {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 60%, var(--secondary) 100%);
+      border-radius: var(--radius);
+      padding: 48px 56px;
+      text-align: center;
+      margin: 64px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .pull-quote::before {
+      content: '\201C';
+      position: absolute; top: -20px; left: 24px;
+      font-family: var(--font-display);
+      font-size: 12rem; line-height: 1;
+      color: rgba(255,255,255,0.06);
+    }
+    .pull-quote p {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: white; line-height: 1.6;
+      max-width: 720px; margin: 0 auto;
+    }
+    .pull-quote cite {
+      display: block;
+      font-size: 0.82rem; font-weight: 700;
+      color: rgba(255,255,255,0.65);
+      text-transform: uppercase; letter-spacing: 0.12em;
+      margin-top: 20px; font-style: normal;
+    }
+
+    /* ── Key milestones grid ── */
+    .milestones-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .milestone-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--primary);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .milestone-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .milestone-card.red { border-top-color: var(--secondary); }
+    .milestone-card .mc-year {
+      font-family: var(--font-display);
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--primary); line-height: 1;
+      margin-bottom: 10px;
+    }
+    .milestone-card.red .mc-year { color: var(--secondary); }
+    .milestone-card h4 { font-size: 1rem; margin-bottom: 10px; color: var(--dark); }
+    .milestone-card p { font-size: 0.875rem; margin: 0; line-height: 1.65; }
+
+    /* ── Did you know ── */
+    .did-you-know {
+      background: var(--primary-light); border-radius: var(--radius);
+      padding: 36px 40px; display: flex; gap: 24px; align-items: flex-start;
+      margin: 48px 0;
+    }
+    .dyk-icon { width: 52px; height: 52px; flex-shrink: 0; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .dyk-icon i { color: white; font-size: 1.2rem; }
+    .dyk-text h4 { color: var(--primary); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 6px; }
+    .dyk-text p { font-size: 0.975rem; color: var(--dark); margin: 0; line-height: 1.7; }
+
+    /* ── Explore links ── */
+    .explore-links {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    }
+    .el-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 20px; background: var(--white);
+      border-radius: var(--radius); box-shadow: var(--shadow);
+      text-decoration: none; color: var(--dark);
+      border-left: 4px solid transparent; transition: var(--transition);
+    }
+    .el-item:hover { border-left-color: var(--primary); transform: translateX(4px); box-shadow: var(--shadow-lg); }
+    .el-icon { width: 44px; height: 44px; flex-shrink: 0; background: var(--primary-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .el-icon i { color: var(--primary); }
+    .el-item strong { display: block; font-size: 0.9rem; }
+    .el-item span { font-size: 0.78rem; color: var(--grey); }
+    .el-arrow { margin-left: auto; color: var(--grey); font-size: 0.75rem; transition: var(--transition); }
+    .el-item:hover .el-arrow { color: var(--primary); transform: translateX(4px); }
+
+    /* ── Responsive ── */
+    @media (max-width: 860px) {
+      .timeline-wrap::before { left: 70px; }
+      .tl-item { grid-template-columns: 70px 1fr; }
+      .tl-item::after { left: 62px; }
+      .milestones-grid { grid-template-columns: 1fr 1fr; }
+      .explore-links { grid-template-columns: 1fr 1fr; }
+      .pull-quote { padding: 36px 28px; }
+    }
+    @media (max-width: 640px) {
+      .page-hero { height: 55vh; }
+      .timeline-wrap::before { display: none; }
+      .tl-item { grid-template-columns: 1fr; gap: 8px; }
+      .tl-item::after { display: none; }
+      .tl-year { text-align: left; padding: 0; }
+      .milestones-grid { grid-template-columns: 1fr; }
+      .explore-links { grid-template-columns: 1fr; }
+      .did-you-know { flex-direction: column; padding: 24px; }
+    }
+  </style>
 </head>
 <body>
+
+<!-- NAVBAR -->
 <nav class="navbar">
   <div class="nav-container">
     <a href="index.html" class="nav-logo">
@@ -96,168 +330,447 @@
 </div>
 
 <!-- HERO -->
-<section class="hero hero-inner">
-  <div class="hero-bg">
-    <img src="images/placeholder.jpg" alt="History of Qatar">
-    <div class="hero-overlay"></div>
-  </div>
-  <div class="container">
-    <div class="hero-content">
-      <div class="breadcrumb">
-        <a href="index.html">Home</a>
-        <i class="fas fa-chevron-right"></i>
-        <span>About Qatar</span>
-      </div>
-      <div class="hero-eyebrow"><i class="fas fa-landmark"></i> History</div>
-      <h1 class="hero-title">The History of Qatar</h1>
-      <div class="hero-desc"><p>A journey through millennia of settlement, trade, pearl diving, and remarkable transformation.</p></div>
+<section class="page-hero">
+  <img src="images/banner1.jpeg" alt="Traditional Qatari dhow at sunset near Museum of Islamic Art — a symbol of Qatar's heritage">
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><i class="fas fa-chevron-right"></i>
+      <a href="about-qatar.html">About Qatar</a><i class="fas fa-chevron-right"></i>
+      <span>History</span>
     </div>
+    <h1>History of Qatar</h1>
+    <p class="hero-subtitle">From ancient farmsteads in the 6th millennium BCE and the golden era of pearl diving, to a modern nation that has transformed itself within a single generation.</p>
   </div>
 </section>
 
+<!-- ERA TABS (sticky) -->
+<div class="era-tabs" id="eraTabs">
+  <button class="era-btn active" data-era="ancient"><i class="fas fa-scroll"></i> Ancient History</button>
+  <button class="era-btn" data-era="pearl"><i class="fas fa-gem"></i> Pearl Diving Era</button>
+  <button class="era-btn" data-era="modern"><i class="fas fa-oil-can"></i> Modern Qatar</button>
+  <button class="era-btn" data-era="today"><i class="fas fa-city"></i> Qatar Today</button>
+</div>
 
+<!-- ── ERA: ANCIENT ── -->
+<div class="era-panel active" id="era-ancient">
+  <section class="timeline-section">
+    <div class="container">
+      <div class="section-header" style="max-width:680px;margin:0 auto 56px;">
+        <div class="section-eyebrow">6000 BCE — 1800s</div>
+        <h2 class="section-title">Ancient &amp; Pre-Modern History</h2>
+        <div class="divider"></div>
+        <p class="section-desc">Qatar's land carries the memory of millennia — ancient settlers, great trade routes, and the foundations of a proud Arabian identity.</p>
+      </div>
+      <div class="timeline-wrap">
+
+        <div class="tl-item">
+          <div class="tl-year"><div class="year-val">6000 BCE</div></div>
+          <div class="tl-content">
+            <span class="tl-tag">Settlement</span>
+            <h3>First Human Settlement</h3>
+            <p>The first evidence of sustained human settlement in Qatar dates to the 6th millennium BCE — small, isolated farmsteads, stone tools, and decorated pottery belonging to the 'Ubaid period. This culture was connected to ancient Mesopotamia (modern Iraq), suggesting early trade and cultural ties across the region. The climate in eastern Arabia at this time was significantly wetter, supporting agriculture and inland wells.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year"><div class="year-val">Bronze Age</div></div>
+          <div class="tl-content">
+            <span class="tl-tag">Archaeology</span>
+            <h3>Bronze Age Settlements</h3>
+            <p>Though fewer Bronze Age remains have been found in Qatar compared to neighbouring Gulf states, significant sites are concentrated in the Al Khor region on the western coast and the Ras Brouq peninsula. The island of Jazirat bin Ghannem — now known as Purple Island — was a major site of the Kassite-controlled purple dye industry in the 2nd millennium BCE, trading with civilisations across the ancient world.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year"><div class="year-val">Neolithic</div></div>
+          <div class="tl-content">
+            <span class="tl-tag">Rock Art</span>
+            <h3>Al Jassasiya Petroglyphs</h3>
+            <p>Nearly 900 rock carvings etched into the limestone jebels of Al Jassasiya represent the most significant body of prehistoric rock art found in Qatar. Featuring images of dhow boats, pearl holders, ostriches, ancient board games, and rosette patterns, these petroglyphs reveal a sophisticated Neolithic community with rich symbolic culture and maritime knowledge.</p>
+          </div>
+        </div>
+
+        <div class="tl-item secondary">
+          <div class="tl-year"><div class="year-val">1400s–1500s</div></div>
+          <div class="tl-content">
+            <span class="tl-tag red">Colonial Era</span>
+            <h3>Portuguese Presence</h3>
+            <p>Portuguese explorers and traders arrived in the Arabian Gulf in the 16th century, establishing a maritime presence that extended across the region. Qatar's coastal communities continued their traditions of fishing, pearl diving, and trade during this period, maintaining their way of life despite the changing regional power dynamics.</p>
+          </div>
+        </div>
+
+        <div class="tl-item secondary">
+          <div class="tl-year"><div class="year-val">1700s</div></div>
+          <div class="tl-content">
+            <span class="tl-tag red">Ottoman Period</span>
+            <h3>Settlement of the Al Thani Family</h3>
+            <p>The Al Thani family — Qatar's ruling dynasty to this day — migrated to Qatar from the Najd region of the Arabian Peninsula in the 18th century. Various Arab tribes gradually consolidated around the peninsula, shaping the social and political landscape that would eventually give rise to the modern Qatari state.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ── ERA: PEARL ── -->
+<div class="era-panel" id="era-pearl">
+  <section class="timeline-section">
+    <div class="container">
+      <div class="section-header" style="max-width:680px;margin:0 auto 56px;">
+        <div class="section-eyebrow">1800s — 1930s</div>
+        <h2 class="section-title">The Pearl Diving Era</h2>
+        <div class="divider"></div>
+        <p class="section-desc">For centuries, Qatar's economy and culture were shaped by the pearl — a small, lustrous gem that connected Qatar to the courts of India, Persia, and Europe.</p>
+      </div>
+
+      <div class="pull-quote">
+        <p>For generations, Qatari men spent their summers at sea — diving to extraordinary depths in the Arabian Gulf, guided only by experience, courage, and the hope of finding a perfect pearl.</p>
+        <cite>Qatar's Maritime Heritage</cite>
+      </div>
+
+      <div class="timeline-wrap">
+
+        <div class="tl-item">
+          <div class="tl-year"><div class="year-val">1800s</div></div>
+          <div class="tl-content">
+            <span class="tl-tag">Economy</span>
+            <h3>Pearl Diving at its Peak</h3>
+            <p>Qatar became one of the most important pearl-fishing regions in the world. During summer months, entire communities would take to the sea — divers held their breath to extraordinary depths while tenders on wooden dhows hauled up oyster baskets. Qatari pearls were prized across the Indian subcontinent, Persia, and European capitals. The industry defined the rhythms of Qatari life for generations.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year"><div class="year-val">1868</div></div>
+          <div class="tl-content">
+            <span class="tl-tag">Diplomacy</span>
+            <h3>First Recognition as Independent Entity</h3>
+            <p>Sheikh Mohammed bin Thani signs an agreement with British authorities in the Arabian Gulf, marking Qatar's first recognition as an independent political entity separate from Bahrain. This landmark agreement laid the foundations for Qatar's eventual full sovereignty.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year"><div class="year-val">1878</div></div>
+          <div class="tl-content">
+            <span class="tl-tag">Unification</span>
+            <h3>Qatar Unified under Al Thani</h3>
+            <p>Sheikh Jassim bin Mohammed Al Thani — revered as the founder of the modern Qatari state — unified all tribes under Al Thani leadership, paving the way for stability and independence. This unification is commemorated every year on Qatar National Day: 18 December.</p>
+          </div>
+        </div>
+
+        <div class="tl-item secondary">
+          <div class="tl-year"><div class="year-val">1916</div></div>
+          <div class="tl-content">
+            <span class="tl-tag red">Treaty</span>
+            <h3>Anglo-Qatari Treaty</h3>
+            <p>Sheikh Abdullah bin Jassim Al Thani signs the 11-article Anglo-Qatari Treaty with Britain, formalising a relationship that provided Qatar with British protection in exchange for certain concessions — including British oversight of Qatar's foreign affairs. Sheikh Abdullah registered reservations about three articles he felt encroached on national sovereignty, including the right of British nationals to compete in the pearl trade.</p>
+          </div>
+        </div>
+
+        <div class="tl-item secondary">
+          <div class="tl-year"><div class="year-val">1930s</div></div>
+          <div class="tl-content">
+            <span class="tl-tag red">Decline</span>
+            <h3>Collapse of the Pearl Industry</h3>
+            <p>The invention of cultured pearls by Mikimoto in Japan devastated the natural pearl market worldwide. Qatar's pearl-diving industry collapsed rapidly in the early 1930s, plunging the economy into a deep recession that lasted until the discovery of oil later in the decade. This hardship tested Qatar's resilience profoundly.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ── ERA: MODERN ── -->
+<div class="era-panel" id="era-modern">
+  <section class="timeline-section">
+    <div class="container">
+      <div class="section-header" style="max-width:680px;margin:0 auto 56px;">
+        <div class="section-eyebrow">1939 — 1995</div>
+        <h2 class="section-title">The Oil Era &amp; Independence</h2>
+        <div class="divider"></div>
+        <p class="section-desc">The discovery of oil transformed Qatar's fortunes — launching one of history's most remarkable national transformations from a modest pearl-diving state to a sovereign, wealthy nation.</p>
+      </div>
+      <div class="timeline-wrap">
+
+        <div class="tl-item">
+          <div class="tl-year"><div class="year-val">1939</div></div>
+          <div class="tl-content">
+            <span class="tl-tag">Discovery</span>
+            <h3>Oil Discovered at Dukhan</h3>
+            <p>Oil is first struck at the Dukhan Field on Qatar's western coast — a discovery that would change everything. Exploration activities were paused during World War II, but the significance of what lay beneath the desert sands was already understood. Sheikh Abdullah renews the Anglo-Qatari Treaty and signs Qatar's first oil-prospecting agreement with the Anglo-Persian Oil Company the same year.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year"><div class="year-val">1950s</div></div>
+          <div class="tl-content">
+            <span class="tl-tag">Growth</span>
+            <h3>Oil Revenues Begin Flowing</h3>
+            <p>By the early 1950s, oil exports were generating significant revenues and Qatar's population began to grow rapidly. The country started participating in international organisations — joining UNESCO and the World Health Organisation — beginning its integration into the global community. Infrastructure, healthcare, and education began to develop at remarkable speed.</p>
+          </div>
+        </div>
+
+        <div class="tl-item secondary">
+          <div class="tl-year"><div class="year-val">1971</div></div>
+          <div class="tl-content">
+            <span class="tl-tag red">Independence</span>
+            <h3>Full Independence — 3 September 1971</h3>
+            <p>Following Britain's withdrawal of troops from east of Suez, Qatar declares full independence on 3 September 1971, joining the United Nations as a fully sovereign state. The first Qatari Constitution is ratified through an Interim Basic Statute, establishing a Council of Ministers and the machinery of a modern government. Qatar chose independence rather than joining the United Arab Emirates.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year"><div class="year-val">1971–1990</div></div>
+          <div class="tl-content">
+            <span class="tl-tag">Development</span>
+            <h3>Rapid National Development</h3>
+            <p>Oil revenues fund a sweeping national development programme — new hospitals, schools, roads, and housing transform Qatar from a collection of fishing villages into a modern state. Doha grows rapidly as the capital. Qatar becomes a founding member of OPEC and the Gulf Cooperation Council (GCC), establishing itself as a significant regional player.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year"><div class="year-val">1997</div></div>
+          <div class="tl-content">
+            <span class="tl-tag">Energy</span>
+            <h3>First LNG Export</h3>
+            <p>Qatar begins exporting liquefied natural gas (LNG) from the North Field — the world's largest single natural gas reservoir, shared with Iran. This marks the beginning of a new chapter in Qatar's economic story, gradually transforming it from an oil exporter to the world's largest LNG exporter, with the financial engine that would fund Qatar's extraordinary global ambitions.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ── ERA: TODAY ── -->
+<div class="era-panel" id="era-today">
+  <section class="timeline-section">
+    <div class="container">
+      <div class="section-header" style="max-width:680px;margin:0 auto 56px;">
+        <div class="section-eyebrow">1995 — Present</div>
+        <h2 class="section-title">Qatar on the World Stage</h2>
+        <div class="divider"></div>
+        <p class="section-desc">Under visionary leadership, Qatar has transformed itself into a global destination for culture, diplomacy, sport, and innovation.</p>
+      </div>
+      <div class="timeline-wrap">
+
+        <div class="tl-item">
+          <div class="tl-year"><div class="year-val">1995</div></div>
+          <div class="tl-content">
+            <span class="tl-tag">Leadership</span>
+            <h3>Sheikh Hamad Assumes Power</h3>
+            <p>Sheikh Hamad bin Khalifa Al Thani assumes leadership of Qatar, launching an era of extraordinary ambition and transformation. Under his leadership, Qatar founds Al Jazeera (1996), builds Education City, launches Qatar Airways into a global force, and begins positioning the country as a major diplomatic, cultural, and sporting hub.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year"><div class="year-val">2008</div></div>
+          <div class="tl-content">
+            <span class="tl-tag">Culture</span>
+            <h3>Museum of Islamic Art Opens</h3>
+            <p>The Museum of Islamic Art — designed by the legendary architect I.M. Pei, who came out of retirement specifically for the project — opens on Doha's waterfront. It becomes one of the world's most celebrated museums and a symbol of Qatar's commitment to art, culture, and heritage. Qatar's National Museum, designed by Jean Nouvel, follows in 2019.</p>
+          </div>
+        </div>
+
+        <div class="tl-item secondary">
+          <div class="tl-year"><div class="year-val">2013</div></div>
+          <div class="tl-content">
+            <span class="tl-tag red">Leadership</span>
+            <h3>Sheikh Tamim Assumes Power</h3>
+            <p>In a peaceful and widely praised transition, Sheikh Hamad voluntarily abdicates in favour of his son, Sheikh Tamim bin Hamad Al Thani — making him one of the youngest heads of state in the world. Sheikh Tamim continues Qatar's ambitious development while strengthening Qatar's National Vision 2030 and its role as a global mediator and host of major international events.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year"><div class="year-val">2021</div></div>
+          <div class="tl-content">
+            <span class="tl-tag">Democracy</span>
+            <h3>First Legislative Elections</h3>
+            <p>Qatar holds its first-ever legislative elections in October 2021, with Qatari citizens voting for 30 of the 45 members of the Shura Council. This landmark moment represents a significant step in Qatar's political evolution and demonstrated its commitment to gradual democratic development.</p>
+          </div>
+        </div>
+
+        <div class="tl-item secondary">
+          <div class="tl-year"><div class="year-val">2022</div></div>
+          <div class="tl-content">
+            <span class="tl-tag red">Milestone</span>
+            <h3>FIFA World Cup — First in the Arab World</h3>
+            <p>Qatar hosts the 2022 FIFA World Cup — the first ever held in the Arab world and in the Middle East. Over 1.4 million visitors attended, and billions around the world watched. Qatar's eight purpose-built, air-conditioned stadiums — including Zaha Hadid's iconic Al Janoub Stadium — drew international acclaim. The event transformed global perceptions of Qatar and cemented its status as a world-class destination.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="did-you-know">
+        <div class="dyk-icon"><i class="fas fa-star"></i></div>
+        <div class="dyk-text">
+          <h4>Did You Know?</h4>
+          <p>Qatar has transformed from a pearl-diving economy to one of the world's wealthiest nations in less than a century — arguably the fastest national transformation in modern history. GDP per capita has grown from near zero in the 1940s to among the highest in the world today.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY MILESTONES GRID -->
+  <section class="content-section alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Key Milestones</div>
+        <h2 class="section-title">Defining Moments in Modern Qatar</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="milestones-grid">
+        <div class="milestone-card">
+          <div class="mc-year">1996</div>
+          <h4>Al Jazeera Founded</h4>
+          <p>Qatar launches Al Jazeera — the Arab world's first 24-hour news channel, transforming media across the Middle East and establishing Qatar as a global voice.</p>
+        </div>
+        <div class="milestone-card">
+          <div class="mc-year">2003</div>
+          <h4>New Constitution</h4>
+          <p>Qatar's permanent Constitution is approved in a national referendum, providing a formal legal framework for the country's governance and civil rights.</p>
+        </div>
+        <div class="milestone-card">
+          <div class="mc-year">2006</div>
+          <h4>Asian Games Host</h4>
+          <p>Qatar hosts the 15th Asian Games — the first in the Middle East — establishing its credentials as a world-class sports host nation.</p>
+        </div>
+        <div class="milestone-card red">
+          <div class="mc-year">2010</div>
+          <h4>World Cup Bid Won</h4>
+          <p>FIFA awards Qatar the 2022 World Cup — the announcement that sparked a decade of unprecedented infrastructure development and global attention.</p>
+        </div>
+        <div class="milestone-card red">
+          <div class="mc-year">2019</div>
+          <h4>National Museum Opens</h4>
+          <p>Jean Nouvel's spectacular National Museum of Qatar opens — its desert-rose-inspired form becoming one of the world's most talked-about buildings.</p>
+        </div>
+        <div class="milestone-card">
+          <div class="mc-year">2030</div>
+          <h4>Qatar National Vision</h4>
+          <p>Qatar's guiding long-term development plan targets a knowledge-based economy, sustainable development, and a high quality of life for all residents by 2030.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- EXPLORE MORE -->
 <section class="content-section">
   <div class="container">
-    <div class="highlight-section ">
-      <div class="highlight-img-wrap">
-        <div class="highlight-img-placeholder"><i class="fas fa-history"></i></div>
-        <div class="highlight-badge">
-          <div class="badge-icon"><i class="fas fa-award"></i></div>
-          <div class="badge-text"><strong>Since 50,000 BC</strong><span>Continuous Human Settlement</span></div>
-        </div>
-      </div>
-      <div class="highlight-text">
-        <div class="section-header left">
-          <div class="section-eyebrow">Ancient Roots</div>
-          <h2 class="section-title">A Land of Ancient Civilisations</h2>
-          <div class="divider left"></div>
-        </div>
-        <p>Archaeological evidence suggests that Qatar has been inhabited for at least 50,000 years. Finds at Al Wusail and other sites reveal the presence of Stone Age communities who exploited the rich coastal resources of the Gulf.</p><p>The peninsula's position along ancient trade routes made it an important node for commerce between Mesopotamia and the Indus Valley civilisations. Qatar's shores were known to early Greek geographers, and references to the peninsula appear in the works of Ptolemy.</p>
-        
-      </div>
-    </div>
-  </div>
-</section>
-<section class="content-section ">
-  <div class="container">
     <div class="section-header">
-      <div class="section-eyebrow">Key Periods</div>
-      <h2 class="section-title">Qatar Through the Ages</h2>
+      <div class="section-eyebrow">Continue Exploring</div>
+      <h2 class="section-title">More About Qatar</h2>
       <div class="divider"></div>
-      <p class="section-desc">Each era of Qatar's history has left an indelible mark on its culture, architecture, and identity.</p>
     </div>
-    <div class="cards-grid cards-grid-3">
-      
-      <div class="card">
-        <div class="card-img-placeholder"><i class="fas fa-ship"></i></div>
-        <div class="card-body">
-          <span class="card-tag">Maritime</span>
-          <h3 class="card-title">The Pearl Diving Era</h3>
-          <p class="card-text">For centuries, Qatar's economy was built on pearl diving. Qatari pearls were prized across the world, and the industry shaped the country's social structure and architecture.</p>
-          
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-img-placeholder"><i class="fas fa-oil-can"></i></div>
-        <div class="card-body">
-          <span class="card-tag">Modern</span>
-          <h3 class="card-title">Discovery of Oil</h3>
-          <p class="card-text">The discovery of oil in 1939 and subsequent exploitation of vast natural gas reserves transformed Qatar from a modest pearl-diving state into one of the world's wealthiest nations.</p>
-          
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-img-placeholder"><i class="fas fa-flag"></i></div>
-        <div class="card-body">
-          <span class="card-tag">Independence</span>
-          <h3 class="card-title">Independence in 1971</h3>
-          <p class="card-text">Qatar gained full independence on 3 September 1971, establishing itself as a sovereign state and beginning a remarkable journey of nation-building.</p>
-          
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="cta-banner">
-  <div class="container">
-    <h2>Explore Qatar's Rich Heritage</h2>
-    <p>Explore Qatar's museums and heritage sites to connect with this extraordinary history.</p>
-    <div class="hero-actions" style="justify-content:center;">
-      <a href="art-culture.html" class="btn btn-outline"><i class="fas fa-arrow-right"></i> Art & Culture</a>
-      <a href="#" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Us</a>
+    <div class="explore-links">
+      <a href="geography.html" class="el-item">
+        <div class="el-icon"><i class="fas fa-map"></i></div>
+        <div><strong>Geography of Qatar</strong><span>Desert, coastline &amp; the Inland Sea</span></div>
+        <i class="fas fa-arrow-right el-arrow"></i>
+      </a>
+      <a href="traditions.html" class="el-item">
+        <div class="el-icon"><i class="fas fa-star-and-crescent"></i></div>
+        <div><strong>Traditions</strong><span>Falconry, pearling, hospitality &amp; culture</span></div>
+        <i class="fas fa-arrow-right el-arrow"></i>
+      </a>
+      <a href="doha.html" class="el-item">
+        <div class="el-icon"><i class="fas fa-city"></i></div>
+        <div><strong>Discover Doha</strong><span>Qatar's extraordinary capital city</span></div>
+        <i class="fas fa-arrow-right el-arrow"></i>
+      </a>
+      <a href="art-culture.html" class="el-item">
+        <div class="el-icon"><i class="fas fa-palette"></i></div>
+        <div><strong>Art &amp; Culture</strong><span>Museums, galleries &amp; cultural institutions</span></div>
+        <i class="fas fa-arrow-right el-arrow"></i>
+      </a>
+      <a href="sports.html" class="el-item">
+        <div class="el-icon"><i class="fas fa-futbol"></i></div>
+        <div><strong>Sports in Qatar</strong><span>World Cup legacy &amp; sporting events</span></div>
+        <i class="fas fa-arrow-right el-arrow"></i>
+      </a>
+      <a href="visas.html" class="el-item">
+        <div class="el-icon"><i class="fas fa-passport"></i></div>
+        <div><strong>Plan Your Visit</strong><span>Visas, flights &amp; accommodation</span></div>
+        <i class="fas fa-arrow-right el-arrow"></i>
+      </a>
     </div>
   </div>
 </section>
 
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Experience Qatar's Living History</h2>
+    <p>Walk the same waterfront that pearl divers once set sail from. Visit museums that preserve thousands of years of heritage. Qatar's history is alive — and waiting for you.</p>
+    <div class="hero-actions" style="justify-content:center;">
+      <a href="art-culture.html" class="btn btn-outline"><i class="fas fa-palette"></i> Art &amp; Culture</a>
+      <a href="visas.html" class="btn btn-outline"><i class="fas fa-passport"></i> Plan Your Visit</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="footer-logo">
-            <div class="logo-icon"><i class="fas fa-mosque"></i></div>
-            <span>Explore Qatar</span>
-          </div>
-          <p>Discover the wonders of Qatar — a land where ancient tradition meets modern vision. Plan your journey to the Pearl of the Gulf today.</p>
+          <div class="footer-logo"><div class="logo-icon"><i class="fas fa-mosque"></i></div><span>Explore Qatar</span></div>
+          <p>Discover the wonders of Qatar — a land where ancient tradition meets modern vision.</p>
           <div class="social-links">
-            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
           </div>
         </div>
-        <div class="footer-col">
-          <h4>Explore Qatar</h4>
-          <ul>
-            <li><a href="about-qatar.html">About Qatar</a></li>
-            <li><a href="doha.html">Doha</a></li>
-            <li><a href="history.html">History</a></li>
-            <li><a href="traditions.html">Traditions</a></li>
-            <li><a href="cuisine.html">Local Cuisine</a></li>
-            <li><a href="wildlife.html">Wildlife</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Plan Your Trip</h4>
-          <ul>
-            <li><a href="visas.html">Visas</a></li>
-            <li><a href="accommodation.html">Accommodation</a></li>
-            <li><a href="getting-to-qatar.html">Getting to Qatar</a></li>
-            <li><a href="airport.html">Hamad Airport</a></li>
-            <li><a href="safety.html">Safety</a></li>
-            <li><a href="travel-tips.html">Travel Tips</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact Us</h4>
-          <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Qatar Tourism, West Bay, Doha, Qatar</span></div>
+        <div class="footer-col"><h4>Explore Qatar</h4><ul>
+          <li><a href="about-qatar.html">About Qatar</a></li><li><a href="doha.html">Doha</a></li>
+          <li><a href="history.html">History</a></li><li><a href="traditions.html">Traditions</a></li>
+          <li><a href="cuisine.html">Local Cuisine</a></li><li><a href="wildlife.html">Wildlife</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Plan Your Trip</h4><ul>
+          <li><a href="visas.html">Visas</a></li><li><a href="accommodation.html">Accommodation</a></li>
+          <li><a href="getting-to-qatar.html">Getting to Qatar</a></li><li><a href="airport.html">Hamad Airport</a></li>
+          <li><a href="safety.html">Safety</a></li><li><a href="travel-tips.html">Travel Tips</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Contact Us</h4>
+          <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Qatar Tourism, West Bay, Doha</span></div>
           <div class="footer-contact-item"><i class="fas fa-phone"></i><span>+974 4409 5555</span></div>
-          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0e676068614e78677d677a7f6f7a6f7c207f6f">[email&#160;protected]</a></span></div>
-          <div class="footer-contact-item"><i class="fas fa-clock"></i><span>Sun–Thu, 8:00 AM – 5:00 PM</span></div>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>info@exploreqatar.qa</span></div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer-newsletter">
-    <div class="container">
-      <div class="newsletter-inner">
-        <div class="newsletter-text">
-          <h4>Stay Inspired</h4>
-          <p>Subscribe to receive travel inspiration, news, and exclusive offers from Qatar.</p>
-        </div>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email address" required>
-          <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Subscribe</button>
-        </form>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;flex-wrap:wrap;gap:12px;">
-      <span>&copy; 2025 Qatar Tourism. All rights reserved.</span>
-      <div class="footer-bottom-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
-        <a href="#">Cookie Settings</a>
-        <
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <span>&copy; 2025 Explore Qatar. All rights reserved.</span>
+        <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Accessibility</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  /* Era tab switching */
+  document.querySelectorAll('.era-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const target = this.dataset.era;
+      document.querySelectorAll('.era-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.era-panel').forEach(p => p.classList.remove('active'));
+      this.classList.add('active');
+      document.getElementById('era-' + target).classList.add('active');
+      /* Smooth scroll to just below the sticky tabs */
+      const tabs = document.getElementById('eraTabs');
+      window.scrollTo({ top: tabs.offsetTop - 80, behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
