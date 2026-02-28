@@ -3,11 +3,211 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Geography of Qatar — Explore Qatar</title>
+  <title>Geography of Qatar | Where is Qatar? | Explore Qatar</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+
+    /* ── Full-bleed hero ── */
+    .page-hero {
+      position: relative;
+      height: 70vh;
+      min-height: 480px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .page-hero img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+    }
+    .page-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.06) 100%);
+    }
+    .page-hero-content {
+      position: relative; z-index: 2;
+      padding: 0 0 56px; width: 100%;
+    }
+    .page-hero-content .breadcrumb { color: rgba(255,255,255,0.65); margin-bottom: 14px; }
+    .page-hero-content .breadcrumb a { color: rgba(255,255,255,0.65); }
+    .page-hero-content h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      color: white; font-weight: 700;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+      max-width: 680px; line-height: 1.1;
+    }
+    .page-hero-content .hero-subtitle {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.05rem; margin-top: 14px;
+      max-width: 560px; line-height: 1.7;
+    }
+
+    /* ── Key numbers bar ── */
+    .numbers-bar { background: var(--primary); padding: 0; }
+    .numbers-bar-inner {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+    .nb-item {
+      text-align: center;
+      padding: 28px 16px;
+      border-right: 1px solid rgba(255,255,255,0.12);
+    }
+    .nb-item:last-child { border-right: none; }
+    .nb-item .nb-val {
+      font-family: var(--font-display);
+      font-size: 1.8rem; font-weight: 700;
+      color: white; line-height: 1;
+    }
+    .nb-item .nb-label {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.65); margin-top: 6px;
+    }
+
+    /* ── Feature image + text split ── */
+    .geo-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .geo-split.reverse { direction: rtl; }
+    .geo-split.reverse > * { direction: ltr; }
+    .geo-img {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .geo-img img { width: 100%; height: 420px; object-fit: cover; display: block; }
+    .geo-img-placeholder {
+      width: 100%; height: 420px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .geo-img-placeholder i { font-size: 5rem; opacity: 0.25; }
+
+    /* ── Landscape cards ── */
+    .landscape-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 300px;
+      gap: 20px;
+    }
+    .landscape-grid .span2 { grid-column: span 2; }
+    .lcard {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #111;
+      display: block;
+      text-decoration: none;
+    }
+    .lcard-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .lcard-bg i { font-size: 5rem; opacity: 0.2; color: white; }
+    .lcard-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+    }
+    .lcard-body {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 24px;
+    }
+    .lcard-body h3 { color: white; font-size: 1.2rem; margin-bottom: 6px; }
+    .lcard-body p { color: rgba(255,255,255,0.8); font-size: 0.875rem; line-height: 1.5; margin: 0; }
+
+    /* ── Did you know ── */
+    .did-you-know {
+      background: var(--primary-light);
+      border-radius: var(--radius);
+      padding: 40px 48px;
+      display: flex; gap: 28px; align-items: flex-start;
+      margin: 48px 0;
+    }
+    .dyk-icon {
+      width: 56px; height: 56px; flex-shrink: 0;
+      background: var(--primary); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .dyk-icon i { color: white; font-size: 1.3rem; }
+    .dyk-text h4 { color: var(--primary); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
+    .dyk-text p { font-size: 1rem; color: var(--dark); margin: 0; line-height: 1.7; }
+
+    /* ── Nature highlights ── */
+    .nature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .nature-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      display: flex; gap: 20px; align-items: flex-start;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .nature-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .nature-item .ni-icon {
+      width: 52px; height: 52px; flex-shrink: 0;
+      background: var(--primary-light); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nature-item .ni-icon i { color: var(--primary); font-size: 1.2rem; }
+    .nature-item h4 { font-size: 1rem; margin-bottom: 6px; color: var(--dark); }
+    .nature-item p { font-size: 0.875rem; margin: 0; line-height: 1.6; }
+
+    /* ── Explore more links ── */
+    .explore-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .el-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 20px; background: var(--white);
+      border-radius: var(--radius); box-shadow: var(--shadow);
+      text-decoration: none; color: var(--dark);
+      border-left: 4px solid transparent;
+      transition: var(--transition);
+    }
+    .el-item:hover { border-left-color: var(--primary); transform: translateX(4px); box-shadow: var(--shadow-lg); }
+    .el-item .el-icon { width: 44px; height: 44px; flex-shrink: 0; background: var(--primary-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .el-item .el-icon i { color: var(--primary); }
+    .el-item strong { display: block; font-size: 0.9rem; }
+    .el-item span { font-size: 0.78rem; color: var(--grey); }
+    .el-arrow { margin-left: auto; color: var(--grey); font-size: 0.75rem; transition: var(--transition); }
+    .el-item:hover .el-arrow { color: var(--primary); transform: translateX(4px); }
+
+    @media (max-width: 1000px) {
+      .geo-split { grid-template-columns: 1fr; gap: 36px; }
+      .geo-split.reverse { direction: ltr; }
+      .landscape-grid { grid-template-columns: 1fr 1fr; }
+      .landscape-grid .span2 { grid-column: span 2; }
+      .numbers-bar-inner { grid-template-columns: repeat(3, 1fr); }
+      .nb-item:nth-child(3) { border-right: none; }
+      .explore-links { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .page-hero { height: 55vh; }
+      .landscape-grid, .nature-grid { grid-template-columns: 1fr; }
+      .landscape-grid .span2 { grid-column: span 1; }
+      .numbers-bar-inner { grid-template-columns: repeat(2, 1fr); }
+      .nb-item:nth-child(2n) { border-right: none; }
+      .explore-links { grid-template-columns: 1fr; }
+      .did-you-know { flex-direction: column; padding: 28px; }
+    }
+  </style>
 </head>
 <body>
+
+<!-- NAVBAR -->
 <nav class="navbar">
   <div class="nav-container">
     <a href="index.html" class="nav-logo">
@@ -96,164 +296,318 @@
 </div>
 
 <!-- HERO -->
-<section class="hero hero-inner">
-  <div class="hero-bg">
-    <img src="images/placeholder.jpg" alt="Geography of Qatar">
-    <div class="hero-overlay"></div>
-  </div>
-  <div class="container">
-    <div class="hero-content">
-      <div class="breadcrumb">
-        <a href="index.html">Home</a>
-        <i class="fas fa-chevron-right"></i>
-        <span>About Qatar</span>
-      </div>
-      <div class="hero-eyebrow"><i class="fas fa-map"></i> Geography</div>
-      <h1 class="hero-title">The Geography of Qatar</h1>
-      <div class="hero-desc"><p>Explore the unique landscapes and natural features of this remarkable Arabian Peninsula nation.</p></div>
+<section class="page-hero">
+  <img src="images/banner4.png" alt="The Pearl-Qatar — Qatar's stunning coastline and modern development">
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><i class="fas fa-chevron-right"></i>
+      <a href="about-qatar.html">About Qatar</a><i class="fas fa-chevron-right"></i>
+      <span>Geography</span>
     </div>
+    <h1>Geography of Qatar</h1>
+    <p class="hero-subtitle">A country of striking contrasts — from crescent-shaped dunes to a serene coastline of beaches, islands and the spectacular Inland Sea.</p>
   </div>
 </section>
 
+<!-- KEY NUMBERS BAR -->
+<div class="numbers-bar">
+  <div class="container" style="max-width:100%;padding:0;">
+    <div class="numbers-bar-inner">
+      <div class="nb-item"><div class="nb-val">11,586</div><div class="nb-label">km² Total Area</div></div>
+      <div class="nb-item"><div class="nb-val">563 km</div><div class="nb-label">Coastline Length</div></div>
+      <div class="nb-item"><div class="nb-val">103 m</div><div class="nb-label">Highest Point</div></div>
+      <div class="nb-item"><div class="nb-val">87 km</div><div class="nb-label">Land Border (Saudi Arabia)</div></div>
+      <div class="nb-item"><div class="nb-val">10</div><div class="nb-label">Offshore Islands</div></div>
+    </div>
+  </div>
+</div>
 
+<!-- INTRO SPLIT -->
 <section class="content-section">
   <div class="container">
-    <div class="highlight-section ">
-      <div class="highlight-img-wrap">
-        <div class="highlight-img-placeholder"><i class="fas fa-map"></i></div>
-        <div class="highlight-badge">
-          <div class="badge-icon"><i class="fas fa-award"></i></div>
-          <div class="badge-text"><strong>Khor Al Adaid</strong><span>UNESCO Natural Reserve</span></div>
-        </div>
+    <div class="geo-split">
+      <div class="geo-img">
+        <img src="images/banner2.jpg" alt="Doha skyline rising from the Arabian Gulf coastline">
       </div>
-      <div class="highlight-text">
+      <div>
         <div class="section-header left">
-          <div class="section-eyebrow">The Land</div>
-          <h2 class="section-title">Qatar's Unique Landscape</h2>
+          <div class="section-eyebrow">Where is Qatar?</div>
+          <h2 class="section-title">The Pearl of the Arabian Peninsula</h2>
           <div class="divider left"></div>
         </div>
-        <p>Qatar occupies a small peninsula of approximately 11,586 square kilometres jutting northward into the Persian Gulf. The terrain is predominantly flat, low-lying desert, with gentle rolling plains and occasional limestone outcrops.</p><p>Despite its seemingly simple geography, Qatar contains extraordinary diversity — from the tranquil mangroves of the north to the dramatic sand dunes of the south at Khor Al Adaid, the Inland Sea, which is a UNESCO-recognised natural reserve.</p>
-        
+        <p>Qatar — pronounced <em>'kuh-TAR'</em> — is a small peninsula jutting northward from the northeastern corner of the Arabian Peninsula into the warm, clear waters of the Persian Gulf. It lies between latitudes 24° and 27°N and longitudes 50° and 52°E.</p>
+        <p>The country shares its only land border — just 87 km long — with Saudi Arabia to the south. A narrow strait of around 40 km separates Qatar from the island nation of Bahrain to the west. Qatar is small enough to explore entirely in a single trip, yet rich enough in landscapes and experiences to reward any amount of time spent here.</p>
+        <p>Despite its modest size of 11,586 km², Qatar is a country of extraordinary geographical variety — flat limestone plateaus in the north, sweeping desert plains in the south, 563 km of pristine coastline, and one of the most unusual natural wonders on earth: Khor Al Adaid, the Inland Sea, where towering sand dunes plunge directly into the sea.</p>
+        <div class="did-you-know">
+          <div class="dyk-icon"><i class="fas fa-lightbulb"></i></div>
+          <div class="dyk-text">
+            <h4>Did You Know?</h4>
+            <p>Qatar has no rivers and receives only about 10 cm of rain per year on average. The country relies on seawater desalination plants — among the world's largest — to supply its drinking water.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- LANDSCAPE CARDS -->
 <section class="content-section alt">
   <div class="container">
     <div class="section-header">
-      <div class="section-eyebrow">Natural Features</div>
-      <h2 class="section-title">Landscapes of Qatar</h2>
+      <div class="section-eyebrow">Landscapes</div>
+      <h2 class="section-title">Qatar's Diverse Natural Terrain</h2>
       <div class="divider"></div>
+      <p class="section-desc">From singing dunes and ancient limestone hills to mangrove forests and crystal Gulf waters — Qatar's natural landscapes are endlessly surprising.</p>
     </div>
-    <div class="info-grid">
-      
-    <div class="info-item">
-      <div class="info-icon"><i class="fas fa-water"></i></div>
-      <div><h4>The Arabian Gulf Coast</h4><p>Qatar's 563km coastline features pristine beaches, shallow bays, and rich marine ecosystems teeming with life.</p></div>
-    </div>
-    <div class="info-item">
-      <div class="info-icon"><i class="fas fa-mountain"></i></div>
-      <div><h4>Desert Plains</h4><p>Vast, flat desert terrain covers most of the interior, punctuated by sabkha (salt flats) and rocky limestone ridges.</p></div>
-    </div>
-    <div class="info-item">
-      <div class="info-icon"><i class="fas fa-leaf"></i></div>
-      <div><h4>Mangrove Forests</h4><p>Rare mangrove ecosystems, particularly in Al Thakira, provide vital habitat for migratory birds and marine life.</p></div>
-    </div>
-    <div class="info-item">
-      <div class="info-icon"><i class="fas fa-sun"></i></div>
-      <div><h4>Inland Sea</h4><p>Khor Al Adaid, the magnificent Inland Sea, is where towering sand dunes meet crystal-clear sea waters in the south.</p></div>
-    </div>
-    <div class="info-item">
-      <div class="info-icon"><i class="fas fa-fish"></i></div>
-      <div><h4>Marine Life</h4><p>Qatar's shallow coastal waters host dugongs, sea turtles, dolphins, and abundant coral reef ecosystems.</p></div>
-    </div>
-    <div class="info-item">
-      <div class="info-icon"><i class="fas fa-cloud"></i></div>
-      <div><h4>Climate</h4><p>Qatar has an arid desert climate with long, hot summers and mild winters. Rainfall is minimal but can occur between November and March.</p></div>
-    </div>
-    </div>
-  </div>
-</section>
-<section class="cta-banner">
-  <div class="container">
-    <h2>Experience Qatar's Natural Wonders</h2>
-    <p>From the desert to the sea, Qatar's landscapes await your discovery.</p>
-    <div class="hero-actions" style="justify-content:center;">
-      <a href="adventure.html" class="btn btn-outline"><i class="fas fa-arrow-right"></i> Adventure & Sports</a>
-      <a href="#" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Us</a>
+    <div class="landscape-grid">
+      <!-- Desert — featured wide -->
+      <div class="lcard span2" style="background:linear-gradient(135deg,#7a4a00,#b87333);">
+        <div class="lcard-bg"><i class="fas fa-sun"></i></div>
+        <div class="lcard-overlay"></div>
+        <div class="lcard-body">
+          <h3>The Desert</h3>
+          <p>Qatar's interior is dominated by flat, low-lying desert — golden sand plains, crescent-shaped dunes that move up to 10 metres per year, and the hamada (rocky desert) formed by weathered bedrock. Qatar's famous "singing dunes" produce an eerie vibrating hum when the sand moves.</p>
+        </div>
+      </div>
+      <!-- Inland Sea -->
+      <div class="lcard" style="background:linear-gradient(135deg,#003d4d,#006080);">
+        <div class="lcard-bg"><i class="fas fa-water"></i></div>
+        <div class="lcard-overlay"></div>
+        <div class="lcard-body">
+          <h3>Khor Al Adaid — The Inland Sea</h3>
+          <p>A UNESCO-recognised natural reserve where towering sand dunes cascade directly into the sea. One of the world's most spectacular and unique geographical phenomena.</p>
+        </div>
+      </div>
+      <!-- Coastline -->
+      <div class="lcard" style="background:linear-gradient(135deg,#00627B,#0099cc);">
+        <div class="lcard-bg"><i class="fas fa-umbrella-beach"></i></div>
+        <div class="lcard-overlay"></div>
+        <div class="lcard-body">
+          <h3>563 km Coastline</h3>
+          <p>White-sand beaches, secluded coves, coral reefs and 10 offshore islands dot Qatar's Arabian Gulf coast. Clear turquoise waters teem with marine life year-round.</p>
+        </div>
+      </div>
+      <!-- Mangroves -->
+      <div class="lcard" style="background:linear-gradient(135deg,#1a5c1a,#2e8b2e);">
+        <div class="lcard-bg"><i class="fas fa-leaf"></i></div>
+        <div class="lcard-overlay"></div>
+        <div class="lcard-body">
+          <h3>Mangroves &amp; Wetlands</h3>
+          <p>Al Thakhira, Qatar's oldest and largest mangrove reserve, is a serene ecosystem of waterways and bird life. A kayaker's paradise in the cooler months.</p>
+        </div>
+      </div>
+      <!-- Limestone hills -->
+      <div class="lcard" style="background:linear-gradient(135deg,#5c4a1a,#8b6914);">
+        <div class="lcard-bg"><i class="fas fa-mountain"></i></div>
+        <div class="lcard-overlay"></div>
+        <div class="lcard-body">
+          <h3>Limestone Plateaus &amp; Jebels</h3>
+          <p>Qatar's highest point — Qurain Abu al-Bawl at 103 m — sits among limestone jebels (hills) famous for 900+ ancient petroglyphs carved by Neolithic inhabitants.</p>
+        </div>
+      </div>
+      <!-- Sabkha -->
+      <div class="lcard" style="background:linear-gradient(135deg,#3a3a5c,#5a5a8b);">
+        <div class="lcard-bg"><i class="fas fa-snowflake"></i></div>
+        <div class="lcard-overlay"></div>
+        <div class="lcard-body">
+          <h3>Sabkha — Salt Flats</h3>
+          <p>Shimmering white salt flats form where seawater meets low-lying land. On the road to the Inland Sea, sabkhas create an otherworldly, mirror-like landscape at dawn.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- NATURAL RESOURCES SPLIT -->
+<section class="content-section">
+  <div class="container">
+    <div class="geo-split reverse">
+      <div class="geo-img">
+        <img src="images/banner1.jpeg" alt="Family on a traditional dhow — Qatar's maritime heritage">
+      </div>
+      <div>
+        <div class="section-header left">
+          <div class="section-eyebrow">Natural Resources</div>
+          <h2 class="section-title">Beneath the Surface</h2>
+          <div class="divider left"></div>
+        </div>
+        <p>Qatar sits atop extraordinary natural wealth. The country holds the world's third-largest natural gas reserves — between 10% and 14% of all known global reserves — shared with Iran through the offshore North Field, the single largest natural gas reservoir on earth.</p>
+        <p>In 2023, Qatar's proved crude oil reserves were estimated at 25.2 billion barrels, making it the 6th largest reserve in the Middle East and 14th largest globally. Oil was first struck at the Dukhan Field in 1939, transforming Qatar from a pearl-diving economy into one of the world's wealthiest nations within a single generation.</p>
+        <p>Qatar is also the world's largest exporter of liquefied natural gas (LNG). Its main energy trading partners include Japan, South Korea, India, China, and the United States. This resource wealth has funded the country's extraordinary investment in infrastructure, culture, sport, and education.</p>
+        <div class="info-grid" style="margin-top:32px;">
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-fire"></i></div>
+            <div><h4>Natural Gas</h4><p>3rd largest reserves globally. North Field is the world's single largest gas field.</p></div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-oil-can"></i></div>
+            <div><h4>Crude Oil</h4><p>25.2 billion barrels in proved reserves. 14th largest in the world.</p></div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-tint"></i></div>
+            <div><h4>Desalinated Water</h4><p>Qatar is a world leader in seawater desalination — essential in a country with no rivers.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NATURE HIGHLIGHTS -->
+<section class="content-section alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Nature</div>
+      <h2 class="section-title">Qatar's Natural Wonders</h2>
+      <div class="divider"></div>
+      <p class="section-desc">Qatar's unique peninsula is one of stark contrasts and fascinating natural wonders — from prehistoric petroglyphs to coral reefs teeming with life.</p>
+    </div>
+    <div class="nature-grid">
+      <div class="nature-item">
+        <div class="ni-icon"><i class="fas fa-water"></i></div>
+        <div>
+          <h4>Khor Al Adaid — The Inland Sea</h4>
+          <p>Where the desert meets the sea in a breathtaking spectacle — towering golden dunes tumble directly into the crystal waters of the Arabian Gulf. A UNESCO-recognised reserve and the crown jewel of Qatar's natural landscape. Accessible by 4x4 only, it's an unmissable experience.</p>
+        </div>
+      </div>
+      <div class="nature-item">
+        <div class="ni-icon"><i class="fas fa-leaf"></i></div>
+        <div>
+          <h4>Al Thakhira Mangroves</h4>
+          <p>Qatar's oldest and largest mangrove reserve, near Al Khor in the north. A tranquil paradise of winding waterways, lush green vegetation, and rich birdlife. Ideal for kayaking, birdwatching, and peaceful nature walks. Best visited between October and April.</p>
+        </div>
+      </div>
+      <div class="nature-item">
+        <div class="ni-icon"><i class="fas fa-fish"></i></div>
+        <div>
+          <h4>Coral Reefs &amp; Marine Life</h4>
+          <p>Qatar is the richest Gulf country in coral reefs. The best reefs are found along the northeastern coast and around Al Aaliya Island. Home to hawksbill turtles, dugongs, whale sharks, dolphins, and over 300 species of fish. Qatar's Gulf waters are truly extraordinary.</p>
+        </div>
+      </div>
+      <div class="nature-item">
+        <div class="ni-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div>
+          <h4>Al Jassasiya Petroglyphs</h4>
+          <p>Fossilised limestone jebels are home to nearly 900 ancient petroglyphs — rock carvings dating to Neolithic times. Featuring etchings of dhow boats, pearl holders, ostriches, and ancient board games, Al Jassasiya is one of the most significant archaeological sites in the Gulf.</p>
+        </div>
+      </div>
+      <div class="nature-item">
+        <div class="ni-icon"><i class="fas fa-frog"></i></div>
+        <div>
+          <h4>Wadis &amp; Desert Oases</h4>
+          <p>Qatar's dry river valleys — wadis — come alive during brief winter rains, attracting diverse communities of birds, geckos, hedgehogs, snakes, and desert rodents. Green oases at Purple Island and Al Thakhira offer surprising pockets of lush vegetation in the arid landscape.</p>
+        </div>
+      </div>
+      <div class="nature-item">
+        <div class="ni-icon"><i class="fas fa-gem"></i></div>
+        <div>
+          <h4>Dahl Al Misfir Cave</h4>
+          <p>A spectacular underground cave formed as groundwater dissolved carbonate rock over millennia. As this underground pocket fills during winter rains, life follows — foxes, bats, and birds find refuge in this extraordinary geological formation in Qatar's interior.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLORE MORE -->
+<section class="content-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Continue Exploring</div>
+      <h2 class="section-title">More About Qatar</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="explore-links">
+      <a href="history.html" class="el-item">
+        <div class="el-icon"><i class="fas fa-landmark"></i></div>
+        <div><strong>History of Qatar</strong><span>From ancient settlements to a modern nation</span></div>
+        <i class="fas fa-arrow-right el-arrow"></i>
+      </a>
+      <a href="wildlife.html" class="el-item">
+        <div class="el-icon"><i class="fas fa-paw"></i></div>
+        <div><strong>Wildlife</strong><span>Arabian Oryx, falcons, dugongs &amp; more</span></div>
+        <i class="fas fa-arrow-right el-arrow"></i>
+      </a>
+      <a href="towns-cities.html" class="el-item">
+        <div class="el-icon"><i class="fas fa-city"></i></div>
+        <div><strong>Towns &amp; Cities</strong><span>Beyond Doha — Al Khor, Lusail, Al Wakrah</span></div>
+        <i class="fas fa-arrow-right el-arrow"></i>
+      </a>
+      <a href="adventure.html" class="el-item">
+        <div class="el-icon"><i class="fas fa-mountain"></i></div>
+        <div><strong>Adventure &amp; Sports</strong><span>Desert safaris, dune bashing &amp; watersports</span></div>
+        <i class="fas fa-arrow-right el-arrow"></i>
+      </a>
+      <a href="beach.html" class="el-item">
+        <div class="el-icon"><i class="fas fa-umbrella-beach"></i></div>
+        <div><strong>Beach Holidays</strong><span>The best beaches and island getaways</span></div>
+        <i class="fas fa-arrow-right el-arrow"></i>
+      </a>
+      <a href="travel-tips.html" class="el-item">
+        <div class="el-icon"><i class="fas fa-lightbulb"></i></div>
+        <div><strong>Travel Tips</strong><span>Everything you need to plan your trip</span></div>
+        <i class="fas fa-arrow-right el-arrow"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Experience Qatar's Natural Wonders</h2>
+    <p>From the Inland Sea to the coral reefs — let us help you plan the perfect nature adventure in Qatar.</p>
+    <div class="hero-actions" style="justify-content:center;">
+      <a href="adventure.html" class="btn btn-outline"><i class="fas fa-mountain"></i> Adventure &amp; Sports</a>
+      <a href="visas.html" class="btn btn-outline"><i class="fas fa-passport"></i> Plan Your Visit</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="footer-logo">
-            <div class="logo-icon"><i class="fas fa-mosque"></i></div>
-            <span>Explore Qatar</span>
-          </div>
-          <p>Discover the wonders of Qatar — a land where ancient tradition meets modern vision. Plan your journey to the Pearl of the Gulf today.</p>
+          <div class="footer-logo"><div class="logo-icon"><i class="fas fa-mosque"></i></div><span>Explore Qatar</span></div>
+          <p>Discover the wonders of Qatar — a land where ancient tradition meets modern vision.</p>
           <div class="social-links">
-            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
           </div>
         </div>
-        <div class="footer-col">
-          <h4>Explore Qatar</h4>
-          <ul>
-            <li><a href="about-qatar.html">About Qatar</a></li>
-            <li><a href="doha.html">Doha</a></li>
-            <li><a href="history.html">History</a></li>
-            <li><a href="traditions.html">Traditions</a></li>
-            <li><a href="cuisine.html">Local Cuisine</a></li>
-            <li><a href="wildlife.html">Wildlife</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Plan Your Trip</h4>
-          <ul>
-            <li><a href="visas.html">Visas</a></li>
-            <li><a href="accommodation.html">Accommodation</a></li>
-            <li><a href="getting-to-qatar.html">Getting to Qatar</a></li>
-            <li><a href="airport.html">Hamad Airport</a></li>
-            <li><a href="safety.html">Safety</a></li>
-            <li><a href="travel-tips.html">Travel Tips</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact Us</h4>
-          <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Qatar Tourism, West Bay, Doha, Qatar</span></div>
+        <div class="footer-col"><h4>Explore Qatar</h4><ul>
+          <li><a href="about-qatar.html">About Qatar</a></li><li><a href="doha.html">Doha</a></li>
+          <li><a href="history.html">History</a></li><li><a href="traditions.html">Traditions</a></li>
+          <li><a href="cuisine.html">Local Cuisine</a></li><li><a href="wildlife.html">Wildlife</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Plan Your Trip</h4><ul>
+          <li><a href="visas.html">Visas</a></li><li><a href="accommodation.html">Accommodation</a></li>
+          <li><a href="getting-to-qatar.html">Getting to Qatar</a></li><li><a href="airport.html">Hamad Airport</a></li>
+          <li><a href="safety.html">Safety</a></li><li><a href="travel-tips.html">Travel Tips</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Contact Us</h4>
+          <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Qatar Tourism, West Bay, Doha</span></div>
           <div class="footer-contact-item"><i class="fas fa-phone"></i><span>+974 4409 5555</span></div>
-          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="50393e363f10263923392421312431227e2131">[email&#160;protected]</a></span></div>
-          <div class="footer-contact-item"><i class="fas fa-clock"></i><span>Sun–Thu, 8:00 AM – 5:00 PM</span></div>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>info@exploreqatar.qa</span></div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer-newsletter">
-    <div class="container">
-      <div class="newsletter-inner">
-        <div class="newsletter-text">
-          <h4>Stay Inspired</h4>
-          <p>Subscribe to receive travel inspiration, news, and exclusive offers from Qatar.</p>
-        </div>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email address" required>
-          <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Subscribe</button>
-        </form>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;flex-wrap:wrap;gap:12px;">
-      <span>&copy; 2025 Qatar Tourism. All rights reserved.</span>
-      <div class="footer-bottom-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
-        <a href="#">Cookie Settings</a>
-        <
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <span>&copy; 2025 Explore Qatar. All rights reserved.</span>
+        <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Accessibility</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
