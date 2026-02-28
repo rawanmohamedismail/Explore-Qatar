@@ -3,11 +3,342 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Qatar — Explore Qatar</title>
+  <title>About Qatar | All Information in One Place | Explore Qatar</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+
+    /* ── Hero: full-width image, title bottom-left ── */
+    .about-hero {
+      position: relative;
+      height: 70vh;
+      min-height: 480px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .about-hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .about-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.72) 0%,
+        rgba(0,0,0,0.25) 50%,
+        rgba(0,0,0,0.08) 100%
+      );
+    }
+    .about-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 0 56px;
+      width: 100%;
+    }
+    .about-hero-content .breadcrumb {
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 16px;
+    }
+    .about-hero-content .breadcrumb a { color: rgba(255,255,255,0.65); }
+    .about-hero-content h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      color: white;
+      font-weight: 700;
+      line-height: 1.1;
+      max-width: 700px;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+    }
+
+    /* ── Intro strip ── */
+    .about-intro {
+      background: var(--white);
+      padding: 56px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .about-intro-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-intro h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      margin-bottom: 20px;
+      color: var(--dark);
+    }
+    .about-intro p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--grey);
+    }
+    .about-intro-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .intro-stat {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 20px;
+      border-left: 4px solid var(--primary);
+    }
+    .intro-stat .is-value {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .intro-stat .is-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--grey);
+    }
+
+    /* ── Topic cards ── */
+    .topic-section { background: var(--bg); padding: 72px 0 96px; }
+    .topic-section-header { margin-bottom: 48px; }
+    .topic-section-header h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); color: var(--dark); margin-bottom: 10px; }
+    .topic-section-header p { font-size: 1rem; color: var(--grey); max-width: 600px; }
+
+    /* Main featured card (spans 2 cols) */
+    .topics-layout {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 360px;
+      gap: 20px;
+    }
+    .topics-layout .featured { grid-column: span 2; }
+
+    .tcard {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #111;
+      cursor: pointer;
+      display: block;
+      text-decoration: none;
+      color: white;
+    }
+    .tcard img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .tcard:hover img { transform: scale(1.06); }
+    .tcard-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.75) 0%,
+        rgba(0,0,0,0.2) 50%,
+        transparent 100%
+      );
+      transition: background 0.3s ease;
+    }
+    .tcard:hover .tcard-overlay {
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.85) 0%,
+        rgba(0,0,0,0.35) 60%,
+        rgba(0,0,0,0.1) 100%
+      );
+    }
+    /* Placeholder bg when no image */
+    .tcard-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tcard-placeholder i { font-size: 4rem; opacity: 0.15; color: white; }
+
+    .tcard-body {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 28px 28px 24px;
+      z-index: 2;
+    }
+    .tcard-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 4px 10px;
+      border-radius: 50px;
+      margin-bottom: 10px;
+      color: rgba(255,255,255,0.9);
+    }
+    .tcard h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 6px;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+    }
+    .featured .tcard h3 { font-size: 1.7rem; }
+    .tcard p {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.5;
+      margin: 0 0 14px;
+      display: none;
+    }
+    .tcard:hover p { display: block; }
+    .tcard-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: white;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .tcard:hover .tcard-arrow { opacity: 1; transform: translateY(0); }
+
+    /* ── Quick links bar ── */
+    .quick-links-bar {
+      background: var(--primary);
+      padding: 0;
+    }
+    .quick-links-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .quick-link-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 24px 28px;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      border-right: 1px solid rgba(255,255,255,0.12);
+      transition: background var(--transition);
+    }
+    .quick-link-item:last-child { border-right: none; }
+    .quick-link-item:hover { background: rgba(255,255,255,0.1); color: white; }
+    .quick-link-item i { font-size: 1.4rem; opacity: 0.7; flex-shrink: 0; }
+    .quick-link-item .ql-text strong { display: block; font-size: 0.9rem; font-weight: 700; color: white; }
+    .quick-link-item .ql-text span { font-size: 0.75rem; color: rgba(255,255,255,0.6); }
+    .quick-link-item .ql-arrow { margin-left: auto; font-size: 0.75rem; opacity: 0.5; }
+
+    /* ── Discover section (horizontal scroll cards) ── */
+    .discover-section { background: var(--white); padding: 72px 0; }
+    .discover-scroll {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .dcard {
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+      text-decoration: none;
+      color: var(--dark);
+      display: block;
+    }
+    .dcard:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .dcard-img {
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary-light), #b2dde8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dcard-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .dcard:hover .dcard-img img { transform: scale(1.06); }
+    .dcard-img i { font-size: 3rem; color: var(--primary); opacity: 0.3; }
+    .dcard-body { padding: 20px; }
+    .dcard-body h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--dark); }
+    .dcard-body p { font-size: 0.85rem; line-height: 1.6; color: var(--grey); margin: 0; }
+    .dcard-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 14px;
+    }
+
+    /* ── Fast facts row ── */
+    .fast-facts { background: var(--bg); padding: 72px 0; }
+    .fast-facts-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .ff-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px 16px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .ff-item i { font-size: 1.6rem; color: var(--primary); display: block; margin-bottom: 12px; }
+    .ff-item .ff-val { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--dark); }
+    .ff-item .ff-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--grey); margin-top: 4px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1100px) {
+      .topics-layout { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 300px; }
+      .topics-layout .featured { grid-column: span 2; }
+      .discover-scroll { grid-template-columns: repeat(2, 1fr); }
+      .quick-links-inner { grid-template-columns: repeat(2, 1fr); }
+      .quick-link-item:nth-child(2) { border-right: none; }
+      .fast-facts-grid { grid-template-columns: repeat(3, 1fr); }
+      .about-intro-inner { grid-template-columns: 1fr; gap: 36px; }
+    }
+    @media (max-width: 640px) {
+      .about-hero { height: 55vh; }
+      .topics-layout { grid-template-columns: 1fr; grid-auto-rows: 280px; }
+      .topics-layout .featured { grid-column: span 1; }
+      .discover-scroll { grid-template-columns: 1fr; }
+      .quick-links-inner { grid-template-columns: 1fr; }
+      .quick-link-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); }
+      .fast-facts-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-intro-stats { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
+
+<!-- NAVBAR -->
 <nav class="navbar">
   <div class="nav-container">
     <a href="index.html" class="nav-logo">
@@ -95,100 +426,354 @@
   </div>
 </div>
 
-<!-- HERO -->
-<section class="hero hero-inner">
-  <div class="hero-bg">
-    <img src="images/placeholder.jpg" alt="About Qatar">
-    <div class="hero-overlay"></div>
+<!-- ============================================================
+     HERO — Full bleed image, title sits bottom-left
+     ============================================================ -->
+<section class="about-hero">
+  <img src="images/banner2.jpg" alt="Doha skyline with Museum of Islamic Art and traditional dhows">
+  <div class="about-hero-overlay"></div>
+  <div class="container about-hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>About Qatar</span>
+    </div>
+    <h1>About Qatar</h1>
   </div>
+</section>
+
+<!-- ============================================================
+     INTRO — Short description + key stats
+     ============================================================ -->
+<section class="about-intro">
   <div class="container">
-    <div class="hero-content">
-      <div class="breadcrumb">
-        <a href="index.html">Home</a>
-        <i class="fas fa-chevron-right"></i>
-        <span>About Qatar</span>
+    <div class="about-intro-inner">
+      <div>
+        <h2>A Land of Infinite Wonders</h2>
+        <p>Qatar is a young destination with a rich heritage that will leave you wanting more. It's where the desert sands meet the ocean and where ancient traditions and modern wonders live side by side. Pronounced <em>'kuh-TAR'</em>, this small peninsula on the Arabian Gulf has become one of the world's most captivating destinations — a place that surprises, inspires, and stays with you long after you leave.</p>
+        <p style="margin-top:16px;">From the iconic skyline of Doha to the silent, rolling dunes of the Inland Sea, from the world-class museums of Qatar Museums to the warm hospitality of its people — Qatar is a destination unlike any other.</p>
       </div>
-      <div class="hero-eyebrow"><i class="fas fa-info-circle"></i> Welcome to Qatar</div>
-      <h1 class="hero-title">About Qatar</h1>
-      <div class="hero-desc"><p>A small peninsula with an outsized story — discover the nation that has captured the world's imagination.</p></div>
+      <div class="about-intro-stats">
+        <div class="intro-stat">
+          <div class="is-value">3.2M+</div>
+          <div class="is-label">Population</div>
+        </div>
+        <div class="intro-stat">
+          <div class="is-value">11,586</div>
+          <div class="is-label">km² Land Area</div>
+        </div>
+        <div class="intro-stat">
+          <div class="is-value">200+</div>
+          <div class="is-label">Nationalities</div>
+        </div>
+        <div class="intro-stat">
+          <div class="is-value">#1</div>
+          <div class="is-label">Safest Country</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ============================================================
+     QUICK LINKS BAR
+     ============================================================ -->
+<div class="quick-links-bar">
+  <div class="container" style="max-width:100%;padding:0;">
+    <div class="quick-links-inner">
+      <a href="visas.html" class="quick-link-item">
+        <i class="fas fa-passport"></i>
+        <div class="ql-text"><strong>Visa Information</strong><span>102 visa-free nationalities</span></div>
+        <i class="fas fa-chevron-right ql-arrow"></i>
+      </a>
+      <a href="getting-to-qatar.html" class="quick-link-item">
+        <i class="fas fa-plane"></i>
+        <div class="ql-text"><strong>Getting to Qatar</strong><span>Flights, drives &amp; cruises</span></div>
+        <i class="fas fa-chevron-right ql-arrow"></i>
+      </a>
+      <a href="getting-around.html" class="quick-link-item">
+        <i class="fas fa-subway"></i>
+        <div class="ql-text"><strong>Getting Around</strong><span>Metro, taxi &amp; car rental</span></div>
+        <i class="fas fa-chevron-right ql-arrow"></i>
+      </a>
+      <a href="travel-tips.html" class="quick-link-item">
+        <i class="fas fa-lightbulb"></i>
+        <div class="ql-text"><strong>Travel Tips</strong><span>Everything you need to know</span></div>
+        <i class="fas fa-chevron-right ql-arrow"></i>
+      </a>
+    </div>
+  </div>
+</div>
 
-<section class="content-section">
+<!-- ============================================================
+     MAIN TOPIC CARDS — Image-forward grid, hover reveals description
+     ============================================================ -->
+<section class="topic-section">
   <div class="container">
-    <div class="highlight-section ">
-      <div class="highlight-img-wrap">
-        <div class="highlight-img-placeholder"><i class="fas fa-globe-asia"></i></div>
-        <div class="highlight-badge">
-          <div class="badge-icon"><i class="fas fa-award"></i></div>
-          <div class="badge-text"><strong>UNESCO</strong><span>World Heritage Recognition</span></div>
+    <div class="topic-section-header">
+      <div class="section-eyebrow" style="margin-bottom:12px;">Explore</div>
+      <h2>Everything You Need to Know About Qatar</h2>
+      <p>Discover every dimension of Qatar — its geography and history, capital city, people, traditions, cuisine, sport and wildlife.</p>
+    </div>
+
+    <div class="topics-layout">
+
+      <!-- Featured: Traditions (spans 2 cols) -->
+      <a href="traditions.html" class="tcard featured">
+        <img src="images/banner1.jpeg" alt="Traditional Qatari dhow sailing at sunset, Museum of Islamic Art behind">
+        <div class="tcard-overlay"></div>
+        <div class="tcard-body">
+          <span class="tcard-tag">Culture</span>
+          <h3>Traditions in Qatar</h3>
+          <p>Fall in love with Qatar's rich traditions — from enchanting dhow boats drifting across the bay and the warm scent of oud, to the joy of communal Ramadan celebrations and the ancient art of falconry.</p>
+          <span class="tcard-arrow">Explore Traditions <i class="fas fa-arrow-right"></i></span>
         </div>
-      </div>
-      <div class="highlight-text">
-        <div class="section-header left">
-          <div class="section-eyebrow">An Introduction</div>
-          <h2 class="section-title">Qatar: The Pearl of the Gulf</h2>
-          <div class="divider left"></div>
+      </a>
+
+      <!-- Geography -->
+      <a href="geography.html" class="tcard">
+        <div class="tcard-placeholder" style="background:linear-gradient(135deg,#004a5c,#00627B);">
+          <i class="fas fa-map-marked-alt"></i>
         </div>
-        <p>Qatar is a sovereign Arab state situated on a small peninsula in the northeastern Arabian Peninsula. Bordered by Saudi Arabia to the south and surrounded by the Persian Gulf on all other sides, Qatar has emerged as one of the most prosperous and ambitious nations in the world.</p><p>Rich in oil and natural gas, Qatar has leveraged its wealth to build world-class infrastructure, cultural institutions, and sporting facilities that are the envy of the region. Yet despite its modernity, Qatar has remained deeply committed to its Bedouin heritage and Islamic traditions.</p>
-        <a href="geography.html" class="btn btn-primary">Explore More</a>
-      </div>
+        <div class="tcard-overlay"></div>
+        <div class="tcard-body">
+          <span class="tcard-tag">Nature</span>
+          <h3>Geography of Qatar</h3>
+          <p>Known as the pearl of the Arabian Peninsula, Qatar's unique geography spans desert dunes, stunning coastlines, and the spectacular Inland Sea.</p>
+          <span class="tcard-arrow">Explore Geography <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- History -->
+      <a href="history.html" class="tcard">
+        <div class="tcard-placeholder" style="background:linear-gradient(135deg,#5c001f,#7D002A);">
+          <i class="fas fa-landmark"></i>
+        </div>
+        <div class="tcard-overlay"></div>
+        <div class="tcard-body">
+          <span class="tcard-tag">History</span>
+          <h3>History of Qatar</h3>
+          <p>From ancient farmsteads and pearl-diving communities to one of the world's wealthiest nations — explore Qatar's remarkable journey through time.</p>
+          <span class="tcard-arrow">Explore History <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- Towns & Cities -->
+      <a href="towns-cities.html" class="tcard">
+        <img src="images/banner4.png" alt="The Pearl-Qatar marina and luxury residences">
+        <div class="tcard-overlay"></div>
+        <div class="tcard-body">
+          <span class="tcard-tag">Places</span>
+          <h3>Towns &amp; Cities</h3>
+          <p>Explore beyond Doha to discover Qatar's emerging towns and cities, each with its own distinct character — from futuristic Lusail to charming Al Khor.</p>
+          <span class="tcard-arrow">Explore Cities <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- Doha -->
+      <a href="doha.html" class="tcard">
+        <div class="tcard-placeholder" style="background:linear-gradient(135deg,#003d4d,#005f75);">
+          <i class="fas fa-city"></i>
+        </div>
+        <div class="tcard-overlay"></div>
+        <div class="tcard-body">
+          <span class="tcard-tag">Capital</span>
+          <h3>Doha</h3>
+          <p>Experience one of the Middle East's most enchanting cities — Doha, Qatar's thriving capital, where a gleaming skyline meets the timeless Corniche.</p>
+          <span class="tcard-arrow">Discover Doha <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- Sports — Featured (spans 2 cols) -->
+      <a href="sports.html" class="tcard featured">
+        <img src="images/banner5.png" alt="Qatari family enjoying outdoor sports in Doha">
+        <div class="tcard-overlay"></div>
+        <div class="tcard-body">
+          <span class="tcard-tag">Sport</span>
+          <h3>Sports in Qatar</h3>
+          <p>Qatar is a passionate sporting nation — home to ancient traditions like falconry and camel racing, and the stage for world-class events from the FIFA World Cup to Formula One.</p>
+          <span class="tcard-arrow">Explore Sports <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- Local Cuisine -->
+      <a href="cuisine.html" class="tcard">
+        <div class="tcard-placeholder" style="background:linear-gradient(135deg,#4a2000,#7a3c00);">
+          <i class="fas fa-utensils"></i>
+        </div>
+        <div class="tcard-overlay"></div>
+        <div class="tcard-body">
+          <span class="tcard-tag">Food</span>
+          <h3>Local Cuisine</h3>
+          <p>Qatari food is a love language — fragrant machboos, sweet luqaimat, and the ritual of sharing qahwa and dates with guests. A journey for the tastebuds.</p>
+          <span class="tcard-arrow">Explore Cuisine <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- Wildlife -->
+      <a href="wildlife.html" class="tcard">
+        <div class="tcard-placeholder" style="background:linear-gradient(135deg,#1a4a1a,#2d7a2d);">
+          <i class="fas fa-paw"></i>
+        </div>
+        <div class="tcard-overlay"></div>
+        <div class="tcard-body">
+          <span class="tcard-tag">Nature</span>
+          <h3>Wildlife</h3>
+          <p>Qatar is home to unique wildlife — the majestic Arabian Oryx, the revered falcon, dugongs in the Gulf, and spectacular migratory birds that pass through each season.</p>
+          <span class="tcard-arrow">Explore Wildlife <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
-<section class="content-section ">
+
+<!-- ============================================================
+     FAST FACTS
+     ============================================================ -->
+<section class="fast-facts">
   <div class="container">
     <div class="section-header">
-      <div class="section-eyebrow">Key Highlights</div>
-      <h2 class="section-title">What Makes Qatar Unique</h2>
+      <div class="section-eyebrow">Quick Reference</div>
+      <h2 class="section-title">Qatar at a Glance</h2>
       <div class="divider"></div>
-      <p class="section-desc">From its people to its landscapes, Qatar is full of extraordinary qualities that set it apart.</p>
     </div>
-    <div class="cards-grid cards-grid-3">
-      
-      <div class="card">
-        <div class="card-img-placeholder"><i class="fas fa-mosque"></i></div>
-        <div class="card-body">
-          <span class="card-tag">Heritage</span>
-          <h3 class="card-title">Rich Islamic Traditions</h3>
-          <p class="card-text">Qatar's culture is deeply rooted in Islamic values and Bedouin heritage, expressed through architecture, art, hospitality, and daily life.</p>
-          <a href="traditions.html" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
-        </div>
+    <div class="fast-facts-grid">
+      <div class="ff-item">
+        <i class="fas fa-flag"></i>
+        <div class="ff-val">State of Qatar</div>
+        <div class="ff-label">Official Name</div>
       </div>
-      <div class="card">
-        <div class="card-img-placeholder"><i class="fas fa-futbol"></i></div>
-        <div class="card-body">
-          <span class="card-tag">Sports</span>
-          <h3 class="card-title">Sports Capital</h3>
-          <p class="card-text">Host of the 2022 FIFA World Cup, Qatar has invested enormously in world-class sporting facilities and events.</p>
-          <a href="sports.html" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
-        </div>
+      <div class="ff-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <div class="ff-val">Doha</div>
+        <div class="ff-label">Capital City</div>
       </div>
-      <div class="card">
-        <div class="card-img-placeholder"><i class="fas fa-utensils"></i></div>
-        <div class="card-body">
-          <span class="card-tag">Cuisine</span>
-          <h3 class="card-title">Diverse Cuisine</h3>
-          <p class="card-text">A melting pot of flavours from across the Arab world and beyond, Qatar's food scene is vibrant and constantly evolving.</p>
-          <a href="cuisine.html" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
-        </div>
+      <div class="ff-item">
+        <i class="fas fa-coins"></i>
+        <div class="ff-val">QAR</div>
+        <div class="ff-label">Currency</div>
       </div>
-    </div>
-  </div>
-</section>
-<section class="cta-banner">
-  <div class="container">
-    <h2>Discover Everything Qatar Has to Offer</h2>
-    <p>Start planning your trip today and experience the warmth and wonder of Qatar.</p>
-    <div class="hero-actions" style="justify-content:center;">
-      <a href="visas.html" class="btn btn-outline"><i class="fas fa-arrow-right"></i> Plan Your Trip</a>
-      <a href="adventure.html" class="btn btn-outline"><i class="fas fa-envelope"></i> Explore Things to Do</a>
+      <div class="ff-item">
+        <i class="fas fa-language"></i>
+        <div class="ff-val">Arabic</div>
+        <div class="ff-label">Official Language</div>
+      </div>
+      <div class="ff-item">
+        <i class="fas fa-clock"></i>
+        <div class="ff-val">UTC +3</div>
+        <div class="ff-label">Time Zone</div>
+      </div>
+      <div class="ff-item">
+        <i class="fas fa-plug"></i>
+        <div class="ff-val">Type G</div>
+        <div class="ff-label">Power Plug · 240V</div>
+      </div>
+      <div class="ff-item">
+        <i class="fas fa-sun"></i>
+        <div class="ff-val">300+</div>
+        <div class="ff-label">Sunny Days / Year</div>
+      </div>
+      <div class="ff-item">
+        <i class="fas fa-thermometer-half"></i>
+        <div class="ff-val">Oct–Apr</div>
+        <div class="ff-label">Best Time to Visit</div>
+      </div>
+      <div class="ff-item">
+        <i class="fas fa-phone"></i>
+        <div class="ff-val">+974</div>
+        <div class="ff-label">Country Code</div>
+      </div>
+      <div class="ff-item">
+        <i class="fas fa-wifi"></i>
+        <div class="ff-val">5G</div>
+        <div class="ff-label">Mobile Network</div>
+      </div>
+      <div class="ff-item">
+        <i class="fas fa-calendar-star"></i>
+        <div class="ff-val">18 Dec</div>
+        <div class="ff-label">National Day</div>
+      </div>
+      <div class="ff-item">
+        <i class="fas fa-shield-alt"></i>
+        <div class="ff-val">#1</div>
+        <div class="ff-label">Safest Country</div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ============================================================
+     DISCOVER MORE — Things To Do cards
+     ============================================================ -->
+<section class="discover-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">While You're Here</div>
+      <h2 class="section-title">Discover Things to Do</h2>
+      <div class="divider"></div>
+      <p class="section-desc">Now you know Qatar — start exploring everything it has to offer.</p>
+    </div>
+    <div class="discover-scroll">
+      <a href="adventure.html" class="dcard">
+        <div class="dcard-img">
+          <i class="fas fa-mountain"></i>
+        </div>
+        <div class="dcard-body">
+          <h3>Adventure &amp; Sports</h3>
+          <p>Dune bashing, desert safaris, watersports and world-class sporting venues.</p>
+          <span class="dcard-link">Explore <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+      <a href="art-culture.html" class="dcard">
+        <div class="dcard-img">
+          <img src="images/banner2.jpg" alt="Museum of Islamic Art, Doha">
+        </div>
+        <div class="dcard-body">
+          <h3>Art &amp; Culture</h3>
+          <p>World-renowned museums, galleries, and vibrant cultural festivals in Doha.</p>
+          <span class="dcard-link">Explore <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+      <a href="dining.html" class="dcard">
+        <div class="dcard-img">
+          <i class="fas fa-utensils"></i>
+        </div>
+        <div class="dcard-body">
+          <h3>Dining</h3>
+          <p>From traditional Qatari dishes to internationally acclaimed fine dining restaurants.</p>
+          <span class="dcard-link">Explore <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+      <a href="beach.html" class="dcard">
+        <div class="dcard-img">
+          <i class="fas fa-umbrella-beach"></i>
+        </div>
+        <div class="dcard-body">
+          <h3>Beach Holiday</h3>
+          <p>Crystal Gulf waters, pristine sands, and luxury coastal resorts year-round.</p>
+          <span class="dcard-link">Explore <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA
+     ============================================================ -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Ready to Visit Qatar?</h2>
+    <p>Start planning your perfect trip — from visa requirements and flights to hotels and experiences.</p>
+    <div class="hero-actions" style="justify-content:center;">
+      <a href="visas.html" class="btn btn-outline"><i class="fas fa-passport"></i> Visa Requirements</a>
+      <a href="concierge.html" class="btn btn-outline"><i class="fas fa-concierge-bell"></i> Concierge Service</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div class="container">
@@ -233,7 +818,7 @@
           <h4>Contact Us</h4>
           <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Qatar Tourism, West Bay, Doha, Qatar</span></div>
           <div class="footer-contact-item"><i class="fas fa-phone"></i><span>+974 4409 5555</span></div>
-          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2c45424a436c5a455f45585d4d584d5e025d4d">[email&#160;protected]</a></span></div>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>info@exploreqatar.qa</span></div>
           <div class="footer-contact-item"><i class="fas fa-clock"></i><span>Sun–Thu, 8:00 AM – 5:00 PM</span></div>
         </div>
       </div>
@@ -254,10 +839,20 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;flex-wrap:wrap;gap:12px;">
-      <span>&copy; 2025 Qatar Tourism. All rights reserved.</span>
-      <div class="footer-bottom-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
-        <a href="#">Cookie Settings</a>
-        <
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <span>&copy; 2025 Explore Qatar. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Cookie Settings</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
