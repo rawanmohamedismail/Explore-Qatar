@@ -1,5 +1,5 @@
 /* ============================================================
-   VISIT QATAR — SCRIPT.JS
+   EXPLORE QATAR — SCRIPT.JS
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -29,11 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
     link.addEventListener('click', function () {
       const dropdown = this.nextElementSibling;
       const isOpen = dropdown && dropdown.classList.contains('open');
-
-      // Close all
       document.querySelectorAll('.mobile-dropdown.open').forEach(d => d.classList.remove('open'));
       document.querySelectorAll('.mobile-nav-link.open').forEach(l => l.classList.remove('open'));
-
       if (!isOpen && dropdown) {
         dropdown.classList.add('open');
         this.classList.add('open');
@@ -46,13 +43,12 @@ document.addEventListener('DOMContentLoaded', function () {
     question.addEventListener('click', function () {
       const item = this.closest('.faq-item');
       const isOpen = item.classList.contains('open');
-
       document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
       if (!isOpen) item.classList.add('open');
     });
   });
 
-  /* ── Smooth scroll for anchor links ── */
+  /* ── Smooth Scroll for Anchor Links ── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const target = document.querySelector(this.getAttribute('href'));
@@ -69,15 +65,17 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       const input = this.querySelector('input[type="email"]');
-      if (input && input.value) {
-        const btn = this.querySelector('button');
+      const btn = this.querySelector('button');
+      if (input && input.value && btn) {
         const original = btn.innerHTML;
         btn.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
         btn.style.background = '#22c55e';
+        btn.style.borderColor = '#22c55e';
         input.value = '';
         setTimeout(() => {
           btn.innerHTML = original;
           btn.style.background = '';
+          btn.style.borderColor = '';
         }, 3000);
       }
     });
@@ -88,15 +86,18 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       const btn = this.querySelector('button[type="submit"]');
+      if (!btn) return;
       const original = btn.innerHTML;
       btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Please wait...';
       btn.disabled = true;
       setTimeout(() => {
         btn.innerHTML = '<i class="fas fa-check-circle"></i> Success!';
         btn.style.background = '#22c55e';
+        btn.style.borderColor = '#22c55e';
         setTimeout(() => {
           btn.innerHTML = original;
           btn.style.background = '';
+          btn.style.borderColor = '';
           btn.disabled = false;
         }, 2000);
       }, 1500);
@@ -107,6 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.toggle-password').forEach(toggle => {
     toggle.addEventListener('click', function () {
       const input = this.closest('.input-wrap').querySelector('input');
+      if (!input) return;
       if (input.type === 'password') {
         input.type = 'text';
         this.classList.replace('fa-eye', 'fa-eye-slash');
@@ -117,41 +119,51 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* ── Video Hero: Sound Toggle ── */
-  const videoEl = document.querySelector('.hero-vid');
-  const soundBtn = document.getElementById('videoSoundBtn');
+  /* ──────────────────────────────────────────────────────────
+     VIDEO HERO — SOUND TOGGLE
+     Toggles mute/unmute on the homepage hero video.
+  ────────────────────────────────────────────────────────── */
+  const videoEl   = document.querySelector('.hero-vid');
+  const soundBtn  = document.getElementById('videoSoundBtn');
   const soundIcon = document.getElementById('videoSoundIcon');
 
-  if (videoEl && soundBtn) {
+  if (videoEl && soundBtn && soundIcon) {
     soundBtn.addEventListener('click', () => {
       videoEl.muted = !videoEl.muted;
       soundIcon.className = videoEl.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
     });
   }
 
-  /* ── Animated Stat Counters ── */
-  const counters = document.querySelectorAll('.counter');
+  /* ──────────────────────────────────────────────────────────
+     ANIMATED STAT COUNTERS
+     Numbers count up from zero when the stats strip scrolls
+     into view. Uses IntersectionObserver for performance.
+     Applies only to elements with class="counter".
+  ────────────────────────────────────────────────────────── */
+  const counters = document.querySelectorAll('.stat-number.counter');
 
   if (counters.length) {
-    const formatNum = (n) => {
-      if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
-      if (n >= 1000) return n.toLocaleString();
-      return n.toString();
+
+    /* Format large numbers nicely */
+    const formatNum = (n, suffix) => {
+      if (suffix === 'M+' || suffix === 'M') {
+        return (n / 1000000).toFixed(1).replace(/\.0$/, '') + suffix;
+      }
+      if (n >= 1000) return n.toLocaleString() + (suffix || '');
+      return n.toString() + (suffix || '');
     };
 
     const animateCounter = (el) => {
-      const target = parseInt(el.dataset.target);
-      const suffix = el.dataset.suffix || '';
-      const duration = 2000;
-      const steps = 60;
-      const increment = target / steps;
-      let current = 0;
-      let step = 0;
+      const target   = parseInt(el.dataset.target, 10);
+      const suffix   = el.dataset.suffix || '';
+      const duration = 2000;   // ms
+      const steps    = 60;
+      let step       = 0;
 
       const timer = setInterval(() => {
         step++;
-        current = Math.min(Math.round(increment * step), target);
-        el.textContent = formatNum(current) + suffix;
+        const current = Math.min(Math.round((target / steps) * step), target);
+        el.textContent = formatNum(current, suffix);
         if (step >= steps) clearInterval(timer);
       }, duration / steps);
     };
