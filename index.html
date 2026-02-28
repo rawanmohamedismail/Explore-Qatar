@@ -1,95 +1,418 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visit Qatar</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visit Qatar — Official Tourism Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-<header>
-    <div class="logo"><h2>Visit Qatar</h2></div>
-    <nav class="navbar">
-        <ul>
-            <li><a href="#">ABOUT QATAR</a>
-                <ul>
-                    <li><a href="about-qatar.html">About Qatar</a></li>
-                    <li><a href="geography.html">Geography of Qatar</a></li>
-                    <li><a href="history.html">History of Qatar</a></li>
-                    <li><a href="towns.html">Towns and Cities</a></li>
-                    <li><a href="doha.html">Doha</a></li>
-                    <li><a href="traditions.html">Traditions in Qatar</a></li>
-                    <li><a href="sports.html">Sports in Qatar</a></li>
-                    <li><a href="cuisine.html">Local Cuisine</a></li>
-                    <li><a href="wildlife.html">Wildlife</a></li>
-                </ul>
-            </li>
-            <li><a href="#">PLAN YOUR TRIP</a>
-                <ul>
-                    <li><a href="visas.html">Visas</a></li>
-                    <li><a href="accommodation.html">Accommodation</a></li>
-                    <li><a href="getting-to-qatar.html">Getting to Qatar</a></li>
-                    <li><a href="airport.html">Hamad Int. Airport</a></li>
-                    <li><a href="transport.html">Getting Around</a></li>
-                    <li><a href="safety.html">Safety</a></li>
-                    <li><a href="tips.html">Travel Tips</a></li>
-                    <li><a href="concierge.html">Concierge Service</a></li>
-                </ul>
-            </li>
-            <li><a href="#">THINGS TO DO</a>
-                <ul>
-                    <li><a href="adventure.html">Adventure & Sports</a></li>
-                    <li><a href="art.html">Art & Culture</a></li>
-                    <li><a href="romantic.html">Romantic Getaway</a></li>
-                    <li><a href="beach.html">Beach Holiday</a></li>
-                    <li><a href="family.html">Family Break</a></li>
-                    <li><a href="dining.html">Dining</a></li>
-                    <li><a href="spa.html">Spa & Wellness</a></li>
-                    <li><a href="shopping.html">Shopping</a></li>
-                </ul>
-            </li>
-            <li><a href="login.html">LOGIN</a></li>
-            <li><a href="signup.html">SIGNUP</a></li>
-        </ul>
-    </nav>
-</header>
 
-<section class="hero">
-    <h1>Welcome to Qatar</h1>
-    <p>Explore the wonders of Qatar – culture, adventure, and luxury await.</p>
-</section>
-
-<section class="section">
-    <h2>Top Attractions</h2>
-    <div class="cards">
-        <div class="card">
-            <i class="fas fa-landmark fa-2x"></i>
-            <h3>Museum of Islamic Art</h3>
-            <p>Experience world-class exhibitions in stunning architecture.</p>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon"><i class="fas fa-mosque"></i></div>
+      <div class="logo-text">Visit Qatar<span>Official Tourism Portal</span></div>
+    </a>
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="about-qatar.html" class="nav-link">About Qatar <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown">
+          <a href="about-qatar.html"><i class="fas fa-info-circle"></i> About Qatar</a>
+          <a href="geography.html"><i class="fas fa-map"></i> Geography</a>
+          <a href="history.html"><i class="fas fa-landmark"></i> History</a>
+          <a href="towns-cities.html"><i class="fas fa-city"></i> Towns and Cities</a>
+          <a href="doha.html"><i class="fas fa-building"></i> Doha</a>
+          <a href="traditions.html"><i class="fas fa-star-and-crescent"></i> Traditions</a>
+          <a href="sports.html"><i class="fas fa-futbol"></i> Sports</a>
+          <a href="cuisine.html"><i class="fas fa-utensils"></i> Local Cuisine</a>
+          <a href="wildlife.html"><i class="fas fa-paw"></i> Wildlife</a>
         </div>
-        <div class="card">
-            <i class="fas fa-beach fa-2x"></i>
-            <h3>Beaches</h3>
-            <p>Relax at Qatar’s pristine coastline and clear waters.</p>
+      </li>
+      <li class="nav-item">
+        <a href="visas.html" class="nav-link">Plan Your Trip <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown">
+          <a href="visas.html"><i class="fas fa-passport"></i> Visas</a>
+          <a href="accommodation.html"><i class="fas fa-hotel"></i> Accommodation</a>
+          <a href="getting-to-qatar.html"><i class="fas fa-plane"></i> Getting to Qatar</a>
+          <a href="airport.html"><i class="fas fa-plane-arrival"></i> Hamad Airport</a>
+          <a href="getting-around.html"><i class="fas fa-car"></i> Getting Around</a>
+          <a href="safety.html"><i class="fas fa-shield-alt"></i> Safety</a>
+          <a href="travel-tips.html"><i class="fas fa-lightbulb"></i> Travel Tips</a>
+          <a href="concierge.html"><i class="fas fa-concierge-bell"></i> Concierge Service</a>
         </div>
-        <div class="card">
-            <i class="fas fa-utensils fa-2x"></i>
-            <h3>Local Cuisine</h3>
-            <p>Savor traditional Qatari dishes and modern fusion.</p>
+      </li>
+      <li class="nav-item">
+        <a href="adventure.html" class="nav-link">Things To Do <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown">
+          <a href="adventure.html"><i class="fas fa-mountain"></i> Adventure &amp; Sports</a>
+          <a href="art-culture.html"><i class="fas fa-palette"></i> Art &amp; Culture</a>
+          <a href="romantic.html"><i class="fas fa-heart"></i> Romantic Getaway</a>
+          <a href="beach.html"><i class="fas fa-umbrella-beach"></i> Beach Holiday</a>
+          <a href="family.html"><i class="fas fa-child"></i> Family Break</a>
+          <a href="dining.html"><i class="fas fa-utensils"></i> Dining</a>
+          <a href="spa.html"><i class="fas fa-spa"></i> Spa &amp; Wellness</a>
+          <a href="shopping.html"><i class="fas fa-shopping-bag"></i> Shopping</a>
         </div>
+      </li>
+    </ul>
+    <div class="nav-actions">
+      <a href="login.html" class="btn btn-outline-primary">Login</a>
+      <a href="signup.html" class="btn btn-primary">Sign Up</a>
     </div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-nav-item">
+    <div class="mobile-nav-link">About Qatar <i class="fas fa-chevron-down"></i></div>
+    <div class="mobile-dropdown">
+      <a href="about-qatar.html">About Qatar</a><a href="geography.html">Geography</a><a href="history.html">History</a>
+      <a href="towns-cities.html">Towns and Cities</a><a href="doha.html">Doha</a><a href="traditions.html">Traditions</a>
+      <a href="sports.html">Sports</a><a href="cuisine.html">Local Cuisine</a><a href="wildlife.html">Wildlife</a>
+    </div>
+  </div>
+  <div class="mobile-nav-item">
+    <div class="mobile-nav-link">Plan Your Trip <i class="fas fa-chevron-down"></i></div>
+    <div class="mobile-dropdown">
+      <a href="visas.html">Visas</a><a href="accommodation.html">Accommodation</a><a href="getting-to-qatar.html">Getting to Qatar</a>
+      <a href="airport.html">Hamad Airport</a><a href="getting-around.html">Getting Around</a>
+      <a href="safety.html">Safety</a><a href="travel-tips.html">Travel Tips</a><a href="concierge.html">Concierge Service</a>
+    </div>
+  </div>
+  <div class="mobile-nav-item">
+    <div class="mobile-nav-link">Things To Do <i class="fas fa-chevron-down"></i></div>
+    <div class="mobile-dropdown">
+      <a href="adventure.html">Adventure &amp; Sports</a><a href="art-culture.html">Art &amp; Culture</a>
+      <a href="romantic.html">Romantic Getaway</a><a href="beach.html">Beach Holiday</a>
+      <a href="family.html">Family Break</a><a href="dining.html">Dining</a>
+      <a href="spa.html">Spa &amp; Wellness</a><a href="shopping.html">Shopping</a>
+    </div>
+  </div>
+  <div class="mobile-actions">
+    <a href="login.html" class="btn btn-outline-primary">Login</a>
+    <a href="signup.html" class="btn btn-primary">Sign Up</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="images/placeholder.jpg" alt="Qatar skyline at dusk">
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow"><i class="fas fa-star"></i> Welcome to Qatar</div>
+      <h1 class="hero-title">Discover the<span>Heart of Arabia</span></h1>
+      <div class="hero-desc"><p>Where timeless traditions meet breathtaking modernity. Explore ancient souqs, golden deserts, world-class museums, and pristine coastlines in the Pearl of the Gulf.</p></div>
+      <div class="hero-actions">
+        <a href="about-qatar.html" class="btn btn-primary"><i class="fas fa-compass"></i> Explore Qatar</a>
+        <a href="visas.html" class="btn btn-outline"><i class="fas fa-passport"></i> Plan Your Trip</a>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-number">11,586</div><div class="stat-label">km&sup2; of Wonders</div></div>
+      <div class="stat-item"><div class="stat-number">300+</div><div class="stat-label">Days of Sunshine</div></div>
+      <div class="stat-item"><div class="stat-number">200+</div><div class="stat-label">Nationalities</div></div>
+      <div class="stat-item"><div class="stat-number">#1</div><div class="stat-label">Safest Country</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT INTRO -->
+<section class="content-section">
+  <div class="container">
+    <div class="highlight-section">
+      <div class="highlight-img-wrap">
+        <div class="highlight-img-placeholder"><i class="fas fa-mosque"></i></div>
+        <div class="highlight-badge">
+          <div class="badge-icon"><i class="fas fa-award"></i></div>
+          <div class="badge-text"><strong>Ranked #1</strong><span>Safest Country in the World</span></div>
+        </div>
+      </div>
+      <div class="highlight-text">
+        <div class="section-header left">
+          <div class="section-eyebrow">About Qatar</div>
+          <h2 class="section-title">A Land of Extraordinary Contrasts</h2>
+          <div class="divider left"></div>
+        </div>
+        <p>Qatar is a small peninsula on the northeastern coast of the Arabian Peninsula, jutting into the Persian Gulf. Despite its size, this remarkable nation captivates visitors with a unique blend of ancient Bedouin heritage and futuristic architecture.</p>
+        <p>From the gleaming towers of West Bay to the tranquil dunes of the Inland Sea, Qatar offers experiences that linger long in the memory. The nation has transformed itself into one of the world's most ambitious destinations.</p>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> World-class museums including the iconic Museum of Islamic Art</li>
+          <li><i class="fas fa-check-circle"></i> Authentic souq experiences in Souq Waqif</li>
+          <li><i class="fas fa-check-circle"></i> Year-round sunshine and pristine Arabian Gulf beaches</li>
+          <li><i class="fas fa-check-circle"></i> Rich Bedouin traditions and warm hospitality</li>
+        </ul>
+        <a href="about-qatar.html" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THINGS TO DO -->
+<section class="content-section alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Things To Do</div>
+      <h2 class="section-title">Endless Ways to Experience Qatar</h2>
+      <div class="divider"></div>
+      <p class="section-desc">Whether you seek adventure, culture, relaxation, or culinary delights, Qatar offers an unforgettable experience for every traveller.</p>
+    </div>
+    <div class="cards-grid cards-grid-4">
+      <div class="card">
+        <div class="card-img-placeholder"><i class="fas fa-mountain"></i></div>
+        <div class="card-body">
+          <span class="card-tag">Thrills</span>
+          <h3 class="card-title">Adventure &amp; Sports</h3>
+          <p class="card-text">Dune bashing, desert safaris, watersports and more. Qatar's varied landscape promises heart-pounding excitement.</p>
+          <a href="adventure.html" class="card-link">Explore <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder"><i class="fas fa-palette"></i></div>
+        <div class="card-body">
+          <span class="card-tag">Culture</span>
+          <h3 class="card-title">Art &amp; Culture</h3>
+          <p class="card-text">World-renowned museums, galleries, and vibrant cultural festivals that celebrate Qatar's rich artistic heritage.</p>
+          <a href="art-culture.html" class="card-link">Explore <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder"><i class="fas fa-umbrella-beach"></i></div>
+        <div class="card-body">
+          <span class="card-tag">Relaxation</span>
+          <h3 class="card-title">Beach Holiday</h3>
+          <p class="card-text">Crystal clear waters, powdery sands, and stunning coastal resorts along the Arabian Gulf shoreline.</p>
+          <a href="beach.html" class="card-link">Explore <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img-placeholder"><i class="fas fa-utensils"></i></div>
+        <div class="card-body">
+          <span class="card-tag">Food</span>
+          <h3 class="card-title">Dining</h3>
+          <p class="card-text">A world of flavours awaits — from traditional Qatari dishes to internationally renowned fine dining establishments.</p>
+          <a href="dining.html" class="card-link">Explore <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOHA HIGHLIGHT -->
+<section class="content-section">
+  <div class="container">
+    <div class="highlight-section reverse">
+      <div class="highlight-img-wrap">
+        <div class="highlight-img-placeholder"><i class="fas fa-city"></i></div>
+      </div>
+      <div class="highlight-text">
+        <div class="section-header left">
+          <div class="section-eyebrow">Capital City</div>
+          <h2 class="section-title">Doha: City of Wonders</h2>
+          <div class="divider left"></div>
+        </div>
+        <p>Doha, the capital and largest city of Qatar, is a dazzling metropolis of striking contrasts. The city's iconic skyline, dominated by the Burj Doha and the distinctive buildings of the West Bay, is best experienced from the waterfront Corniche.</p>
+        <p>Beyond the gleaming towers lies a city of extraordinary cultural depth — from the labyrinthine alleys of Souq Waqif to the serene Museum of Islamic Art park, Doha rewards every curious traveller.</p>
+        <a href="doha.html" class="btn btn-primary"><i class="fas fa-building"></i> Discover Doha</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK FACTS -->
+<section class="content-section alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Quick Facts</div>
+      <h2 class="section-title">Essential Qatar at a Glance</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="quick-facts">
+      <div class="quick-fact"><i class="fas fa-sun"></i><div class="fact-value">30&deg;C</div><div class="fact-label">Avg. Temperature</div></div>
+      <div class="quick-fact"><i class="fas fa-coins"></i><div class="fact-value">QAR</div><div class="fact-label">Currency</div></div>
+      <div class="quick-fact"><i class="fas fa-language"></i><div class="fact-value">Arabic</div><div class="fact-label">Official Language</div></div>
+      <div class="quick-fact"><i class="fas fa-clock"></i><div class="fact-value">UTC+3</div><div class="fact-label">Time Zone</div></div>
+      <div class="quick-fact"><i class="fas fa-plug"></i><div class="fact-value">240V</div><div class="fact-label">Electricity</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="content-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Events &amp; Festivals</div>
+      <h2 class="section-title">What's On in Qatar</h2>
+      <div class="divider"></div>
+      <p class="section-desc">From international sporting events to cultural festivals, Qatar's calendar is packed year-round with world-class experiences.</p>
+    </div>
+    <div class="cards-grid cards-grid-3">
+      <div class="event-card">
+        <div class="event-date"><div class="day">12</div><div class="month">Mar</div></div>
+        <div class="event-info">
+          <h4>Qatar International Food Festival</h4>
+          <div class="event-meta"><span><i class="fas fa-map-marker-alt"></i> Katara Cultural Village</span><span><i class="fas fa-calendar"></i> 10 Days</span></div>
+          <p class="card-text">Celebrate the finest flavours from Qatar and around the world at this beloved annual culinary event.</p>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-date"><div class="day">24</div><div class="month">Apr</div></div>
+        <div class="event-info">
+          <h4>Qatar National Day Celebrations</h4>
+          <div class="event-meta"><span><i class="fas fa-map-marker-alt"></i> Doha Corniche</span><span><i class="fas fa-calendar"></i> 3 Days</span></div>
+          <p class="card-text">Experience the grandeur of Qatar's national pride with military parades, fireworks, and cultural performances.</p>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-date"><div class="day">08</div><div class="month">Jun</div></div>
+        <div class="event-info">
+          <h4>Qatar Art Week</h4>
+          <div class="event-meta"><span><i class="fas fa-map-marker-alt"></i> Fire Station</span><span><i class="fas fa-calendar"></i> 7 Days</span></div>
+          <p class="card-text">An immersive celebration of contemporary art featuring local and international artists across Doha's finest venues.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="content-section alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Gallery</div>
+      <h2 class="section-title">A Glimpse of Qatar</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item tall">
+        <div class="gallery-placeholder"><i class="fas fa-mosque"></i></div>
+        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="gallery-item wide">
+        <div class="gallery-placeholder"><i class="fas fa-city"></i></div>
+        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder"><i class="fas fa-umbrella-beach"></i></div>
+        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder"><i class="fas fa-utensils"></i></div>
+        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder"><i class="fas fa-camel"></i></div>
+        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder"><i class="fas fa-star-and-crescent"></i></div>
+        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Ready to Experience Qatar?</h2>
+    <p>Let us help you plan the perfect trip. From visas to accommodation, we have everything you need to make your visit unforgettable.</p>
+    <div class="hero-actions" style="justify-content:center;">
+      <a href="visas.html" class="btn btn-outline"><i class="fas fa-passport"></i> Visa Information</a>
+      <a href="travel-tips.html" class="btn btn-outline"><i class="fas fa-lightbulb"></i> Travel Tips</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-    <p>© 2026 Visit Qatar. All rights reserved.</p>
-    <p>
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-    </p>
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="logo-icon"><i class="fas fa-mosque"></i></div>
+            <span>Visit Qatar</span>
+          </div>
+          <p>Discover the wonders of Qatar — a land where ancient tradition meets modern vision. Plan your journey to the Pearl of the Gulf today.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Explore Qatar</h4>
+          <ul>
+            <li><a href="about-qatar.html">About Qatar</a></li>
+            <li><a href="doha.html">Doha</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="traditions.html">Traditions</a></li>
+            <li><a href="cuisine.html">Local Cuisine</a></li>
+            <li><a href="wildlife.html">Wildlife</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Plan Your Trip</h4>
+          <ul>
+            <li><a href="visas.html">Visas</a></li>
+            <li><a href="accommodation.html">Accommodation</a></li>
+            <li><a href="getting-to-qatar.html">Getting to Qatar</a></li>
+            <li><a href="airport.html">Hamad Airport</a></li>
+            <li><a href="safety.html">Safety</a></li>
+            <li><a href="travel-tips.html">Travel Tips</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Qatar Tourism, West Bay, Doha, Qatar</span></div>
+          <div class="footer-contact-item"><i class="fas fa-phone"></i><span>+974 4409 5555</span></div>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>info@visitqatar.qa</span></div>
+          <div class="footer-contact-item"><i class="fas fa-clock"></i><span>Sun–Thu, 8:00 AM – 5:00 PM</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-newsletter">
+    <div class="container">
+      <div class="newsletter-inner">
+        <div class="newsletter-text">
+          <h4>Stay Inspired</h4>
+          <p>Subscribe to receive travel inspiration, news, and exclusive offers from Qatar.</p>
+        </div>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email address" required>
+          <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;flex-wrap:wrap;gap:12px;">
+      <span>&copy; 2025 Qatar Tourism. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Cookie Settings</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+  </div>
 </footer>
+
+<script src="script.js"></script>
 </body>
 </html>
