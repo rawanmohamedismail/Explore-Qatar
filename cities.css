@@ -1,0 +1,132 @@
+/* ── cities.css — shared styles for towns-cities hub + all city detail pages ── */
+
+/* ── Page hero ── */
+.page-hero{position:relative;height:72vh;min-height:500px;display:flex;align-items:flex-end;overflow:hidden;}
+.page-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;}
+.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.78) 0%,rgba(0,0,0,0.28) 55%,rgba(0,0,0,0.05) 100%);}
+.page-hero-content{position:relative;z-index:2;padding:0 0 60px;width:100%;}
+.page-hero-content .breadcrumb{color:rgba(255,255,255,0.6);margin-bottom:14px;}
+.page-hero-content .breadcrumb a{color:rgba(255,255,255,0.6);}
+.page-hero-content h1{font-size:clamp(2.4rem,5vw,4rem);color:white;font-weight:700;text-shadow:0 2px 20px rgba(0,0,0,0.45);max-width:700px;line-height:1.1;}
+.page-hero-content .hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:white;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:14px;}
+.page-hero-content .hero-subtitle{color:rgba(255,255,255,0.82);font-size:1.05rem;margin-top:12px;max-width:580px;line-height:1.7;}
+
+/* ── City quick-stats bar ── */
+.city-stats-bar{background:var(--primary);padding:0;}
+.city-stats-inner{display:grid;grid-template-columns:repeat(5,1fr);}
+.cs-item{text-align:center;padding:26px 12px;border-right:1px solid rgba(255,255,255,0.12);}
+.cs-item:last-child{border-right:none;}
+.cs-item i{font-size:1.2rem;color:rgba(255,255,255,0.55);display:block;margin-bottom:8px;}
+.cs-item .csv{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:white;line-height:1;}
+.cs-item .csl{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-top:4px;}
+
+/* ── Overview split ── */
+.city-overview{display:grid;grid-template-columns:1fr 380px;gap:56px;align-items:start;}
+.city-overview-text h2{font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:16px;}
+.city-overview-text p{line-height:1.85;margin-bottom:16px;}
+
+/* ── Sidebar fact card ── */
+.fact-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:20px;}
+.fact-card-head{background:var(--primary);padding:14px 20px;}
+.fact-card-head h4{color:white;font-family:var(--font-body);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin:0;}
+.fact-card-body{padding:4px 0;}
+.fact-row{display:flex;justify-content:space-between;align-items:center;padding:11px 20px;border-bottom:1px solid var(--border);font-size:0.875rem;}
+.fact-row:last-child{border-bottom:none;}
+.fact-row .fr-label{color:var(--grey);}
+.fact-row .fr-val{font-weight:700;color:var(--dark);text-align:right;}
+
+/* ── Attractions grid ── */
+.attractions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.attr-card{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:var(--white);transition:transform var(--transition),box-shadow var(--transition);}
+.attr-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}
+.attr-card-img{height:200px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.attr-card-img i{font-size:3.5rem;opacity:0.3;position:relative;z-index:1;}
+.attr-card-body{padding:20px;}
+.attr-card-body h3{font-size:1rem;margin-bottom:8px;}
+.attr-card-body p{font-size:0.855rem;line-height:1.65;margin:0;}
+.attr-tag{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;border-radius:50px;margin-bottom:8px;}
+.attr-tag.nature{background:#e8f5e9;color:#2d7a2d;}
+.attr-tag.heritage{background:#fff3e0;color:#e65100;}
+.attr-tag.sport{background:#e3f2fd;color:#1565c0;}
+.attr-tag.culture{background:#f3e5f5;color:#6a1b9a;}
+.attr-tag.beach{background:#e0f4f8;color:var(--primary);}
+.attr-tag.food{background:#fce4ec;color:#c62828;}
+
+/* ── Getting there box ── */
+.getting-there{background:var(--primary-light);border-radius:var(--radius);padding:36px 40px;}
+.getting-there h3{margin-bottom:24px;color:var(--dark);}
+.gt-methods{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.gt-item{background:var(--white);border-radius:var(--radius-sm);padding:20px;box-shadow:var(--shadow);}
+.gt-item i{font-size:1.4rem;color:var(--primary);display:block;margin-bottom:10px;}
+.gt-item h4{font-size:0.9rem;margin-bottom:6px;}
+.gt-item p{font-size:0.82rem;color:var(--grey);margin:0;line-height:1.6;}
+
+/* ── Did you know callout ── */
+.dyk{background:var(--primary);border-radius:var(--radius);padding:32px 40px;display:flex;gap:24px;align-items:flex-start;margin:40px 0;}
+.dyk-icon{width:50px;height:50px;flex-shrink:0;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.dyk-icon i{color:white;font-size:1.1rem;}
+.dyk h4{color:rgba(255,255,255,0.7);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:6px;}
+.dyk p{color:white;font-size:0.975rem;line-height:1.7;margin:0;}
+
+/* ── Other cities strip ── */
+.other-cities{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+.oc-card{border-radius:var(--radius);overflow:hidden;text-decoration:none;color:var(--dark);background:var(--white);box-shadow:var(--shadow);transition:transform var(--transition),box-shadow var(--transition);}
+.oc-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);}
+.oc-card-img{height:110px;display:flex;align-items:center;justify-content:center;}
+.oc-card-img i{font-size:2.2rem;opacity:0.35;}
+.oc-card-body{padding:14px;}
+.oc-card-body strong{display:block;font-size:0.9rem;margin-bottom:3px;}
+.oc-card-body span{font-size:0.75rem;color:var(--grey);}
+
+/* ── Hub page city cards ── */
+.hub-featured{position:relative;border-radius:var(--radius);overflow:hidden;height:460px;display:block;text-decoration:none;color:white;margin-bottom:20px;}
+.hub-featured img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.hub-featured:hover img{transform:scale(1.04);}
+.hub-featured-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.78) 0%,rgba(0,0,0,0.12) 55%,transparent 100%);}
+.hub-featured-body{position:absolute;bottom:0;left:0;right:0;padding:36px 40px;}
+.hub-featured-body .hf-tag{display:inline-block;background:var(--secondary);color:white;font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:4px 12px;border-radius:50px;margin-bottom:12px;}
+.hub-featured-body h2{font-size:2.4rem;color:white;margin-bottom:10px;}
+.hub-featured-body p{color:rgba(255,255,255,0.82);font-size:0.975rem;max-width:600px;line-height:1.65;margin-bottom:18px;}
+.hub-featured-body .hf-meta{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:20px;}
+.hub-featured-body .hf-meta span{font-size:0.8rem;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:6px;}
+.hub-featured-body .explore-btn{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:white;padding:12px 24px;border-radius:50px;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.06em;text-decoration:none;transition:var(--transition);}
+.hub-featured-body .explore-btn:hover{background:var(--primary-dark);transform:translateY(-2px);}
+
+.hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.hub-card{position:relative;border-radius:var(--radius);overflow:hidden;height:300px;display:block;text-decoration:none;color:white;background:#111;}
+.hub-card:hover .hub-card-img{transform:scale(1.06);}
+.hub-card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.hub-card-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+.hub-card-bg i{font-size:5rem;opacity:0.15;color:white;}
+.hub-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.12) 55%,transparent 100%);transition:background .3s;}
+.hub-card:hover .hub-card-overlay{background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,rgba(0,0,0,0.35) 65%,rgba(0,0,0,0.06) 100%);}
+.hub-card-body{position:absolute;bottom:0;left:0;right:0;padding:22px 24px;}
+.hub-card-body .hc-tag{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:rgba(255,255,255,0.16);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.22);padding:3px 10px;border-radius:50px;margin-bottom:8px;}
+.hub-card-body h3{font-size:1.25rem;color:white;margin-bottom:4px;}
+.hub-card-body p{font-size:0.82rem;color:rgba(255,255,255,0.75);line-height:1.5;margin:0;display:none;}
+.hub-card:hover p{display:block;}
+.hub-card-body .hc-arrow{display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;color:white;margin-top:10px;opacity:0;transform:translateY(4px);transition:opacity .25s,transform .25s;}
+.hub-card:hover .hc-arrow{opacity:1;transform:translateY(0);}
+
+/* ── Responsive ── */
+@media(max-width:1100px){
+  .city-overview{grid-template-columns:1fr;}
+  .city-stats-inner{grid-template-columns:repeat(3,1fr);}
+  .cs-item:nth-child(3){border-right:none;}
+  .attractions-grid{grid-template-columns:1fr 1fr;}
+  .other-cities{grid-template-columns:repeat(3,1fr);}
+  .hub-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:700px){
+  .page-hero{height:58vh;}
+  .city-stats-inner{grid-template-columns:repeat(2,1fr);}
+  .cs-item:nth-child(2n){border-right:none;}
+  .attractions-grid{grid-template-columns:1fr;}
+  .gt-methods{grid-template-columns:1fr;}
+  .other-cities{grid-template-columns:repeat(2,1fr);}
+  .hub-grid{grid-template-columns:1fr;}
+  .hub-featured{height:340px;}
+  .hub-featured-body{padding:24px;}
+  .hub-featured-body h2{font-size:1.8rem;}
+  .dyk{flex-direction:column;padding:24px;}
+}
