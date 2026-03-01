@@ -3,20 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Towns and Cities of Qatar — Explore Qatar</title>
+  <title>Towns &amp; Cities in Qatar | Explore Qatar</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="cities.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    .small-towns{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+    .st-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;text-decoration:none;color:var(--dark);transition:transform var(--transition),box-shadow var(--transition);display:block;}
+    .st-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);}
+    .st-card-img{height:130px;display:flex;align-items:center;justify-content:center;}
+    .st-card-img i{font-size:2.8rem;opacity:0.35;}
+    .st-card-body{padding:16px 18px;}
+    .st-card-body h4{font-size:0.92rem;margin-bottom:5px;}
+    .st-card-body p{font-size:0.78rem;color:var(--grey);margin:0;line-height:1.5;}
+    .st-card-body .st-link{display:inline-flex;align-items:center;gap:5px;font-size:0.78rem;font-weight:700;color:var(--primary);margin-top:10px;}
+    .map-belt{background:var(--primary);padding:56px 0;}
+    .map-belt-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+    .map-ph{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);border-radius:var(--radius);height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+    .map-ph i{font-size:4.5rem;color:rgba(255,255,255,0.38);margin-bottom:14px;}
+    .map-ph p{color:rgba(255,255,255,0.5);font-size:0.82rem;}
+    .map-text h2{color:white;margin-bottom:14px;}
+    .map-text p{color:rgba(255,255,255,0.72);line-height:1.75;}
+    .city-jump{list-style:none;margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .city-jump li a{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.78);font-size:0.85rem;font-weight:600;text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.1);transition:color .2s;}
+    .city-jump li a:hover{color:white;}
+    .city-jump li a i{font-size:0.65rem;color:rgba(255,255,255,0.4);}
+    @media(max-width:900px){.map-belt-inner{grid-template-columns:1fr;}.small-towns{grid-template-columns:1fr 1fr;}.city-jump{grid-template-columns:1fr;}}
+  </style>
 </head>
 <body>
+<!-- NAVBAR -->
 <nav class="navbar">
   <div class="nav-container">
-    <a href="index.html" class="nav-logo">
-      <div class="logo-icon"><i class="fas fa-mosque"></i></div>
-      <div class="logo-text">Explore Qatar<span>Official Tourism Portal</span></div>
-    </a>
+    <a href="index.html" class="nav-logo"><div class="logo-icon"><i class="fas fa-mosque"></i></div><div class="logo-text">Explore Qatar<span>Official Tourism Portal</span></div></a>
     <ul class="nav-menu">
-      <li class="nav-item">
-        <a href="about-qatar.html" class="nav-link">About Qatar <i class="fas fa-chevron-down"></i></a>
+      <li class="nav-item"><a href="about-qatar.html" class="nav-link">About Qatar <i class="fas fa-chevron-down"></i></a>
         <div class="dropdown">
           <a href="about-qatar.html"><i class="fas fa-info-circle"></i> About Qatar</a>
           <a href="geography.html"><i class="fas fa-map"></i> Geography</a>
@@ -29,8 +50,7 @@
           <a href="wildlife.html"><i class="fas fa-paw"></i> Wildlife</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a href="visas.html" class="nav-link">Plan Your Trip <i class="fas fa-chevron-down"></i></a>
+      <li class="nav-item"><a href="visas.html" class="nav-link">Plan Your Trip <i class="fas fa-chevron-down"></i></a>
         <div class="dropdown">
           <a href="visas.html"><i class="fas fa-passport"></i> Visas</a>
           <a href="accommodation.html"><i class="fas fa-hotel"></i> Accommodation</a>
@@ -42,8 +62,7 @@
           <a href="concierge.html"><i class="fas fa-concierge-bell"></i> Concierge Service</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a href="adventure.html" class="nav-link">Things To Do <i class="fas fa-chevron-down"></i></a>
+      <li class="nav-item"><a href="adventure.html" class="nav-link">Things To Do <i class="fas fa-chevron-down"></i></a>
         <div class="dropdown">
           <a href="adventure.html"><i class="fas fa-mountain"></i> Adventure &amp; Sports</a>
           <a href="art-culture.html"><i class="fas fa-palette"></i> Art &amp; Culture</a>
@@ -56,213 +75,179 @@
         </div>
       </li>
     </ul>
-    <div class="nav-actions">
-      <a href="login.html" class="btn btn-outline-primary">Login</a>
-      <a href="signup.html" class="btn btn-primary">Sign Up</a>
-    </div>
+    <div class="nav-actions"><a href="login.html" class="btn btn-outline-primary">Login</a><a href="signup.html" class="btn btn-primary">Sign Up</a></div>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-nav-item">
-    <div class="mobile-nav-link">About Qatar <i class="fas fa-chevron-down"></i></div>
-    <div class="mobile-dropdown">
-      <a href="about-qatar.html">About Qatar</a><a href="geography.html">Geography</a><a href="history.html">History</a>
-      <a href="towns-cities.html">Towns and Cities</a><a href="doha.html">Doha</a><a href="traditions.html">Traditions</a>
-      <a href="sports.html">Sports</a><a href="cuisine.html">Local Cuisine</a><a href="wildlife.html">Wildlife</a>
-    </div>
+  <div class="mobile-nav-item"><div class="mobile-nav-link">About Qatar <i class="fas fa-chevron-down"></i></div>
+    <div class="mobile-dropdown"><a href="about-qatar.html">About Qatar</a><a href="geography.html">Geography</a><a href="history.html">History</a><a href="towns-cities.html">Towns and Cities</a><a href="doha.html">Doha</a><a href="traditions.html">Traditions</a><a href="sports.html">Sports</a><a href="cuisine.html">Local Cuisine</a><a href="wildlife.html">Wildlife</a></div>
   </div>
-  <div class="mobile-nav-item">
-    <div class="mobile-nav-link">Plan Your Trip <i class="fas fa-chevron-down"></i></div>
-    <div class="mobile-dropdown">
-      <a href="visas.html">Visas</a><a href="accommodation.html">Accommodation</a><a href="getting-to-qatar.html">Getting to Qatar</a>
-      <a href="airport.html">Hamad Airport</a><a href="getting-around.html">Getting Around</a>
-      <a href="safety.html">Safety</a><a href="travel-tips.html">Travel Tips</a><a href="concierge.html">Concierge Service</a>
-    </div>
+  <div class="mobile-nav-item"><div class="mobile-nav-link">Plan Your Trip <i class="fas fa-chevron-down"></i></div>
+    <div class="mobile-dropdown"><a href="visas.html">Visas</a><a href="accommodation.html">Accommodation</a><a href="getting-to-qatar.html">Getting to Qatar</a><a href="airport.html">Hamad Airport</a><a href="getting-around.html">Getting Around</a><a href="safety.html">Safety</a><a href="travel-tips.html">Travel Tips</a><a href="concierge.html">Concierge Service</a></div>
   </div>
-  <div class="mobile-nav-item">
-    <div class="mobile-nav-link">Things To Do <i class="fas fa-chevron-down"></i></div>
-    <div class="mobile-dropdown">
-      <a href="adventure.html">Adventure &amp; Sports</a><a href="art-culture.html">Art &amp; Culture</a>
-      <a href="romantic.html">Romantic Getaway</a><a href="beach.html">Beach Holiday</a>
-      <a href="family.html">Family Break</a><a href="dining.html">Dining</a>
-      <a href="spa.html">Spa &amp; Wellness</a><a href="shopping.html">Shopping</a>
-    </div>
+  <div class="mobile-nav-item"><div class="mobile-nav-link">Things To Do <i class="fas fa-chevron-down"></i></div>
+    <div class="mobile-dropdown"><a href="adventure.html">Adventure &amp; Sports</a><a href="art-culture.html">Art &amp; Culture</a><a href="romantic.html">Romantic Getaway</a><a href="beach.html">Beach Holiday</a><a href="family.html">Family Break</a><a href="dining.html">Dining</a><a href="spa.html">Spa &amp; Wellness</a><a href="shopping.html">Shopping</a></div>
   </div>
-  <div class="mobile-actions">
-    <a href="login.html" class="btn btn-outline-primary">Login</a>
-    <a href="signup.html" class="btn btn-primary">Sign Up</a>
-  </div>
+  <div class="mobile-actions"><a href="login.html" class="btn btn-outline-primary">Login</a><a href="signup.html" class="btn btn-primary">Sign Up</a></div>
 </div>
 
 <!-- HERO -->
-<section class="hero hero-inner">
-  <div class="hero-bg">
-    <img src="images/placeholder.jpg" alt="Towns and Cities of Qatar">
-    <div class="hero-overlay"></div>
+<section class="page-hero">
+  <img src="images/banner4.png" alt="The Pearl-Qatar and Lusail skyline">
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><i class="fas fa-chevron-right"></i><a href="about-qatar.html">About Qatar</a><i class="fas fa-chevron-right"></i><span>Towns &amp; Cities</span></div>
+    <h1>Towns &amp; Cities in Qatar</h1>
+    <p class="hero-subtitle">Qatar is more than Doha. Discover futuristic smart cities, ancient pearl-diving towns, UNESCO heritage sites, and peaceful coastal villages across this extraordinary peninsula.</p>
   </div>
+</section>
+
+<!-- INTRO -->
+<section class="content-section">
   <div class="container">
-    <div class="hero-content">
-      <div class="breadcrumb">
-        <a href="index.html">Home</a>
-        <i class="fas fa-chevron-right"></i>
-        <span>About Qatar</span>
+    <div class="section-header"><div class="section-eyebrow">Explore Beyond the Capital</div><h2 class="section-title">Every Corner of Qatar Has a Story</h2><div class="divider"></div><p class="section-desc">Qatar's compact size — roughly the size of Connecticut — means you can explore the entire country in a single road trip. From the glittering skyline of Lusail to the ancient watchtowers of Al Khor and the UNESCO ruins of Al Zubarah, the whole peninsula is yours to discover.</p></div>
+
+    <!-- FEATURED: DOHA -->
+    <a href="city-doha.html" class="hub-featured">
+      <img src="images/banner2.jpg" alt="Doha skyline with Museum of Islamic Art and traditional dhows">
+      <div class="hub-featured-overlay"></div>
+      <div class="hub-featured-body">
+        <span class="hf-tag"><i class="fas fa-star"></i> Capital City</span>
+        <h2>Doha</h2>
+        <p>Qatar's extraordinary capital — where a soaring futuristic skyline frames a historic waterfront corniche, world-class museums sit steps from ancient souqs, and the energy of a global city pulses through every neighbourhood.</p>
+        <div class="hf-meta">
+          <span><i class="fas fa-users"></i> 1.2M+ residents</span>
+          <span><i class="fas fa-map-marker-alt"></i> Central east coast</span>
+          <span><i class="fas fa-plane"></i> 10 min from airport</span>
+        </div>
+        <span class="explore-btn"><i class="fas fa-arrow-right"></i> Discover Doha</span>
       </div>
-      <div class="hero-eyebrow"><i class="fas fa-city"></i> Discover</div>
-      <h1 class="hero-title">Towns and Cities of Qatar</h1>
-      <div class="hero-desc"><p>Beyond the capital, Qatar's towns and communities offer authentic glimpses into Qatari life and culture.</p></div>
+    </a>
+
+    <!-- CITY CARDS GRID -->
+    <div class="hub-grid">
+      <a href="city-lusail.html" class="hub-card">
+        <div class="hub-card-bg" style="background:linear-gradient(135deg,#003d4d,#006080);"><i class="fas fa-city"></i></div>
+        <div class="hub-card-overlay"></div>
+        <div class="hub-card-body">
+          <span class="hc-tag">City of the Future</span>
+          <h3>Lusail</h3>
+          <p>Qatar's purpose-built second city — FIFA World Cup Final stadium, Formula 1 circuit, Lusail Marina, and a dazzling waterfront promenade.</p>
+          <span class="hc-arrow">Explore Lusail <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+      <a href="city-alkhor.html" class="hub-card">
+        <div class="hub-card-bg" style="background:linear-gradient(135deg,#1a4a1a,#2d7a2d);"><i class="fas fa-leaf"></i></div>
+        <div class="hub-card-overlay"></div>
+        <div class="hub-card-body">
+          <span class="hc-tag">Nature &amp; Heritage</span>
+          <h3>Al Khor</h3>
+          <p>Mangroves, flamingos, ancient watchtowers, Al Bayt Stadium, and the best kayaking in Qatar — all 45 minutes from Doha.</p>
+          <span class="hc-arrow">Explore Al Khor <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+      <a href="city-alwakrah.html" class="hub-card">
+        <div class="hub-card-bg" style="background:linear-gradient(135deg,#5c4a1a,#8b6914);"><i class="fas fa-anchor"></i></div>
+        <div class="hub-card-overlay"></div>
+        <div class="hub-card-body">
+          <span class="hc-tag">Heritage Town</span>
+          <h3>Al Wakrah</h3>
+          <p>Qatar's most authentic heritage town — with a restored souq, pearl-diving village, 17th-century mosque and Al Janoub Stadium.</p>
+          <span class="hc-arrow">Explore Al Wakrah <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+      <a href="city-alrayyan.html" class="hub-card">
+        <div class="hub-card-bg" style="background:linear-gradient(135deg,#3a004a,#6a007a);"><i class="fas fa-graduation-cap"></i></div>
+        <div class="hub-card-overlay"></div>
+        <div class="hub-card-body">
+          <span class="hc-tag">Education &amp; Sport</span>
+          <h3>Al Rayyan</h3>
+          <p>Home to Education City, Qatar Foundation, Aspire Zone, Ahmad Bin Ali Stadium, and Mall of Qatar — Qatar's second most populous municipality.</p>
+          <span class="hc-arrow">Explore Al Rayyan <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+      <a href="city-dukhan.html" class="hub-card">
+        <div class="hub-card-bg" style="background:linear-gradient(135deg,#4a2000,#7a3c00);"><i class="fas fa-fire"></i></div>
+        <div class="hub-card-overlay"></div>
+        <div class="hub-card-body">
+          <span class="hc-tag">Oil &amp; Beaches</span>
+          <h3>Dukhan</h3>
+          <p>Where oil was first struck in 1939 — today a gateway to Qatar's wild west coast, dramatic cliffs, pristine beaches and fossil-rich desert.</p>
+          <span class="hc-arrow">Explore Dukhan <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+      <a href="city-alzubarah.html" class="hub-card">
+        <div class="hub-card-bg" style="background:linear-gradient(135deg,#2a1a0a,#5a3a1a);"><i class="fas fa-landmark"></i></div>
+        <div class="hub-card-overlay"></div>
+        <div class="hub-card-body">
+          <span class="hc-tag">UNESCO World Heritage</span>
+          <h3>Al Zubarah</h3>
+          <p>A UNESCO World Heritage Site — preserved ruins of an 18th-century pearling town and a spectacular desert fort in Qatar's remote northwest.</p>
+          <span class="hc-arrow">Explore Al Zubarah <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+
+    <!-- SMALLER TOWNS -->
+    <div class="section-header" style="margin-top:72px;"><div class="section-eyebrow">Off the Beaten Track</div><h2 class="section-title">Quiet Towns Worth Exploring</h2><div class="divider"></div></div>
+    <div class="small-towns">
+      <a href="city-alkhor.html" class="st-card">
+        <div class="st-card-img" style="background:linear-gradient(135deg,#e0f4f8,#b2dde8);"><i class="fas fa-umbrella-beach" style="color:var(--primary);"></i></div>
+        <div class="st-card-body"><h4>Madinat Al Shamal</h4><p>Qatar's northernmost settlement, surrounded by pristine, uncrowded beaches and abandoned fishing villages frozen in time.</p><span class="st-link">Discover <i class="fas fa-arrow-right"></i></span></div>
+      </a>
+      <a href="city-alkhor.html" class="st-card">
+        <div class="st-card-img" style="background:linear-gradient(135deg,#fde8ee,#f5b8c8);"><i class="fas fa-mosque" style="color:var(--secondary);"></i></div>
+        <div class="st-card-body"><h4>Al Ruwais</h4><p>A quiet coastal town with Qatar's oldest mosque (17th century) and access to the remarkable Al Jassasiya petroglyphs.</p><span class="st-link">Discover <i class="fas fa-arrow-right"></i></span></div>
+      </a>
+      <a href="city-alwakrah.html" class="st-card">
+        <div class="st-card-img" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);"><i class="fas fa-mountain" style="color:#f59e0b;"></i></div>
+        <div class="st-card-body"><h4>Mesaieed</h4><p>Small industrial town between Doha and Al Wakrah, famed for dune bashing, the Inland Sea gateway, and Sealine Beach.</p><span class="st-link">Discover <i class="fas fa-arrow-right"></i></span></div>
+      </a>
+      <a href="city-alrayyan.html" class="st-card">
+        <div class="st-card-img" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);"><i class="fas fa-horse" style="color:#2d7a2d;"></i></div>
+        <div class="st-card-body"><h4>Al Shahaniya</h4><p>Qatar's camel racing heartland — where ancient racing traditions continue every winter at the Al Shahaniya Camel Racing Track.</p><span class="st-link">Discover <i class="fas fa-arrow-right"></i></span></div>
+      </a>
     </div>
   </div>
 </section>
 
-
-<section class="content-section ">
+<!-- MAP BELT -->
+<div class="map-belt">
   <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow">Explore</div>
-      <h2 class="section-title">Qatar's Cities and Towns</h2>
-      <div class="divider"></div>
-      <p class="section-desc">Each settlement in Qatar carries its own story, character, and attractions worth exploring.</p>
-    </div>
-    <div class="cards-grid cards-grid-3">
-      
-      <div class="card">
-        <div class="card-img-placeholder"><i class="fas fa-building"></i></div>
-        <div class="card-body">
-          <span class="card-tag">Capital</span>
-          <h3 class="card-title">Doha</h3>
-          <p class="card-text">The beating heart of Qatar, Doha is a dynamic metropolis combining cutting-edge architecture with traditional souqs and world-class cultural institutions.</p>
-          <a href="doha.html" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-img-placeholder"><i class="fas fa-mosque"></i></div>
-        <div class="card-body">
-          <span class="card-tag">Heritage</span>
-          <h3 class="card-title">Al Wakrah</h3>
-          <p class="card-text">One of Qatar's oldest fishing villages, Al Wakrah retains much of its traditional charm with a beautifully restored souq and a picturesque waterfront.</p>
-          
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-img-placeholder"><i class="fas fa-seedling"></i></div>
-        <div class="card-body">
-          <span class="card-tag">Nature</span>
-          <h3 class="card-title">Al Khor</h3>
-          <p class="card-text">A tranquil coastal town north of Doha, Al Khor is beloved for its mangrove forests, flamingo sightings, and peaceful dhow harbour.</p>
-          
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-img-placeholder"><i class="fas fa-fort-awesome"></i></div>
-        <div class="card-body">
-          <span class="card-tag">Historical</span>
-          <h3 class="card-title">Al Zubarah</h3>
-          <p class="card-text">A UNESCO World Heritage Site, Al Zubarah's ancient fort and archaeological site recall Qatar's mercantile past in the 18th and 19th centuries.</p>
-          
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-img-placeholder"><i class="fas fa-school"></i></div>
-        <div class="card-body">
-          <span class="card-tag">Education</span>
-          <h3 class="card-title">Al Rayyan</h3>
-          <p class="card-text">Home to Education City and the magnificent Aspire Zone, Al Rayyan is Qatar's city of learning, sports, and innovation.</p>
-          
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-img-placeholder"><i class="fas fa-water"></i></div>
-        <div class="card-body">
-          <span class="card-tag">Coastal</span>
-          <h3 class="card-title">Dukhan</h3>
-          <p class="card-text">Perched on Qatar's western coast, Dukhan offers breathtaking Gulf sunsets, blue holes for diving, and proximity to the stunning inland desert.</p>
-          
-        </div>
+    <div class="map-belt-inner">
+      <div class="map-ph"><i class="fas fa-map-marked-alt"></i><p>Qatar Peninsula — City Locations</p></div>
+      <div class="map-text">
+        <h2>Qatar's Cities at a Glance</h2>
+        <p>Qatar is compact enough to explore its entire peninsula in a single road trip. Every city is within 1–2 hours of Doha by car, and the expanding Doha Metro and bus network makes many destinations accessible without a vehicle.</p>
+        <ul class="city-jump">
+          <li><a href="city-doha.html"><i class="fas fa-chevron-right"></i> Doha — Capital</a></li>
+          <li><a href="city-lusail.html"><i class="fas fa-chevron-right"></i> Lusail — 23 km N</a></li>
+          <li><a href="city-alkhor.html"><i class="fas fa-chevron-right"></i> Al Khor — 60 km N</a></li>
+          <li><a href="city-alwakrah.html"><i class="fas fa-chevron-right"></i> Al Wakrah — 25 km S</a></li>
+          <li><a href="city-alrayyan.html"><i class="fas fa-chevron-right"></i> Al Rayyan — 10 km W</a></li>
+          <li><a href="city-dukhan.html"><i class="fas fa-chevron-right"></i> Dukhan — 80 km W</a></li>
+          <li><a href="city-alzubarah.html"><i class="fas fa-chevron-right"></i> Al Zubarah — 105 km NW</a></li>
+          <li><a href="city-alkhor.html"><i class="fas fa-chevron-right"></i> Al Shamal — 130 km N</a></li>
+        </ul>
       </div>
     </div>
   </div>
-</section>
-<section class="cta-banner">
-  <div class="container">
-    <h2>Plan Your Tour of Qatar</h2>
-    <p>Discover the unique character of every city and town on your Qatari adventure.</p>
-    <div class="hero-actions" style="justify-content:center;">
-      <a href="visas.html" class="btn btn-outline"><i class="fas fa-arrow-right"></i> Plan Your Trip</a>
-      <a href="#" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Us</a>
-    </div>
-  </div>
-</section>
+</div>
 
+<!-- CTA -->
+<section class="cta-banner"><div class="container"><h2>Ready to Explore Qatar's Cities?</h2><p>From the gleaming towers of Doha to the ancient ruins of Al Zubarah — the whole country awaits.</p><div class="hero-actions" style="justify-content:center;"><a href="getting-around.html" class="btn btn-outline"><i class="fas fa-car"></i> Getting Around Qatar</a><a href="visas.html" class="btn btn-outline"><i class="fas fa-passport"></i> Plan Your Visit</a></div></div></section>
+
+<!-- FOOTER -->
 <footer>
-  <div class="footer-top">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <div class="logo-icon"><i class="fas fa-mosque"></i></div>
-            <span>Explore Qatar</span>
-          </div>
-          <p>Discover the wonders of Qatar — a land where ancient tradition meets modern vision. Plan your journey to the Pearl of the Gulf today.</p>
-          <div class="social-links">
-            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-          </div>
-        </div>
-        <div class="footer-col">
-          <h4>Explore Qatar</h4>
-          <ul>
-            <li><a href="about-qatar.html">About Qatar</a></li>
-            <li><a href="doha.html">Doha</a></li>
-            <li><a href="history.html">History</a></li>
-            <li><a href="traditions.html">Traditions</a></li>
-            <li><a href="cuisine.html">Local Cuisine</a></li>
-            <li><a href="wildlife.html">Wildlife</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Plan Your Trip</h4>
-          <ul>
-            <li><a href="visas.html">Visas</a></li>
-            <li><a href="accommodation.html">Accommodation</a></li>
-            <li><a href="getting-to-qatar.html">Getting to Qatar</a></li>
-            <li><a href="airport.html">Hamad Airport</a></li>
-            <li><a href="safety.html">Safety</a></li>
-            <li><a href="travel-tips.html">Travel Tips</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact Us</h4>
-          <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Qatar Tourism, West Bay, Doha, Qatar</span></div>
-          <div class="footer-contact-item"><i class="fas fa-phone"></i><span>+974 4409 5555</span></div>
-          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dcb5b2bab39caab5afb5a8adbda8bdaef2adbd">[email&#160;protected]</a></span></div>
-          <div class="footer-contact-item"><i class="fas fa-clock"></i><span>Sun–Thu, 8:00 AM – 5:00 PM</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer-newsletter">
-    <div class="container">
-      <div class="newsletter-inner">
-        <div class="newsletter-text">
-          <h4>Stay Inspired</h4>
-          <p>Subscribe to receive travel inspiration, news, and exclusive offers from Qatar.</p>
-        </div>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email address" required>
-          <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Subscribe</button>
-        </form>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;flex-wrap:wrap;gap:12px;">
-      <span>&copy; 2025 Qatar Tourism. All rights reserved.</span>
-      <div class="footer-bottom-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
-        <a href="#">Cookie Settings</a>
-        <
+  <div class="footer-top"><div class="container"><div class="footer-grid">
+    <div class="footer-brand"><div class="footer-logo"><div class="logo-icon"><i class="fas fa-mosque"></i></div><span>Explore Qatar</span></div><p>Discover the wonders of Qatar — a land where ancient tradition meets modern vision.</p><div class="social-links"><a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a><a href="#" class="social-link"><i class="fab fa-instagram"></i></a><a href="#" class="social-link"><i class="fab fa-twitter"></i></a><a href="#" class="social-link"><i class="fab fa-youtube"></i></a></div></div>
+    <div class="footer-col"><h4>Towns &amp; Cities</h4><ul><li><a href="city-doha.html">Doha</a></li><li><a href="city-lusail.html">Lusail</a></li><li><a href="city-alkhor.html">Al Khor</a></li><li><a href="city-alwakrah.html">Al Wakrah</a></li><li><a href="city-alrayyan.html">Al Rayyan</a></li><li><a href="city-alzubarah.html">Al Zubarah</a></li></ul></div>
+    <div class="footer-col"><h4>Plan Your Trip</h4><ul><li><a href="visas.html">Visas</a></li><li><a href="accommodation.html">Accommodation</a></li><li><a href="getting-to-qatar.html">Getting to Qatar</a></li><li><a href="getting-around.html">Getting Around</a></li><li><a href="safety.html">Safety</a></li><li><a href="travel-tips.html">Travel Tips</a></li></ul></div>
+    <div class="footer-col"><h4>Contact Us</h4><div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Qatar Tourism, West Bay, Doha</span></div><div class="footer-contact-item"><i class="fas fa-phone"></i><span>+974 4409 5555</span></div><div class="footer-contact-item"><i class="fas fa-envelope"></i><span>info@exploreqatar.qa</span></div></div>
+  </div></div></div>
+  <div class="footer-bottom"><div class="container"><div class="footer-bottom-inner"><span>&copy; 2025 Explore Qatar. All rights reserved.</span><div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Accessibility</a></div></div></div></div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
